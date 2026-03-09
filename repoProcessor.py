@@ -3,9 +3,14 @@ import tqdm
 import json
 import hashlib
 
+SAVE_STATE_INTERVAL = 10  # Persist state to disk every N successfully processed files
+
+
 class RepoProcessor:
-    def __init__(self, rag_instance):
+    def __init__(self, rag_instance, state_file="processed_state.json"):
         self.rag = rag_instance
+        self.state_file = state_file
+        self.processed_files = self._load_state()
 
     def _load_state(self):
         if os.path.exists(self.state_file):
@@ -18,60 +23,81 @@ class RepoProcessor:
             json.dump(self.processed_files, f)
 
     def _get_file_hash(self, file_path):
-        """计算文件哈希，用于检测内容是否变更"""
-        # compute file hash for change detection
+        """Compute MD5 hash of a file for change detection."""
         hasher = hashlib.md5()
         with open(file_path, 'rb') as f:
-            buf = f.read()
-            hasher.update(buf)
+            hasher.update(f.read())
         return hasher.hexdigest()
 
     def process_repository(self, repo_path, repo_name):
-        print(f"🚀 正在攻占仓库: {repo_name}...")
-        
+        """Scan a repository, ingest new or modified Python files, and rebuild the BM25 index."""
+        if not os.path.isdir(repo_path):
+            raise FileNotFoundError(f"Repository path not found: {repo_path}")
+
+        if self.processed_files and not self.rag.local_corpus:
+            print("Warning: prior state detected but local corpus not loaded. Call rag.load_local_corpus() before processing.")
+
+        print(f"Processing repository: {repo_name}...")
+
         py_files = []
-        # 排除掉不相关的文件夹，只盯着核心源码
-        # exclude unrelated folders, focus on core source code only
         excluded_dirs = {'.git', '__pycache__', 'tests', 'docs', 'benchmarks', 'site'}
-        
+
         for root, dirs, files in os.walk(repo_path):
-            # 跳过被排除的目录
-            # skip excluded directories
             dirs[:] = [d for d in dirs if d not in excluded_dirs]
-            
             for file in files:
-                if file.endswith('.py') and not file.startswith('test_'):
+                if file.endswith('.py') and not file.startswith('test_') and not file.endswith('_test.py'):
                     py_files.append(os.path.join(root, file))
 
-        print(f"统计：发现 {len(py_files)} 个有效 Python 文件。准备让 Qwen 开始加班...")
+        print(f"Found {len(py_files)} valid Python files.")
 
-        for file_path in tqdm.tqdm(py_files, desc="Feeding code to Qwen"):
+        skipped = 0
+        processed = 0
+
+        for file_path in tqdm.tqdm(py_files, desc="Ingesting"):
+            rel_path = os.path.relpath(file_path, repo_path)
+            file_hash = self._get_file_hash(file_path)
+
+            if self.processed_files.get(rel_path) == file_hash:
+                skipped += 1
+                continue
+
             try:
-                # 1. 提取函数
-                # 1. Extract functions
                 functions = self.rag.extract_functions(file_path)
-                rel_path = os.path.relpath(file_path, repo_path)
-                
+
+                # Normalise path separators so doc_ids are consistent across OS
+                safe_path = rel_path.replace('\\', '/').replace('/', '_')
+
                 for i, func_code in enumerate(functions):
-                    # 2. 调用 python 3.12+ QLoRA 
-                    # 2.use python 3.12+ QLoRA to enhance metadata
                     meta = self.rag.get_qwen_metadata(func_code)
-                    
-                    # 3. 增强元数据：存入路径，方便以后找回
-                    # 3. Enhance metadata: store path for easy retrieval later
-                    doc_id = f"{repo_name}_{rel_path.replace(os.sep, '_')}_f{i}"
-                    summary = f"[{rel_path}] {meta.get('summary_zh', '')}"
-                    
+                    doc_id = f"{repo_name}_{safe_path}_f{i}"
+                    # Fall back to summary_zh for compatibility with the QLoRA-trained model output
+                    summary_text = meta.get('summary') or meta.get('summary_zh', '')
+                    summary = f"[{rel_path}] {summary_text}"
+
                     self.rag.ingest_data(
                         doc_id=doc_id,
                         code_content=func_code,
                         min_version=meta.get("min_version", "3.8"),
                         summary=summary
                     )
+
+                self.processed_files[rel_path] = file_hash
+                processed += 1
+
+                if processed % SAVE_STATE_INTERVAL == 0:
+                    self._save_state()
+
             except Exception as e:
-                # 实战中总会有文件编码或其他奇怪问题，跳过它，不能让程序停下来
-                # In practice, there will always be encoding issues or other weird problems with some files. Skip them, don't let the program stop.
-                print(f"⚠️ 跳过文件 {file_path}: {e}") #skipping file due to error
+                print(f"Warning: skipping {file_path}: {e}")
                 continue
 
-        print(f"🏁 仓库 {repo_name} 摄取完成！") # print if successfully get from the git
+        # Flush any remaining buffered vectors and persist final state
+        self.rag.flush_upsert_buffer()
+        self._save_state()
+
+        print(f"Ingestion complete. Processed {processed} files, skipped {skipped} unchanged.")
+
+        if processed > 0:
+            self.rag.rebuild_bm25()
+        else:
+            print("No new files processed, BM25 index unchanged.")

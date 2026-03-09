@@ -1,0 +1,9 @@
+torch>=2.0.0
+transformers>=4.38.0
+peft>=0.9.0
+sentence-transformers>=2.7.0
+rank-bm25>=0.2.2
+pinecone>=3.0.0
+tree-sitter>=0.23.0
+tree-sitter-python>=0.23.0
+tqdm>=4.66.0
