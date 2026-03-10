@@ -92,7 +92,7 @@ from rag_pipeline import VersionControlRAG
 
 class MyCustomRAG(VersionControlRAG):
     def retrieve_complex(self, query, target_version, top_k=3, mode="custom"):
-        print("🚀 正在运行我开发的牛逼算法...")
+        print("🚀 正在运行我开发的算法...")
         # 在这里写你自己的 TF-IDF / 各种神仙匹配逻辑！
         # 你可以直接调用 self.local_corpus 和 self.index 获取数据
         return ["这是我的算法找出来的结果"]
