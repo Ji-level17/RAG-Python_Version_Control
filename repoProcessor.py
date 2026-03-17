@@ -62,23 +62,38 @@ class RepoProcessor:
                 continue
 
             try:
+                # Determine tier from relative path for stratified retrieval
+                norm_path = rel_path.replace("\\", "/")
+                if norm_path.startswith("docs_src/"):
+                    tier = "docs_src"
+                elif norm_path.startswith("fastapi/"):
+                    tier = "fastapi"
+                else:
+                    tier = "scripts"
+
+                # Skip scripts/ entirely — build tooling has no retrieval value
+                # and acts as noise that crowds out tutorial results
+                if tier == "scripts":
+                    skipped += 1
+                    continue
+
                 functions = self.rag.extract_functions(file_path)
 
                 # Normalise path separators so doc_ids are consistent across OS
-                safe_path = rel_path.replace('\\', '/').replace('/', '_')
+                safe_path = rel_path.replace("\\", "/").replace("/", "_")
 
                 for i, func_code in enumerate(functions):
                     meta = self.rag.get_qwen_metadata(func_code)
                     doc_id = f"{repo_name}_{safe_path}_f{i}"
-                    # Fall back to summary_zh for compatibility with the QLoRA-trained model output
-                    summary_text = meta.get('summary') or meta.get('summary_zh', '')
+                    summary_text = meta.get("summary") or meta.get("summary_zh", "")
                     summary = f"[{rel_path}] {summary_text}"
 
                     self.rag.ingest_data(
                         doc_id=doc_id,
                         code_content=func_code,
                         min_version=meta.get("min_version", "3.8"),
-                        summary=summary
+                        summary=summary,
+                        tier=tier,
                     )
 
                 self.processed_files[rel_path] = file_hash

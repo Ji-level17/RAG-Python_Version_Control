@@ -1,0 +1,562 @@
+index,type,topic,python,style,fastapi_min_version,source_file,instruction
+0,tutorial,dependencies,py310+,annotated,312,docs_src/dependencies/tutorial006_an_py310.py.py,Implement a FastAPI endpoint using `Depends()` with the `Annotated` type hint style and Python 3.10+ syntax. [ex006 · annotated · py310]
+1,tutorial,query,py310+,basic,312,docs_src/query/params_str_validations_tutorial011_py310.py.py,Write a FastAPI route that accepts query parameters using standard parameter defaults and Python 3.10+ syntax. [ex011 · py310]
+2,tutorial,python,py310+,basic,312,docs_src/python/types_tutorial008_py310.py.py,Write a FastAPI route using Python py310+ type hint features with standard parameter defaults and Python 3.10+ syntax. [ex008 · py310]
+3,tutorial,app,py310+,basic,307,docs_src/app/testing_tutorial002_py310.py.py,Create a larger FastAPI application structure with multiple routers using standard parameter defaults and Python 3.10+ syntax. [ex002 · py310]
+4,core_function,dependencies_utils,py39+,source,312,fastapi/dependencies_utils.py.py,Implement the FastAPI dependency injection utility `ensure_multipart_is_installed`.
+5,tutorial,settings,py310+,basic,312,docs_src/settings/app01_py310_main.py.py,Write a FastAPI app that loads config from environment variables using standard parameter defaults and Python 3.10+ syntax.
+6,tutorial,body,py310+,annotated,312,docs_src/body/multiple_params_tutorial003_an_py310.py.py,Implement a Pydantic request body model and FastAPI POST route with the `Annotated` type hint style and Python 3.10+ syntax. [ex003 · annotated · py310]
+7,tutorial,extra,py310+,basic,312,docs_src/extra/models_tutorial005_py310.py.py,Add extra OpenAPI data models or schema customisation to FastAPI using standard parameter defaults and Python 3.10+ syntax. [ex005 · py310]
+8,tutorial,custom,py310+,annotated,312,docs_src/custom/request_and_route_tutorial002_an_py310.py.py,Create a FastAPI application with custom response classes or serialisation using the `Annotated` type hint style and Python 3.10+ syntax. [ex002 · annotated · py310]
+9,core_function,routing,py39+,source,312,fastapi/routing.py.py,Implement the FastAPI routing utility `_extract_endpoint_context`.
+10,core_function,security_api_key,py39+,source,312,fastapi/security_api_key.py.py,Implement the FastAPI security utility `__call__`. [api_key] (variant 2)
+11,tutorial,query,py310+,annotated,312,docs_src/query/params_str_validations_tutorial006c_an_py310.py.py,Create a FastAPI endpoint with optional and required query params using the `Annotated` type hint style and Python 3.10+ syntax. [ex006 · annotated · py310]
+12,core_function,utils,py39+,source,312,fastapi/utils.py.py,Implement the FastAPI internal function `is_body_allowed_for_status_code` from `fastapi/utils.py.py`.
+13,core_function,openapi_models,py39+,source,312,fastapi/openapi_models.py.py,Implement the FastAPI internal function `__get_pydantic_core_schema__` from `fastapi/openapi_models.py.py`.
+14,tutorial,python,py310+,basic,312,docs_src/python/types_tutorial010_py310.py.py,Write a FastAPI route using Python py310+ type hint features with standard parameter defaults and Python 3.10+ syntax. [ex010 · py310]
+15,core_function,_compat_v2,py39+,source,312,fastapi/_compat_v2.py.py,Implement the FastAPI internal function `get_flat_models_from_annotation` from `fastapi/_compat_v2.py.py`.
+16,tutorial,query,py310+,annotated,312,docs_src/query/params_str_validations_tutorial010_an_py310.py.py,Create a FastAPI endpoint with optional and required query params using the `Annotated` type hint style and Python 3.10+ syntax. [ex010 · annotated · py310]
+17,tutorial,dependencies,py310+,basic,312,docs_src/dependencies/tutorial004_py310.py.py,Implement a FastAPI endpoint using `Depends()` with standard parameter defaults and Python 3.10+ syntax. [ex004 · py310]
+18,tutorial,path,py310+,basic,312,docs_src/path/operation_configuration_tutorial006_py310.py.py,Write a FastAPI route that uses path parameters with standard parameter defaults and Python 3.10+ syntax. [ex006 · py310]
+19,tutorial,websockets,py310+,basic,312,docs_src/websockets/_tutorial002_py310.py.py,Implement real-time communication via WebSockets in FastAPI with standard parameter defaults and Python 3.10+ syntax.
+20,tutorial,custom,py310+,basic,312,docs_src/custom/response_tutorial009_py310.py.py,Create a FastAPI application with custom response classes or serialisation using standard parameter defaults and Python 3.10+ syntax. [ex009 · py310] (variant 2)
+21,core_function,exceptions,py39+,source,312,fastapi/exceptions.py.py,Implement the FastAPI internal function `__init__` from `fastapi/exceptions.py.py`. [status_code]
+22,tutorial,response,py310+,basic,312,docs_src/response/directly_tutorial002_py310.py.py,Implement response model validation and serialisation in FastAPI with standard parameter defaults and Python 3.10+ syntax. [ex002 · py310]
+23,core_function,dependencies_utils,py39+,source,312,fastapi/dependencies_utils.py.py,Implement the FastAPI dependency injection utility `solve_dependencies`.
+24,core_function,exception_handlers,py39+,source,312,fastapi/exception_handlers.py.py,Implement the FastAPI exception handler `http_exception_handler`.
+25,core_function,routing,py39+,source,312,fastapi/routing.py.py,Implement the FastAPI routing utility `get`.
+26,tutorial,query,py310+,annotated,312,docs_src/query/params_str_validations_tutorial015_an_py310.py.py,Create a FastAPI endpoint with optional and required query params using the `Annotated` type hint style and Python 3.10+ syntax. [ex015 · annotated · py310]
+27,core_function,security_http,py39+,source,312,fastapi/security_http.py.py,Implement the FastAPI security utility `make_authenticate_headers`.
+28,core_function,datastructures,py39+,source,312,fastapi/datastructures.py.py,Define the FastAPI internal data structure `write`.
+29,tutorial,custom,py310+,annotated,312,docs_src/custom/request_and_route_tutorial001_an_py310.py.py,Create a FastAPI application with custom response classes or serialisation using the `Annotated` type hint style and Python 3.10+ syntax. [ex001 · annotated · py310]
+30,core_function,_compat_shared,py39+,source,312,fastapi/_compat_shared.py.py,Implement the FastAPI internal function `field_annotation_is_sequence` from `fastapi/_compat_shared.py.py`.
+31,core_function,param_functions,py39+,source,312,fastapi/param_functions.py.py,Implement the FastAPI `Path` parameter declaration function.
+32,tutorial,background,py310+,annotated,312,docs_src/background/tasks_tutorial002_an_py310.py.py,Implement fire-and-forget background processing in FastAPI with the `Annotated` type hint style and Python 3.10+ syntax.
+33,tutorial,pydantic,py310+,annotated,312,docs_src/pydantic/v1_in_v2_tutorial003_an_py310.py.py,Use Pydantic v2 models with a FastAPI endpoint using the `Annotated` type hint style and Python 3.10+ syntax. [ex003 · annotated · py310]
+34,core_function,_compat_shared,py39+,source,312,fastapi/_compat_shared.py.py,Implement the FastAPI internal function `is_bytes_or_nonable_bytes_annotation` from `fastapi/_compat_shared.py.py`.
+35,core_function,utils,py39+,source,312,fastapi/utils.py.py,Implement the FastAPI internal function `generate_unique_id` from `fastapi/utils.py.py`.
+36,core_function,applications,py39+,source,312,fastapi/applications.py.py,Implement the FastAPI application method `trace`.
+37,tutorial,dependencies,py310+,annotated,312,docs_src/dependencies/tutorial005_an_py310.py.py,Implement a FastAPI endpoint using `Depends()` with the `Annotated` type hint style and Python 3.10+ syntax. [ex005 · annotated · py310]
+38,tutorial,path,py310+,basic,312,docs_src/path/operation_configuration_tutorial002b_py310.py.py,Implement path parameter type validation in a FastAPI endpoint using standard parameter defaults and Python 3.10+ syntax. [ex002 · py310] (variant 1)
+39,tutorial,request,py310+,annotated,312,docs_src/request/files_tutorial001_03_an_py310.py.py,Write a FastAPI route that reads the raw HTTP request using the `Annotated` type hint style and Python 3.10+ syntax. [ex001 · annotated · py310]
+40,core_function,routing,py39+,source,312,fastapi/routing.py.py,Implement the FastAPI routing utility `_merge_lifespan_context`.
+41,tutorial,query,py310+,basic,312,docs_src/query/params_str_validations_tutorial003_py310.py.py,Implement query parameter validation in a FastAPI endpoint with standard parameter defaults and Python 3.10+ syntax. [ex003 · py310]
+42,core_function,openapi_models,py39+,source,312,fastapi/openapi_models.py.py,Implement the FastAPI internal function `_validate` from `fastapi/openapi_models.py.py`.
+43,tutorial,body,py310+,basic,312,docs_src/body/nested_models_tutorial002_py310.py.py,Write a FastAPI endpoint that accepts a JSON request body using standard parameter defaults and Python 3.10+ syntax. [ex002 · py310]
+44,tutorial,handling,py310+,basic,312,docs_src/handling/errors_tutorial003_py310.py.py,Write a FastAPI application with custom HTTP exception handlers using standard parameter defaults and Python 3.10+ syntax. [ex003 · py310]
+45,core_function,openapi_utils,py39+,source,312,fastapi/openapi_utils.py.py,Implement the FastAPI internal function `get_openapi_security_definitions` from `fastapi/openapi_utils.py.py`.
+46,core_function,_compat_shared,py39+,source,312,fastapi/_compat_shared.py.py,Implement the FastAPI internal function `is_pydantic_v1_model_instance` from `fastapi/_compat_shared.py.py`.
+47,tutorial,response,py310+,basic,312,docs_src/response/model_tutorial003_py310.py.py,Write a FastAPI endpoint that returns a typed response model using standard parameter defaults and Python 3.10+ syntax. [ex003 · py310]
+48,tutorial,behind,py310+,basic,312,docs_src/behind/a_proxy_tutorial001_01_py310.py.py,Write a FastAPI implementation that demonstrates behind using standard parameter defaults and Python 3.10+ syntax. [ex001 · py310]
+49,core_function,_compat_v2,py39+,source,312,fastapi/_compat_v2.py.py,Implement the FastAPI internal function `get_flat_models_from_field` from `fastapi/_compat_v2.py.py`.
+50,core_function,openapi_utils,py39+,source,312,fastapi/openapi_utils.py.py,Implement the FastAPI internal function `get_openapi_path` from `fastapi/openapi_utils.py.py`.
+51,tutorial,query,py310+,basic,312,docs_src/query/params_str_validations_tutorial006_py310.py.py,Create a FastAPI endpoint with optional and required query params using standard parameter defaults and Python 3.10+ syntax. [ex006 · py310] (variant 1)
+52,core_function,openapi_utils,py39+,source,312,fastapi/openapi_utils.py.py,Implement the FastAPI internal function `get_openapi_operation_request_body` from `fastapi/openapi_utils.py.py`.
+53,tutorial,cookie,py310+,annotated,312,docs_src/cookie/param_models_tutorial001_an_py310.py.py,Write a FastAPI endpoint that reads and sets cookies using the `Annotated` type hint style and Python 3.10+ syntax.
+54,core_function,_compat_shared,py39+,source,312,fastapi/_compat_shared.py.py,Implement the FastAPI internal function `is_bytes_sequence_annotation` from `fastapi/_compat_shared.py.py`.
+55,tutorial,handling,py310+,basic,312,docs_src/handling/errors_tutorial002_py310.py.py,Write a FastAPI application with custom HTTP exception handlers using standard parameter defaults and Python 3.10+ syntax. [ex002 · py310]
+56,tutorial,custom,py310+,basic,312,docs_src/custom/request_and_route_tutorial001_py310.py.py,Create a FastAPI application with custom response classes or serialisation using standard parameter defaults and Python 3.10+ syntax. [ex001 · py310] (variant 2)
+57,core_function,datastructures,py39+,source,312,fastapi/datastructures.py.py,Define the FastAPI internal data structure `_validate`.
+58,tutorial,response,py310+,basic,312,docs_src/response/model_tutorial001_py310.py.py,Implement response model validation and serialisation in FastAPI with standard parameter defaults and Python 3.10+ syntax. [ex001 · py310] (variant 3)
+59,tutorial,extra,py310+,basic,312,docs_src/extra/models_tutorial004_py310.py.py,Add extra OpenAPI data models or schema customisation to FastAPI using standard parameter defaults and Python 3.10+ syntax. [ex004 · py310]
+60,tutorial,generate,py310+,basic,312,docs_src/generate/clients_tutorial002_py310.py.py,Write a FastAPI app designed for client SDK generation using standard parameter defaults and Python 3.10+ syntax. [ex002 · py310]
+61,core_function,middleware_asyncexitstack,py39+,source,312,fastapi/middleware_asyncexitstack.py.py,Implement the FastAPI middleware component `__init__`.
+62,tutorial,dependencies,py310+,basic,312,docs_src/dependencies/tutorial008c_py310.py.py,Show how to share dependencies across FastAPI routes using standard parameter defaults and Python 3.10+ syntax. [ex008 · py310]
+63,core_function,routing,py39+,source,312,fastapi/routing.py.py,Implement the FastAPI routing utility `websocket`.
+64,tutorial,schema,py310+,annotated,312,docs_src/schema/extra_example_tutorial003_an_py310.py.py,Customise the OpenAPI schema or JSON Schema in FastAPI using the `Annotated` type hint style and Python 3.10+ syntax. [ex003 · annotated · py310]
+65,tutorial,bigger,py310+,annotated,312,docs_src/bigger/applications_app_an_py310_main.py.py,Organise a FastAPI project into multiple files and routers using the `Annotated` type hint style and Python 3.10+ syntax. [annotated · py310] (variant 4)
+66,core_function,dependencies_models,py39+,source,312,fastapi/dependencies_models.py.py,Implement the FastAPI dependency injection utility `oauth_scopes`.
+67,tutorial,graphql,py310+,basic,312,docs_src/graphql/_tutorial001_py310.py.py,Write a FastAPI implementation that demonstrates graphql using standard parameter defaults and Python 3.10+ syntax.
+68,core_function,exceptions,py39+,source,312,fastapi/exceptions.py.py,Implement the FastAPI internal function `__init__` from `fastapi/exceptions.py.py`. [errors]
+69,tutorial,body,py310+,basic,312,docs_src/body/updates_tutorial002_py310.py.py,Implement a Pydantic request body model and FastAPI POST route with standard parameter defaults and Python 3.10+ syntax. [ex002 · py310]
+70,tutorial,security,py310+,basic,312,docs_src/security/tutorial003_py310.py.py,Implement standard parameter defaults and Python 3.10+ syntax security in a FastAPI application. [ex003 · py310]
+71,core_function,security_http,py39+,source,312,fastapi/security_http.py.py,Implement the FastAPI security utility `__init__`. [scheme_name]
+72,tutorial,body,py310+,basic,312,docs_src/body/tutorial001_py310.py.py,Implement a Pydantic request body model and FastAPI POST route with standard parameter defaults and Python 3.10+ syntax. [ex001 · py310]
+73,core_function,routing,py39+,source,312,fastapi/routing.py.py,Implement the FastAPI routing utility `route`.
+74,core_function,_compat_v2,py39+,source,312,fastapi/_compat_v2.py.py,Implement the FastAPI internal function `create_body_model` from `fastapi/_compat_v2.py.py`.
+75,core_function,_compat_v2,py39+,source,312,fastapi/_compat_v2.py.py,Implement the FastAPI internal function `serialization_alias` from `fastapi/_compat_v2.py.py`.
+76,tutorial,security,py310+,annotated,312,docs_src/security/tutorial006_an_py310.py.py,Write a FastAPI endpoint that implements the `Annotated` type hint style and Python 3.10+ syntax security authentication. [ex006 · annotated · py310]
+77,core_function,_compat_v2,py39+,source,312,fastapi/_compat_v2.py.py,Implement the FastAPI internal function `get_model_name_map` from `fastapi/_compat_v2.py.py`.
+78,tutorial,header,py310+,basic,312,docs_src/header/param_models_tutorial003_py310.py.py,Implement custom header parameters in a FastAPI endpoint with standard parameter defaults and Python 3.10+ syntax. [ex003 · py310]
+79,core_function,security_api_key,py39+,source,312,fastapi/security_api_key.py.py,Implement the FastAPI security utility `__init__`. [name]
+80,tutorial,python,py310+,basic,312,docs_src/python/types_tutorial007_py310.py.py,Write a FastAPI route using Python py310+ type hint features with standard parameter defaults and Python 3.10+ syntax. [ex007 · py310]
+81,tutorial,additional,py310+,basic,312,docs_src/additional/responses_tutorial003_py310.py.py,Implement a FastAPI example for additional using standard parameter defaults and Python 3.10+ syntax.
+82,core_function,security_http,py39+,source,312,fastapi/security_http.py.py,Implement the FastAPI security utility `__init__`. [scheme]
+83,tutorial,generate,py310+,basic,312,docs_src/generate/clients_tutorial001_py310.py.py,Write a FastAPI app designed for client SDK generation using standard parameter defaults and Python 3.10+ syntax. [ex001 · py310]
+84,core_function,_compat_v2,py39+,source,312,fastapi/_compat_v2.py.py,Implement the FastAPI internal function `serialize_json` from `fastapi/_compat_v2.py.py`.
+85,core_function,exceptions,py39+,source,312,fastapi/exceptions.py.py,Implement the FastAPI internal function `errors` from `fastapi/exceptions.py.py`.
+86,tutorial,header,py310+,basic,312,docs_src/header/param_models_tutorial002_py310.py.py,Write a FastAPI route that reads and validates HTTP headers using standard parameter defaults and Python 3.10+ syntax. [ex002 · py310] (variant 1)
+87,core_function,security_utils,py39+,source,312,fastapi/security_utils.py.py,Implement the FastAPI security utility `get_authorization_scheme_param`.
+88,core_function,_compat_v2,py39+,source,312,fastapi/_compat_v2.py.py,Implement the FastAPI internal function `serialize_sequence_value` from `fastapi/_compat_v2.py.py`.
+89,tutorial,body,py310+,basic,312,docs_src/body/updates_tutorial001_py310.py.py,Implement a Pydantic request body model and FastAPI POST route with standard parameter defaults and Python 3.10+ syntax. [ex001 · py310] (variant 2)
+90,tutorial,query,py310+,basic,312,docs_src/query/params_str_validations_tutorial005_py310.py.py,Create a FastAPI endpoint with optional and required query params using standard parameter defaults and Python 3.10+ syntax. [ex005 · py310]
+91,tutorial,pydantic,py310+,annotated,312,docs_src/pydantic/v1_in_v2_tutorial004_an_py310.py.py,Use Pydantic v2 models with a FastAPI endpoint using the `Annotated` type hint style and Python 3.10+ syntax. [ex004 · annotated · py310]
+92,tutorial,query,py310+,basic,312,docs_src/query/params_str_validations_tutorial010_py310.py.py,Create a FastAPI endpoint with optional and required query params using standard parameter defaults and Python 3.10+ syntax. [ex010 · py310]
+93,core_function,_compat_v2,py39+,source,312,fastapi/_compat_v2.py.py,Implement the FastAPI internal function `bytes_schema` from `fastapi/_compat_v2.py.py`.
+94,tutorial,custom,py310+,basic,312,docs_src/custom/response_tutorial006c_py310.py.py,Create a FastAPI application with custom response classes or serialisation using standard parameter defaults and Python 3.10+ syntax. [ex006 · py310] (variant 1)
+95,tutorial,security,py310+,basic,312,docs_src/security/tutorial005_py310.py.py,Write a FastAPI endpoint that implements standard parameter defaults and Python 3.10+ syntax security authentication.
+96,core_function,dependencies_utils,py39+,source,312,fastapi/dependencies_utils.py.py,Implement the FastAPI dependency injection utility `get_parameterless_sub_dependant`.
+97,tutorial,query,py310+,basic,312,docs_src/query/param_models_tutorial001_py310.py.py,Write a FastAPI route that accepts query parameters using standard parameter defaults and Python 3.10+ syntax. [ex001 · py310]
+98,core_function,encoders,py39+,source,312,fastapi/encoders.py.py,Implement the FastAPI JSON encoder utility `jsonable_encoder`.
+99,tutorial,dependencies,py310+,basic,312,docs_src/dependencies/tutorial010_py310.py.py,Write a FastAPI application that uses dependency injection with standard parameter defaults and Python 3.10+ syntax. [ex010 · py310]
+100,tutorial,first,py310+,basic,312,docs_src/first/steps_tutorial003_py310.py.py,Write a FastAPI implementation that demonstrates first using standard parameter defaults and Python 3.10+ syntax.
+101,tutorial,path,py310+,basic,312,docs_src/path/params_numeric_validations_tutorial006_py310.py.py,Implement path parameter type validation in a FastAPI endpoint using standard parameter defaults and Python 3.10+ syntax. [ex006 · py310] (variant 1)
+102,core_function,routing,py39+,source,312,fastapi/routing.py.py,Implement the FastAPI routing utility `__init__`. [path]
+103,tutorial,query,py310+,annotated,312,docs_src/query/params_str_validations_tutorial004_an_py310.py.py,Implement query parameter validation in a FastAPI endpoint with the `Annotated` type hint style and Python 3.10+ syntax. [ex004 · annotated · py310]
+104,tutorial,response,py310+,basic,312,docs_src/response/model_tutorial005_py310.py.py,Implement response model validation and serialisation in FastAPI with standard parameter defaults and Python 3.10+ syntax. [ex005 · py310]
+105,tutorial,stream,py310+,basic,312,docs_src/stream/data_tutorial002_py310.py.py,Implement server-sent events or streaming responses in FastAPI with standard parameter defaults and Python 3.10+ syntax. [ex002 · py310]
+106,core_function,sse,py39+,source,312,fastapi/sse.py.py,Implement the FastAPI internal function `_check_data_exclusive` from `fastapi/sse.py.py`.
+107,tutorial,separate,py310+,basic,312,docs_src/separate/openapi_schemas_tutorial001_py310.py.py,Define separate OpenAPI schemas for request and response in FastAPI using standard parameter defaults and Python 3.10+ syntax.
+108,core_function,middleware_asyncexitstack,py39+,source,312,fastapi/middleware_asyncexitstack.py.py,Implement the FastAPI middleware component `__call__`.
+109,core_function,param_functions,py39+,source,312,fastapi/param_functions.py.py,Implement the FastAPI `Security` parameter declaration function.
+110,tutorial,server,py310+,basic,312,docs_src/server/sent_events_tutorial002_py310.py.py,Write a FastAPI implementation that demonstrates server using standard parameter defaults and Python 3.10+ syntax. [ex002 · py310]
+111,tutorial,path,py310+,basic,312,docs_src/path/params_numeric_validations_tutorial004_py310.py.py,Write a FastAPI route that uses path parameters with standard parameter defaults and Python 3.10+ syntax. [ex004 · py310]
+112,tutorial,request,py310+,annotated,312,docs_src/request/files_tutorial002_an_py310.py.py,Write a FastAPI route that reads the raw HTTP request using the `Annotated` type hint style and Python 3.10+ syntax. [ex002 · annotated · py310]
+113,core_function,dependencies_utils,py39+,source,312,fastapi/dependencies_utils.py.py,Implement the FastAPI dependency injection utility `get_typed_signature`.
+114,core_function,security_oauth2,py39+,source,312,fastapi/security_oauth2.py.py,Implement the FastAPI security utility `__init__`. [grant_type]
+115,core_function,_compat_v2,py39+,source,312,fastapi/_compat_v2.py.py,Implement the FastAPI internal function `asdict` from `fastapi/_compat_v2.py.py`.
+116,core_function,dependencies_utils,py39+,source,312,fastapi/dependencies_utils.py.py,Implement the FastAPI dependency injection utility `get_validation_alias`.
+117,core_function,security_api_key,py39+,source,312,fastapi/security_api_key.py.py,Implement the FastAPI security utility `make_not_authenticated_error`. (variant 2)
+118,tutorial,query,py310+,basic,312,docs_src/query/params_str_validations_tutorial002_py310.py.py,Write a FastAPI route that accepts query parameters using standard parameter defaults and Python 3.10+ syntax. [ex002 · py310]
+119,tutorial,security,py310+,annotated,312,docs_src/security/tutorial003_an_py310.py.py,Create a FastAPI route protected by HTTP security using the `Annotated` type hint style and Python 3.10+ syntax. [ex003 · annotated · py310]
+120,tutorial,websockets,py310+,annotated,312,docs_src/websockets/_tutorial002_an_py310.py.py,Implement real-time communication via WebSockets in FastAPI with the `Annotated` type hint style and Python 3.10+ syntax.
+121,tutorial,response,py310+,basic,312,docs_src/response/model_tutorial003_02_py310.py.py,Write a FastAPI endpoint that returns a typed response model using standard parameter defaults and Python 3.10+ syntax. [ex003 · py310] (variant 2)
+122,tutorial,dependency,py310+,basic,312,docs_src/dependency/testing_tutorial001_py310.py.py,Write a FastAPI test that overrides dependencies using standard parameter defaults and Python 3.10+ syntax.
+123,tutorial,custom,py310+,basic,312,docs_src/custom/response_tutorial001b_py310.py.py,Create a FastAPI application with custom response classes or serialisation using standard parameter defaults and Python 3.10+ syntax. [ex001 · py310]
+124,tutorial,security,py310+,annotated,312,docs_src/security/tutorial004_an_py310.py.py,Create a FastAPI route protected by HTTP security using the `Annotated` type hint style and Python 3.10+ syntax. [ex004 · annotated · py310]
+125,tutorial,behind,py310+,basic,312,docs_src/behind/a_proxy_tutorial001_py310.py.py,Implement a FastAPI example for behind using standard parameter defaults and Python 3.10+ syntax.
+126,core_function,exceptions,py39+,source,312,fastapi/exceptions.py.py,Implement the FastAPI internal function `__init__` from `fastapi/exceptions.py.py`. [errors] (variant 1)
+127,tutorial,app,py310+,basic,312,docs_src/app/testing_tutorial001_py310.py.py,Create a larger FastAPI application structure with multiple routers using standard parameter defaults and Python 3.10+ syntax. [ex001 · py310]
+128,core_function,security_http,py39+,source,312,fastapi/security_http.py.py,Implement the FastAPI security utility `__init__`. [bearerFormat]
+129,core_function,dependencies_models,py39+,source,312,fastapi/dependencies_models.py.py,Implement the FastAPI dependency injection utility `is_gen_callable`.
+130,core_function,_compat_shared,py39+,source,312,fastapi/_compat_shared.py.py,Implement the FastAPI internal function `annotation_is_pydantic_v1` from `fastapi/_compat_shared.py.py`.
+131,tutorial,configure,py310+,basic,312,docs_src/configure/swagger_ui_tutorial003_py310.py.py,Write a FastAPI implementation that demonstrates configure using standard parameter defaults and Python 3.10+ syntax.
+132,core_function,applications,py39+,source,312,fastapi/applications.py.py,Implement the FastAPI application method `put`.
+133,tutorial,extra,py310+,basic,312,docs_src/extra/models_tutorial001_py310.py.py,Add extra OpenAPI data models or schema customisation to FastAPI using standard parameter defaults and Python 3.10+ syntax. [ex001 · py310]
+134,core_function,openapi_docs,py39+,source,312,fastapi/openapi_docs.py.py,Implement the FastAPI internal function `get_redoc_html` from `fastapi/openapi_docs.py.py`.
+135,core_function,dependencies_utils,py39+,source,312,fastapi/dependencies_utils.py.py,Implement the FastAPI dependency injection utility `get_typed_annotation`.
+136,core_function,exception_handlers,py39+,source,312,fastapi/exception_handlers.py.py,Implement the FastAPI exception handler `websocket_request_validation_exception_handler`.
+137,tutorial,body,py310+,basic,312,docs_src/body/multiple_params_tutorial003_py310.py.py,Write a FastAPI endpoint that accepts a JSON request body using standard parameter defaults and Python 3.10+ syntax. [ex003 · py310]
+138,core_function,routing,py39+,source,312,fastapi/routing.py.py,Implement the FastAPI routing utility `on_event`.
+139,tutorial,query,py310+,annotated,312,docs_src/query/params_str_validations_tutorial014_an_py310.py.py,Create a FastAPI endpoint with optional and required query params using the `Annotated` type hint style and Python 3.10+ syntax. [ex014 · annotated · py310]
+140,core_function,routing,py39+,source,312,fastapi/routing.py.py,Implement the FastAPI routing utility `_build_response_args`.
+141,tutorial,header,py310+,annotated,312,docs_src/header/params_tutorial001_an_py310.py.py,Implement custom header parameters in a FastAPI endpoint with the `Annotated` type hint style and Python 3.10+ syntax. [ex001 · annotated · py310]
+142,core_function,routing,py39+,source,312,fastapi/routing.py.py,Implement the FastAPI routing utility `api_route`.
+143,tutorial,dependencies,py310+,annotated,312,docs_src/dependencies/tutorial013_an_py310.py.py,Write a FastAPI application that uses dependency injection with the `Annotated` type hint style and Python 3.10+ syntax. [ex013 · annotated · py310]
+144,tutorial,python,py310+,basic,312,docs_src/python/types_tutorial013_py310.py.py,Write a FastAPI route using Python py310+ type hint features with standard parameter defaults and Python 3.10+ syntax. [ex013 · py310]
+145,core_function,routing,py39+,source,312,fastapi/routing.py.py,Implement the FastAPI routing utility `__init__`.
+146,tutorial,path,py310+,annotated,312,docs_src/path/params_numeric_validations_tutorial001_an_py310.py.py,Write a FastAPI route that uses path parameters with the `Annotated` type hint style and Python 3.10+ syntax. [ex001 · annotated · py310]
+147,tutorial,sub,py310+,basic,312,docs_src/sub/applications_tutorial001_py310.py.py,Implement a FastAPI example for sub using standard parameter defaults and Python 3.10+ syntax.
+148,core_function,param_functions,py39+,source,312,fastapi/param_functions.py.py,Implement the FastAPI `Cookie` parameter declaration function.
+149,tutorial,handling,py310+,basic,312,docs_src/handling/errors_tutorial005_py310.py.py,Implement global error handling in a FastAPI app using standard parameter defaults and Python 3.10+ syntax. [ex005 · py310]
+150,tutorial,dependencies,py310+,basic,312,docs_src/dependencies/tutorial002_py310.py.py,Show how to share dependencies across FastAPI routes using standard parameter defaults and Python 3.10+ syntax. [ex002 · py310]
+151,tutorial,response,py310+,basic,312,docs_src/response/cookies_tutorial002_py310.py.py,Write a FastAPI endpoint that returns a typed response model using standard parameter defaults and Python 3.10+ syntax. [ex002 · py310] (variant 2)
+152,tutorial,path,py310+,basic,312,docs_src/path/operation_advanced_configuration_tutorial002_py310.py.py,Write a FastAPI route that uses path parameters with standard parameter defaults and Python 3.10+ syntax. [ex002 · py310] (variant 2)
+153,tutorial,path,py310+,annotated,312,docs_src/path/params_numeric_validations_tutorial006_an_py310.py.py,Implement path parameter type validation in a FastAPI endpoint using the `Annotated` type hint style and Python 3.10+ syntax. [ex006 · annotated · py310]
+154,core_function,applications,py39+,source,312,fastapi/applications.py.py,Implement the FastAPI application method `options`.
+155,tutorial,handling,py310+,basic,312,docs_src/handling/errors_tutorial004_py310.py.py,Write a FastAPI application with custom HTTP exception handlers using standard parameter defaults and Python 3.10+ syntax. [ex004 · py310]
+156,core_function,routing,py39+,source,312,fastapi/routing.py.py,Implement the FastAPI routing utility `__aenter__`. (variant 1)
+157,tutorial,query,py310+,basic,312,docs_src/query/params_str_validations_tutorial009_py310.py.py,Write a FastAPI route that accepts query parameters using standard parameter defaults and Python 3.10+ syntax. [ex009 · py310]
+158,core_function,_compat_v2,py39+,source,312,fastapi/_compat_v2.py.py,Implement the FastAPI internal function `is_scalar_field` from `fastapi/_compat_v2.py.py`.
+159,tutorial,query,py310+,basic,312,docs_src/query/params_tutorial005_py310.py.py,Write a FastAPI route that accepts query parameters using standard parameter defaults and Python 3.10+ syntax. [ex005 · py310]
+160,core_function,openapi_utils,py39+,source,312,fastapi/openapi_utils.py.py,Implement the FastAPI internal function `get_openapi_operation_metadata` from `fastapi/openapi_utils.py.py`.
+161,core_function,applications,py39+,source,312,fastapi/applications.py.py,Implement the FastAPI application method `post`.
+162,tutorial,events,py310+,basic,312,docs_src/events/tutorial003_py310.py.py,Write a FastAPI application with startup and shutdown lifecycle events using standard parameter defaults and Python 3.10+ syntax. [ex003 · py310]
+163,tutorial,cookie,py310+,basic,312,docs_src/cookie/param_models_tutorial001_py310.py.py,Write a FastAPI endpoint that reads and sets cookies using standard parameter defaults and Python 3.10+ syntax. [ex001 · py310] (variant 1)
+164,tutorial,request,py310+,basic,312,docs_src/request/forms_tutorial001_py310.py.py,Implement form data or file upload handling in FastAPI using standard parameter defaults and Python 3.10+ syntax. [ex001 · py310] (variant 2)
+165,core_function,routing,py39+,source,312,fastapi/routing.py.py,Implement the FastAPI routing utility `_startup`.
+166,tutorial,query,py310+,annotated,312,docs_src/query/params_str_validations_tutorial006_an_py310.py.py,Create a FastAPI endpoint with optional and required query params using the `Annotated` type hint style and Python 3.10+ syntax. [ex006 · annotated · py310] (variant 1)
+167,tutorial,header,py310+,annotated,312,docs_src/header/params_tutorial003_an_py310.py.py,Write a FastAPI route that reads and validates HTTP headers using the `Annotated` type hint style and Python 3.10+ syntax. [ex003 · annotated · py310]
+168,core_function,datastructures,py39+,source,312,fastapi/datastructures.py.py,Define the FastAPI internal data structure `seek`.
+169,tutorial,path,py310+,basic,312,docs_src/path/operation_advanced_configuration_tutorial004_py310.py.py,Write a FastAPI route that uses path parameters with standard parameter defaults and Python 3.10+ syntax. [ex004 · py310] (variant 1)
+170,core_function,applications,py39+,source,312,fastapi/applications.py.py,Implement the FastAPI application method `setup`.
+171,tutorial,query,py310+,basic,312,docs_src/query/params_str_validations_tutorial006c_py310.py.py,Create a FastAPI endpoint with optional and required query params using standard parameter defaults and Python 3.10+ syntax. [ex006 · py310]
+172,tutorial,security,py310+,basic,312,docs_src/security/tutorial001_py310.py.py,Implement standard parameter defaults and Python 3.10+ syntax security in a FastAPI application. [ex001 · py310]
+173,tutorial,path,py310+,basic,312,docs_src/path/params_numeric_validations_tutorial001_py310.py.py,Write a FastAPI route that uses path parameters with standard parameter defaults and Python 3.10+ syntax. [ex001 · py310] (variant 1)
+174,core_function,datastructures,py39+,source,312,fastapi/datastructures.py.py,Define the FastAPI internal data structure `__eq__`.
+175,core_function,routing,py39+,source,312,fastapi/routing.py.py,Implement the FastAPI routing utility `__init__`. [path] (variant 1)
+176,tutorial,cookie,py310+,annotated,312,docs_src/cookie/param_models_tutorial002_an_py310.py.py,Implement cookie-based state in a FastAPI route with the `Annotated` type hint style and Python 3.10+ syntax. [ex002 · annotated · py310]
+177,core_function,openapi_utils,py39+,source,312,fastapi/openapi_utils.py.py,Implement the FastAPI internal function `get_openapi` from `fastapi/openapi_utils.py.py`.
+178,core_function,security_http,py39+,source,312,fastapi/security_http.py.py,Implement the FastAPI security utility `__call__`. [authorization] (variant 1)
+179,tutorial,header,py310+,annotated,312,docs_src/header/param_models_tutorial002_an_py310.py.py,Write a FastAPI route that reads and validates HTTP headers using the `Annotated` type hint style and Python 3.10+ syntax. [ex002 · annotated · py310]
+180,tutorial,request,py310+,annotated,312,docs_src/request/files_tutorial003_an_py310.py.py,Implement form data or file upload handling in FastAPI using the `Annotated` type hint style and Python 3.10+ syntax. [ex003 · annotated · py310]
+181,tutorial,openapi,py310+,basic,312,docs_src/openapi/callbacks_tutorial001_py310.py.py,Customise or extend the OpenAPI documentation in FastAPI using standard parameter defaults and Python 3.10+ syntax. [ex001 · py310]
+182,tutorial,response,py310+,basic,312,docs_src/response/status_code_tutorial001_py310.py.py,Implement response model validation and serialisation in FastAPI with standard parameter defaults and Python 3.10+ syntax. [ex001 · py310] (variant 1)
+183,tutorial,json,py310+,basic,312,docs_src/json/base64_bytes_tutorial001_py310.py.py,Write a FastAPI implementation that demonstrates json using standard parameter defaults and Python 3.10+ syntax.
+184,core_function,routing,py39+,source,312,fastapi/routing.py.py,Implement the FastAPI routing utility `_shutdown`.
+185,tutorial,custom,py310+,basic,312,docs_src/custom/response_tutorial007_py310.py.py,Create a FastAPI application with custom response classes or serialisation using standard parameter defaults and Python 3.10+ syntax. [ex007 · py310]
+186,core_function,dependencies_utils,py39+,source,312,fastapi/dependencies_utils.py.py,Implement the FastAPI dependency injection utility `_is_json_field`.
+187,tutorial,dependencies,py310+,basic,312,docs_src/dependencies/tutorial008b_py310.py.py,Show how to share dependencies across FastAPI routes using standard parameter defaults and Python 3.10+ syntax. [ex008 · py310] (variant 1)
+188,core_function,_compat_shared,py39+,source,312,fastapi/_compat_shared.py.py,Implement the FastAPI internal function `field_annotation_is_scalar_sequence` from `fastapi/_compat_shared.py.py`.
+189,tutorial,custom,py310+,basic,312,docs_src/custom/response_tutorial006_py310.py.py,Create a FastAPI application with custom response classes or serialisation using standard parameter defaults and Python 3.10+ syntax. [ex006 · py310] (variant 2)
+190,tutorial,response,py310+,basic,312,docs_src/response/model_tutorial003_03_py310.py.py,Write a FastAPI endpoint that returns a typed response model using standard parameter defaults and Python 3.10+ syntax. [ex003 · py310] (variant 1)
+191,core_function,routing,py39+,source,312,fastapi/routing.py.py,Implement the FastAPI routing utility `__aenter__`.
+192,tutorial,python,py310+,basic,312,docs_src/python/types_tutorial001_py310.py.py,Write a FastAPI route using Python py310+ type hint features with standard parameter defaults and Python 3.10+ syntax. [ex001 · py310]
+193,tutorial,dependencies,py310+,annotated,312,docs_src/dependencies/tutorial008e_an_py310.py.py,Show how to share dependencies across FastAPI routes using the `Annotated` type hint style and Python 3.10+ syntax. [ex008 · annotated · py310]
+194,core_function,_compat_v2,py39+,source,312,fastapi/_compat_v2.py.py,Implement the FastAPI internal function `alias` from `fastapi/_compat_v2.py.py`.
+195,tutorial,body,py310+,basic,312,docs_src/body/nested_models_tutorial009_py310.py.py,Implement a Pydantic request body model and FastAPI POST route with standard parameter defaults and Python 3.10+ syntax. [ex009 · py310]
+196,tutorial,body,py310+,basic,312,docs_src/body/nested_models_tutorial008_py310.py.py,Write a FastAPI endpoint that accepts a JSON request body using standard parameter defaults and Python 3.10+ syntax. [ex008 · py310]
+197,tutorial,query,py310+,annotated,312,docs_src/query/params_str_validations_tutorial013_an_py310.py.py,Write a FastAPI route that accepts query parameters using the `Annotated` type hint style and Python 3.10+ syntax. [ex013 · annotated · py310]
+198,core_function,routing,py39+,source,312,fastapi/routing.py.py,Implement the FastAPI routing utility `post`.
+199,tutorial,path,py310+,basic,312,docs_src/path/params_tutorial003_py310.py.py,Write a FastAPI route that uses path parameters with standard parameter defaults and Python 3.10+ syntax. [ex003 · py310]
+200,core_function,openapi_docs,py39+,source,312,fastapi/openapi_docs.py.py,Implement the FastAPI internal function `_html_safe_json` from `fastapi/openapi_docs.py.py`.
+201,core_function,_compat_v2,py39+,source,312,fastapi/_compat_v2.py.py,Implement the FastAPI internal function `get_schema_from_model_field` from `fastapi/_compat_v2.py.py`.
+202,core_function,routing,py39+,source,312,fastapi/routing.py.py,Implement the FastAPI routing utility `get_websocket_app`.
+203,tutorial,middleware,py310+,basic,312,docs_src/middleware/tutorial001_py310.py.py,Write a FastAPI application with custom middleware using standard parameter defaults and Python 3.10+ syntax.
+204,tutorial,settings,py310+,basic,312,docs_src/settings/tutorial001_py310.py.py,Implement environment-based configuration in FastAPI using Pydantic Settings with standard parameter defaults and Python 3.10+ syntax. [ex001 · py310]
+205,tutorial,schema,py310+,basic,312,docs_src/schema/extra_example_tutorial004_py310.py.py,Customise the OpenAPI schema or JSON Schema in FastAPI using standard parameter defaults and Python 3.10+ syntax. [ex004 · py310]
+206,core_function,openapi_docs,py39+,source,312,fastapi/openapi_docs.py.py,Implement the FastAPI internal function `get_swagger_ui_html` from `fastapi/openapi_docs.py.py`.
+207,tutorial,query,py310+,annotated,312,docs_src/query/params_str_validations_tutorial012_an_py310.py.py,Create a FastAPI endpoint with optional and required query params using the `Annotated` type hint style and Python 3.10+ syntax. [ex012 · annotated · py310]
+208,core_function,security_open_id_connect_url,py39+,source,312,fastapi/security_open_id_connect_url.py.py,Implement the FastAPI security utility `__init__`. [openIdConnectUrl]
+209,tutorial,response,py310+,basic,312,docs_src/response/model_tutorial003_05_py310.py.py,Implement response model validation and serialisation in FastAPI with standard parameter defaults and Python 3.10+ syntax. [ex003 · py310]
+210,core_function,params,py39+,source,312,fastapi/params.py.py,Implement the FastAPI internal function `__init__` from `fastapi/params.py.py`. [default]
+211,core_function,dependencies_models,py39+,source,312,fastapi/dependencies_models.py.py,Implement the FastAPI dependency injection utility `_security_scheme`.
+212,tutorial,dependencies,py310+,basic,312,docs_src/dependencies/tutorial008d_py310.py.py,Implement a FastAPI endpoint using `Depends()` with standard parameter defaults and Python 3.10+ syntax. [ex008 · py310] (variant 1)
+213,tutorial,response,py310+,basic,312,docs_src/response/status_code_tutorial002_py310.py.py,Write a FastAPI endpoint that returns a typed response model using standard parameter defaults and Python 3.10+ syntax. [ex002 · py310] (variant 1)
+214,tutorial,query,py310+,basic,312,docs_src/query/params_str_validations_tutorial013_py310.py.py,Write a FastAPI route that accepts query parameters using standard parameter defaults and Python 3.10+ syntax. [ex013 · py310]
+215,core_function,encoders,py39+,source,307,fastapi/encoders.py.py,Implement the FastAPI JSON encoder utility `isoformat`.
+216,tutorial,security,py310+,annotated,312,docs_src/security/tutorial002_an_py310.py.py,Write a FastAPI endpoint that implements the `Annotated` type hint style and Python 3.10+ syntax security authentication. [ex002 · annotated · py310]
+217,core_function,applications,py39+,source,312,fastapi/applications.py.py,Implement the FastAPI application method `api_route`.
+218,core_function,dependencies_utils,py39+,source,312,fastapi/dependencies_utils.py.py,Implement the FastAPI dependency injection utility `add_non_field_param_to_dependency`.
+219,tutorial,custom,py310+,basic,312,docs_src/custom/docs_ui_tutorial002_py310.py.py,Create a FastAPI application with custom response classes or serialisation using standard parameter defaults and Python 3.10+ syntax. [ex002 · py310] (variant 1)
+220,tutorial,path,py310+,basic,312,docs_src/path/operation_configuration_tutorial005_py310.py.py,Implement path parameter type validation in a FastAPI endpoint using standard parameter defaults and Python 3.10+ syntax. [ex005 · py310]
+221,core_function,_compat_v2,py39+,source,312,fastapi/_compat_v2.py.py,Implement the FastAPI internal function `__hash__` from `fastapi/_compat_v2.py.py`.
+222,core_function,dependencies_utils,py39+,source,312,fastapi/dependencies_utils.py.py,Implement the FastAPI dependency injection utility `is_union_of_base_models`.
+223,tutorial,background,py310+,basic,312,docs_src/background/tasks_tutorial001_py310.py.py,Implement fire-and-forget background processing in FastAPI with standard parameter defaults and Python 3.10+ syntax.
+224,tutorial,query,py310+,annotated,312,docs_src/query/param_models_tutorial002_an_py310.py.py,Implement query parameter validation in a FastAPI endpoint with the `Annotated` type hint style and Python 3.10+ syntax. [ex002 · annotated · py310] (variant 1)
+225,tutorial,custom,py310+,basic,312,docs_src/custom/response_tutorial010_py310.py.py,Create a FastAPI application with custom response classes or serialisation using standard parameter defaults and Python 3.10+ syntax. [ex010 · py310]
+226,core_function,encoders,py39+,source,312,fastapi/encoders.py.py,Implement the FastAPI JSON encoder utility `generate_encoders_by_class_tuples`.
+227,tutorial,cookie,py310+,basic,312,docs_src/cookie/param_models_tutorial002_py310.py.py,Implement cookie-based state in a FastAPI route with standard parameter defaults and Python 3.10+ syntax.
+228,core_function,routing,py39+,source,312,fastapi/routing.py.py,Implement the FastAPI routing utility `patch`.
+229,core_function,routing,py39+,source,312,fastapi/routing.py.py,Implement the FastAPI routing utility `put`.
+230,tutorial,request,py310+,basic,312,docs_src/request/files_tutorial001_02_py310.py.py,Write a FastAPI route that reads the raw HTTP request using standard parameter defaults and Python 3.10+ syntax. [ex001 · py310] (variant 2)
+231,core_function,params,py39+,source,312,fastapi/params.py.py,Implement the FastAPI internal function `__repr__` from `fastapi/params.py.py`.
+232,tutorial,query,py310+,basic,312,docs_src/query/params_str_validations_tutorial007_py310.py.py,Write a FastAPI route that accepts query parameters using standard parameter defaults and Python 3.10+ syntax. [ex007 · py310]
+233,tutorial,additional,py310+,annotated,312,docs_src/additional/status_codes_tutorial001_an_py310.py.py,Write a FastAPI implementation that demonstrates additional using the `Annotated` type hint style and Python 3.10+ syntax.
+234,tutorial,query,py310+,basic,312,docs_src/query/params_str_validations_tutorial014_py310.py.py,Implement query parameter validation in a FastAPI endpoint with standard parameter defaults and Python 3.10+ syntax. [ex014 · py310]
+235,core_function,exceptions,py39+,source,312,fastapi/exceptions.py.py,Implement the FastAPI internal function `_format_endpoint_context` from `fastapi/exceptions.py.py`.
+236,core_function,utils,py39+,source,312,fastapi/utils.py.py,Implement the FastAPI internal function `deep_dict_update` from `fastapi/utils.py.py`.
+237,core_function,applications,py39+,source,312,fastapi/applications.py.py,Implement the FastAPI application method `websocket`.
+238,core_function,security_api_key,py39+,source,312,fastapi/security_api_key.py.py,Implement the FastAPI security utility `__call__`. [api_key]
+239,tutorial,path,py310+,basic,307,docs_src/path/params_tutorial004_py310.py.py,Implement path parameter type validation in a FastAPI endpoint using standard parameter defaults and Python 3.10+ syntax. [ex004 · py310]
+240,core_function,security_api_key,py39+,source,312,fastapi/security_api_key.py.py,Implement the FastAPI security utility `__init__`. [name] (variant 1)
+241,tutorial,extra,py310+,annotated,312,docs_src/extra/data_types_tutorial001_an_py310.py.py,Add extra OpenAPI data models or schema customisation to FastAPI using the `Annotated` type hint style and Python 3.10+ syntax.
+242,core_function,sse,py39+,source,312,fastapi/sse.py.py,Implement the FastAPI internal function `_check_id_no_null` from `fastapi/sse.py.py`.
+243,tutorial,bigger,py310+,annotated,312,docs_src/bigger/applications_app_an_py310_routers_items.py.py,Organise a FastAPI project into multiple files and routers using the `Annotated` type hint style and Python 3.10+ syntax. [annotated · py310] (variant 1)
+244,tutorial,generate,py310+,basic,312,docs_src/generate/clients_tutorial003_py310.py.py,Write a FastAPI app designed for client SDK generation using standard parameter defaults and Python 3.10+ syntax. [ex003 · py310]
+245,tutorial,response,py310+,basic,312,docs_src/response/model_tutorial002_py310.py.py,Write a FastAPI endpoint that returns a typed response model using standard parameter defaults and Python 3.10+ syntax. [ex002 · py310] (variant 3)
+246,tutorial,dependencies,py310+,basic,312,docs_src/dependencies/tutorial011_py310.py.py,Implement a FastAPI endpoint using `Depends()` with standard parameter defaults and Python 3.10+ syntax. [ex011 · py310]
+247,tutorial,query,py310+,basic,312,docs_src/query/params_str_validations_tutorial008_py310.py.py,Implement query parameter validation in a FastAPI endpoint with standard parameter defaults and Python 3.10+ syntax. [ex008 · py310]
+248,tutorial,query,py310+,annotated,312,docs_src/query/params_str_validations_tutorial002_an_py310.py.py,Implement query parameter validation in a FastAPI endpoint with the `Annotated` type hint style and Python 3.10+ syntax. [ex002 · annotated · py310]
+249,tutorial,security,py310+,basic,312,docs_src/security/tutorial006_py310.py.py,Create a FastAPI route protected by HTTP security using standard parameter defaults and Python 3.10+ syntax. [ex006 · py310]
+250,core_function,dependencies_utils,py39+,source,312,fastapi/dependencies_utils.py.py,Implement the FastAPI dependency injection utility `request_body_to_args`.
+251,tutorial,async,py310+,basic,312,docs_src/async/tests_app_a_py310_main.py.py,Implement a FastAPI example for async using standard parameter defaults and Python 3.10+ syntax.
+252,core_function,routing,py39+,source,312,fastapi/routing.py.py,Implement the FastAPI routing utility `trace`.
+253,core_function,_compat_v2,py39+,source,312,fastapi/_compat_v2.py.py,Implement the FastAPI internal function `copy_field_info` from `fastapi/_compat_v2.py.py`.
+254,core_function,dependencies_utils,py39+,source,312,fastapi/dependencies_utils.py.py,Implement the FastAPI dependency injection utility `_validate_value_with_model_field`.
+255,core_function,_compat_shared,py39+,source,312,fastapi/_compat_shared.py.py,Implement the FastAPI internal function `is_pydantic_v1_model_class` from `fastapi/_compat_shared.py.py`.
+256,core_function,_compat_v2,py39+,source,312,fastapi/_compat_v2.py.py,Implement the FastAPI internal function `normalize_name` from `fastapi/_compat_v2.py.py`.
+257,core_function,_compat_v2,py39+,source,312,fastapi/_compat_v2.py.py,Implement the FastAPI internal function `get_definitions` from `fastapi/_compat_v2.py.py`.
+258,core_function,utils,py39+,source,312,fastapi/utils.py.py,Implement the FastAPI internal function `get_value_or_default` from `fastapi/utils.py.py`.
+259,tutorial,security,py310+,basic,312,docs_src/security/tutorial002_py310.py.py,Create a FastAPI route protected by HTTP security using standard parameter defaults and Python 3.10+ syntax. [ex002 · py310]
+260,tutorial,metadata,py310+,basic,312,docs_src/metadata/tutorial001_1_py310.py.py,"Add API metadata (title, description, tags) to a FastAPI app using standard parameter defaults and Python 3.10+ syntax. [ex001 · py310]"
+261,tutorial,first,py310+,basic,312,docs_src/first/steps_tutorial001_py310.py.py,Implement a FastAPI example for first using standard parameter defaults and Python 3.10+ syntax.
+262,tutorial,query,py310+,basic,312,docs_src/query/params_str_validations_tutorial001_py310.py.py,Write a FastAPI route that accepts query parameters using standard parameter defaults and Python 3.10+ syntax. [ex001 · py310] (variant 1)
+263,core_function,_compat_v2,py39+,source,312,fastapi/_compat_v2.py.py,Implement the FastAPI internal function `_has_computed_fields` from `fastapi/_compat_v2.py.py`.
+264,core_function,applications,py39+,source,312,fastapi/applications.py.py,Implement the FastAPI application method `build_middleware_stack`.
+265,tutorial,query,py310+,annotated,312,docs_src/query/params_str_validations_tutorial009_an_py310.py.py,Write a FastAPI route that accepts query parameters using the `Annotated` type hint style and Python 3.10+ syntax. [ex009 · annotated · py310]
+266,core_function,datastructures,py39+,source,312,fastapi/datastructures.py.py,Define the FastAPI internal data structure `__get_pydantic_core_schema__`.
+267,core_function,dependencies_utils,py39+,source,312,fastapi/dependencies_utils.py.py,Implement the FastAPI dependency injection utility `_solve_generator`.
+268,core_function,_compat_v2,py39+,source,312,fastapi/_compat_v2.py.py,Implement the FastAPI internal function `validation_alias` from `fastapi/_compat_v2.py.py`.
+269,tutorial,path,py310+,basic,312,docs_src/path/operation_configuration_tutorial001_py310.py.py,Write a FastAPI route that uses path parameters with standard parameter defaults and Python 3.10+ syntax. [ex001 · py310] (variant 2)
+270,core_function,_compat_v2,py39+,source,312,fastapi/_compat_v2.py.py,Implement the FastAPI internal function `get_default` from `fastapi/_compat_v2.py.py`.
+271,tutorial,bigger,py310+,annotated,312,docs_src/bigger/applications_app_an_py310_dependencies.py.py,Organise a FastAPI project into multiple files and routers using the `Annotated` type hint style and Python 3.10+ syntax. [annotated · py310] (variant 3)
+272,core_function,applications,py39+,source,312,fastapi/applications.py.py,Implement the FastAPI application method `__call__`.
+273,tutorial,response,py310+,basic,312,docs_src/response/headers_tutorial001_py310.py.py,Write a FastAPI endpoint that returns a typed response model using standard parameter defaults and Python 3.10+ syntax. [ex001 · py310]
+274,tutorial,app,py310+,basic,312,docs_src/app/testing_app_a_py310_main.py.py,Create a larger FastAPI application structure with multiple routers using standard parameter defaults and Python 3.10+ syntax. [py310] (variant 1)
+275,core_function,routing,py39+,source,312,fastapi/routing.py.py,Implement the FastAPI routing utility `__init__`. [prefix]
+276,core_function,param_functions,py39+,source,312,fastapi/param_functions.py.py,Implement the FastAPI `Form` parameter declaration function.
+277,tutorial,dependencies,py310+,annotated,312,docs_src/dependencies/tutorial008d_an_py310.py.py,Show how to share dependencies across FastAPI routes using the `Annotated` type hint style and Python 3.10+ syntax. [ex008 · annotated · py310] (variant 1)
+278,core_function,datastructures,py39+,source,312,fastapi/datastructures.py.py,Define the FastAPI internal data structure `__get_pydantic_json_schema__`.
+279,tutorial,extending,py310+,basic,312,docs_src/extending/openapi_tutorial001_py310.py.py,Implement a FastAPI example for extending using standard parameter defaults and Python 3.10+ syntax.
+280,tutorial,request,py310+,annotated,312,docs_src/request/files_tutorial001_an_py310.py.py,Write a FastAPI route that reads the raw HTTP request using the `Annotated` type hint style and Python 3.10+ syntax. [ex001 · annotated · py310] (variant 1)
+281,tutorial,bigger,py310+,annotated,312,docs_src/bigger/applications_app_an_py310_internal_admin.py.py,Organise a FastAPI project into multiple files and routers using the `Annotated` type hint style and Python 3.10+ syntax. [annotated · py310]
+282,tutorial,body,py310+,basic,312,docs_src/body/multiple_params_tutorial002_py310.py.py,Write a FastAPI endpoint that accepts a JSON request body using standard parameter defaults and Python 3.10+ syntax. [ex002 · py310] (variant 1)
+283,tutorial,using,py310+,basic,312,docs_src/using/request_directly_tutorial001_py310.py.py,Write a FastAPI implementation that demonstrates using using standard parameter defaults and Python 3.10+ syntax.
+284,core_function,datastructures,py39+,source,312,fastapi/datastructures.py.py,Define the FastAPI internal data structure `close`.
+285,core_function,exception_handlers,py39+,source,312,fastapi/exception_handlers.py.py,Implement the FastAPI exception handler `request_validation_exception_handler`.
+286,tutorial,extra,py310+,basic,312,docs_src/extra/data_types_tutorial001_py310.py.py,Add extra OpenAPI data models or schema customisation to FastAPI using standard parameter defaults and Python 3.10+ syntax. [ex001 · py310] (variant 1)
+287,tutorial,custom,py310+,basic,312,docs_src/custom/response_tutorial001_py310.py.py,Create a FastAPI application with custom response classes or serialisation using standard parameter defaults and Python 3.10+ syntax. [ex001 · py310] (variant 1)
+288,tutorial,dependencies,py310+,basic,312,docs_src/dependencies/tutorial005_py310.py.py,Show how to share dependencies across FastAPI routes using standard parameter defaults and Python 3.10+ syntax. [ex005 · py310]
+289,tutorial,request,py310+,basic,312,docs_src/request/files_tutorial002_py310.py.py,Write a FastAPI route that reads the raw HTTP request using standard parameter defaults and Python 3.10+ syntax. [ex002 · py310]
+290,tutorial,path,py310+,basic,312,docs_src/path/params_tutorial002_py310.py.py,Write a FastAPI route that uses path parameters with standard parameter defaults and Python 3.10+ syntax. [ex002 · py310] (variant 1)
+291,tutorial,settings,py310+,annotated,312,docs_src/settings/app02_an_py310_main.py.py,Implement environment-based configuration in FastAPI using Pydantic Settings with the `Annotated` type hint style and Python 3.10+ syntax. [annotated · py310]
+292,tutorial,path,py310+,annotated,312,docs_src/path/params_numeric_validations_tutorial005_an_py310.py.py,Write a FastAPI route that uses path parameters with the `Annotated` type hint style and Python 3.10+ syntax. [ex005 · annotated · py310]
+293,tutorial,server,py310+,basic,312,docs_src/server/sent_events_tutorial004_py310.py.py,Write a FastAPI implementation that demonstrates server using standard parameter defaults and Python 3.10+ syntax. [ex004 · py310]
+294,core_function,_compat_v2,py39+,source,312,fastapi/_compat_v2.py.py,Implement the FastAPI internal function `get_cached_model_fields` from `fastapi/_compat_v2.py.py`.
+295,core_function,dependencies_models,py39+,source,312,fastapi/dependencies_models.py.py,Implement the FastAPI dependency injection utility `is_coroutine_callable`.
+296,core_function,concurrency,py39+,source,312,fastapi/concurrency.py.py,Implement the FastAPI internal function `contextmanager_in_threadpool` from `fastapi/concurrency.py.py`.
+297,tutorial,authentication,py310+,annotated,312,docs_src/authentication/error_status_code_tutorial001_an_py310.py.py,Write a FastAPI implementation that demonstrates authentication using the `Annotated` type hint style and Python 3.10+ syntax.
+298,core_function,_compat_shared,py39+,source,312,fastapi/_compat_shared.py.py,Implement the FastAPI internal function `is_uploadfile_or_nonable_uploadfile_annotation` from `fastapi/_compat_shared.py.py`.
+299,core_function,routing,py39+,source,312,fastapi/routing.py.py,Implement the FastAPI routing utility `include_router`.
+300,core_function,applications,py39+,source,312,fastapi/applications.py.py,Implement the FastAPI application method `head`.
+301,core_function,_compat_v2,py39+,source,312,fastapi/_compat_v2.py.py,Implement the FastAPI internal function `get_flat_models_from_model` from `fastapi/_compat_v2.py.py`.
+302,tutorial,path,py310+,basic,312,docs_src/path/operation_advanced_configuration_tutorial007_py310.py.py,Implement path parameter type validation in a FastAPI endpoint using standard parameter defaults and Python 3.10+ syntax. [ex007 · py310]
+303,tutorial,stream,py310+,basic,312,docs_src/stream/json_lines_tutorial001_py310.py.py,Implement server-sent events or streaming responses in FastAPI with standard parameter defaults and Python 3.10+ syntax. [ex001 · py310]
+304,tutorial,request,py310+,basic,312,docs_src/request/files_tutorial001_py310.py.py,Write a FastAPI route that reads the raw HTTP request using standard parameter defaults and Python 3.10+ syntax. [ex001 · py310]
+305,core_function,param_functions,py39+,source,312,fastapi/param_functions.py.py,Implement the FastAPI `Body` parameter declaration function.
+306,core_function,routing,py39+,source,312,fastapi/routing.py.py,Implement the FastAPI routing utility `delete`.
+307,tutorial,dependencies,py310+,annotated,312,docs_src/dependencies/tutorial001_02_an_py310.py.py,Write a FastAPI application that uses dependency injection with the `Annotated` type hint style and Python 3.10+ syntax. [ex001 · annotated · py310]
+308,tutorial,response,py310+,basic,312,docs_src/response/model_tutorial004_py310.py.py,Implement response model validation and serialisation in FastAPI with standard parameter defaults and Python 3.10+ syntax. [ex004 · py310]
+309,tutorial,body,py310+,annotated,312,docs_src/body/multiple_params_tutorial001_an_py310.py.py,Implement a Pydantic request body model and FastAPI POST route with the `Annotated` type hint style and Python 3.10+ syntax. [ex001 · annotated · py310]
+310,tutorial,custom,py310+,basic,312,docs_src/custom/response_tutorial009b_py310.py.py,Create a FastAPI application with custom response classes or serialisation using standard parameter defaults and Python 3.10+ syntax. [ex009 · py310] (variant 1)
+311,tutorial,custom,py310+,basic,312,docs_src/custom/response_tutorial008_py310.py.py,Create a FastAPI application with custom response classes or serialisation using standard parameter defaults and Python 3.10+ syntax. [ex008 · py310]
+312,core_function,dependencies_models,py39+,source,312,fastapi/dependencies_models.py.py,Implement the FastAPI dependency injection utility `_is_security_scheme`.
+313,tutorial,additional,py310+,basic,312,docs_src/additional/status_codes_tutorial001_py310.py.py,Write a FastAPI implementation that demonstrates additional using standard parameter defaults and Python 3.10+ syntax. [ex001 · py310]
+314,core_function,applications,py39+,source,312,fastapi/applications.py.py,Implement the FastAPI application method `__init__`.
+315,core_function,param_functions,py39+,source,312,fastapi/param_functions.py.py,Implement the FastAPI `Header` parameter declaration function.
+316,tutorial,request,py310+,annotated,312,docs_src/request/forms_tutorial001_an_py310.py.py,Write a FastAPI route that reads the raw HTTP request using the `Annotated` type hint style and Python 3.10+ syntax. [ex001 · annotated · py310] (variant 3)
+317,tutorial,sql,py310+,basic,312,docs_src/sql/databases_tutorial001_py310.py.py,Write a FastAPI application with SQLAlchemy database integration using standard parameter defaults and Python 3.10+ syntax.
+318,tutorial,settings,py310+,annotated,312,docs_src/settings/app03_an_py310_main.py.py,Implement environment-based configuration in FastAPI using Pydantic Settings with the `Annotated` type hint style and Python 3.10+ syntax. [annotated · py310] (variant 1)
+319,core_function,routing,py39+,source,312,fastapi/routing.py.py,Implement the FastAPI routing utility `__aexit__`. (variant 1)
+320,core_function,security_oauth2,py39+,source,312,fastapi/security_oauth2.py.py,Implement the FastAPI security utility `__init__`. [tokenUrl]
+321,tutorial,extra,py310+,basic,312,docs_src/extra/models_tutorial003_py310.py.py,Add extra OpenAPI data models or schema customisation to FastAPI using standard parameter defaults and Python 3.10+ syntax. [ex003 · py310]
+322,tutorial,server,py310+,basic,312,docs_src/server/sent_events_tutorial001_py310.py.py,Implement a FastAPI example for server using standard parameter defaults and Python 3.10+ syntax. [ex001 · py310]
+323,core_function,openapi_docs,py39+,source,312,fastapi/openapi_docs.py.py,Implement the FastAPI internal function `get_swagger_ui_oauth2_redirect_html` from `fastapi/openapi_docs.py.py`.
+324,core_function,dependencies_utils,py39+,source,312,fastapi/dependencies_utils.py.py,Implement the FastAPI dependency injection utility `get_flat_dependant`.
+325,tutorial,body,py310+,basic,312,docs_src/body/multiple_params_tutorial004_py310.py.py,Write a FastAPI endpoint that accepts a JSON request body using standard parameter defaults and Python 3.10+ syntax. [ex004 · py310] (variant 1)
+326,core_function,_compat_shared,py39+,source,312,fastapi/_compat_shared.py.py,Implement the FastAPI internal function `lenient_issubclass` from `fastapi/_compat_shared.py.py`.
+327,tutorial,settings,py310+,basic,312,docs_src/settings/app02_py310_main.py.py,Implement environment-based configuration in FastAPI using Pydantic Settings with standard parameter defaults and Python 3.10+ syntax. [py310] (variant 1)
+328,core_function,security_oauth2,py39+,source,312,fastapi/security_oauth2.py.py,Implement the FastAPI security utility `__init__`. [scopes]
+329,core_function,exceptions,py39+,source,312,fastapi/exceptions.py.py,Implement the FastAPI internal function `__init__` from `fastapi/exceptions.py.py`. [code]
+330,tutorial,query,py310+,annotated,312,docs_src/query/params_str_validations_tutorial007_an_py310.py.py,Implement query parameter validation in a FastAPI endpoint with the `Annotated` type hint style and Python 3.10+ syntax. [ex007 · annotated · py310]
+331,core_function,applications,py39+,source,312,fastapi/applications.py.py,Implement the FastAPI application method `openapi`.
+332,core_function,security_http,py39+,source,312,fastapi/security_http.py.py,Implement the FastAPI security utility `make_authenticate_headers`. (variant 1)
+333,tutorial,configure,py310+,basic,312,docs_src/configure/swagger_ui_tutorial001_py310.py.py,Implement a FastAPI example for configure using standard parameter defaults and Python 3.10+ syntax.
+334,tutorial,dependencies,py310+,basic,312,docs_src/dependencies/tutorial008e_py310.py.py,Implement a FastAPI endpoint using `Depends()` with standard parameter defaults and Python 3.10+ syntax. [ex008 · py310]
+335,tutorial,dataclasses,py310+,basic,312,docs_src/dataclasses/_tutorial003_py310.py.py,Write a FastAPI endpoint that uses Python dataclasses as request/response models with standard parameter defaults and Python 3.10+ syntax. [ex003 · py310]
+336,tutorial,response,py310+,basic,312,docs_src/response/directly_tutorial001_py310.py.py,Write a FastAPI endpoint that returns a typed response model using standard parameter defaults and Python 3.10+ syntax. [ex001 · py310] (variant 2)
+337,core_function,routing,py39+,source,312,fastapi/routing.py.py,Implement the FastAPI routing utility `__call__`.
+338,core_function,applications,py39+,source,312,fastapi/applications.py.py,Implement the FastAPI application method `on_event`.
+339,tutorial,schema,py310+,basic,312,docs_src/schema/extra_example_tutorial003_py310.py.py,Customise the OpenAPI schema or JSON Schema in FastAPI using standard parameter defaults and Python 3.10+ syntax. [ex003 · py310]
+340,core_function,routing,py39+,source,312,fastapi/routing.py.py,Implement the FastAPI routing utility `add_api_route`.
+341,tutorial,server,py310+,basic,312,docs_src/server/sent_events_tutorial003_py310.py.py,Implement a FastAPI example for server using standard parameter defaults and Python 3.10+ syntax. [ex003 · py310]
+342,tutorial,path,py310+,basic,312,docs_src/path/operation_advanced_configuration_tutorial005_py310.py.py,Write a FastAPI route that uses path parameters with standard parameter defaults and Python 3.10+ syntax. [ex005 · py310] (variant 1)
+343,core_function,openapi_utils,py39+,source,312,fastapi/openapi_utils.py.py,Implement the FastAPI internal function `generate_operation_id` from `fastapi/openapi_utils.py.py`.
+344,tutorial,debugging,py310+,basic,312,docs_src/debugging/tutorial001_py310.py.py,Write a FastAPI implementation that demonstrates debugging using standard parameter defaults and Python 3.10+ syntax.
+345,core_function,cli,py39+,source,312,fastapi/cli.py.py,Implement the FastAPI internal function `main` from `fastapi/cli.py.py`.
+346,core_function,param_functions,py39+,source,312,fastapi/param_functions.py.py,Implement the FastAPI `Query` parameter declaration function.
+347,core_function,routing,py39+,source,312,fastapi/routing.py.py,Implement the FastAPI routing utility `websocket_route`.
+348,core_function,routing,py39+,source,312,fastapi/routing.py.py,Implement the FastAPI routing utility `run_endpoint_function`.
+349,tutorial,body,py310+,annotated,312,docs_src/body/fields_tutorial001_an_py310.py.py,Write a FastAPI endpoint that accepts a JSON request body using the `Annotated` type hint style and Python 3.10+ syntax.
+350,core_function,dependencies_utils,py39+,source,312,fastapi/dependencies_utils.py.py,Implement the FastAPI dependency injection utility `request_params_to_args`.
+351,core_function,routing,py39+,source,312,fastapi/routing.py.py,Implement the FastAPI routing utility `websocket_session`.
+352,tutorial,app,py310+,basic,312,docs_src/app/testing_tutorial004_py310.py.py,Create a larger FastAPI application structure with multiple routers using standard parameter defaults and Python 3.10+ syntax. [ex004 · py310]
+353,core_function,param_functions,py39+,source,312,fastapi/param_functions.py.py,Implement the FastAPI `File` parameter declaration function.
+354,tutorial,dependencies,py310+,annotated,312,docs_src/dependencies/tutorial008c_an_py310.py.py,Write a FastAPI application that uses dependency injection with the `Annotated` type hint style and Python 3.10+ syntax. [ex008 · annotated · py310]
+355,tutorial,advanced,py310+,basic,307,docs_src/advanced/middleware_tutorial002_py310.py.py,Write a FastAPI implementation that demonstrates advanced using standard parameter defaults and Python 3.10+ syntax.
+356,tutorial,behind,py310+,basic,312,docs_src/behind/a_proxy_tutorial004_py310.py.py,Write a FastAPI implementation that demonstrates behind using standard parameter defaults and Python 3.10+ syntax. [ex004 · py310]
+357,tutorial,cookie,py310+,basic,312,docs_src/cookie/params_tutorial001_py310.py.py,Write a FastAPI endpoint that reads and sets cookies using standard parameter defaults and Python 3.10+ syntax. [ex001 · py310]
+358,core_function,security_http,py39+,source,312,fastapi/security_http.py.py,Implement the FastAPI security utility `make_not_authenticated_error`.
+359,core_function,security_http,py39+,source,312,fastapi/security_http.py.py,Implement the FastAPI security utility `__call__`. [authorization]
+360,tutorial,security,py310+,basic,312,docs_src/security/tutorial007_py310.py.py,Implement standard parameter defaults and Python 3.10+ syntax security in a FastAPI application. [ex007 · py310]
+361,tutorial,request,py310+,annotated,312,docs_src/request/files_tutorial001_02_an_py310.py.py,Write a FastAPI route that reads the raw HTTP request using the `Annotated` type hint style and Python 3.10+ syntax. [ex001 · annotated · py310] (variant 2)
+362,tutorial,body,py310+,basic,312,docs_src/body/nested_models_tutorial005_py310.py.py,Implement a Pydantic request body model and FastAPI POST route with standard parameter defaults and Python 3.10+ syntax. [ex005 · py310]
+363,core_function,openapi_models,py39+,source,312,fastapi/openapi_models.py.py,Implement the FastAPI internal function `validate` from `fastapi/openapi_models.py.py`.
+364,tutorial,cors,py310+,basic,307,docs_src/cors/tutorial001_py310.py.py,Configure CORS in a FastAPI application using standard parameter defaults and Python 3.10+ syntax.
+365,tutorial,header,py310+,annotated,312,docs_src/header/param_models_tutorial003_an_py310.py.py,Implement custom header parameters in a FastAPI endpoint with the `Annotated` type hint style and Python 3.10+ syntax. [ex003 · annotated · py310]
+366,tutorial,dependencies,py310+,annotated,312,docs_src/dependencies/tutorial014_an_py310.py.py,Show how to share dependencies across FastAPI routes using the `Annotated` type hint style and Python 3.10+ syntax. [ex014 · annotated · py310]
+367,core_function,_compat_v2,py39+,source,312,fastapi/_compat_v2.py.py,Implement the FastAPI internal function `__post_init__` from `fastapi/_compat_v2.py.py`.
+368,core_function,responses,py39+,source,312,fastapi/responses.py.py,Implement the FastAPI response helper `render`.
+369,core_function,dependencies_models,py39+,source,312,fastapi/dependencies_models.py.py,Implement the FastAPI dependency injection utility `computed_scope`.
+370,tutorial,query,py310+,basic,312,docs_src/query/params_str_validations_tutorial004_py310.py.py,Implement query parameter validation in a FastAPI endpoint with standard parameter defaults and Python 3.10+ syntax. [ex004 · py310]
+371,core_function,applications,py39+,source,312,fastapi/applications.py.py,Implement the FastAPI application method `websocket_route`.
+372,core_function,security_api_key,py39+,source,312,fastapi/security_api_key.py.py,Implement the FastAPI security utility `__init__`. [name] (variant 2)
+373,tutorial,request,py310+,basic,312,docs_src/request/files_tutorial003_py310.py.py,Implement form data or file upload handling in FastAPI using standard parameter defaults and Python 3.10+ syntax. [ex003 · py310]
+374,tutorial,strict,py310+,basic,312,docs_src/strict/content_type_tutorial001_py310.py.py,Write a FastAPI implementation that demonstrates strict using standard parameter defaults and Python 3.10+ syntax.
+375,tutorial,security,py310+,annotated,312,docs_src/security/tutorial001_an_py310.py.py,Create a FastAPI route protected by HTTP security using the `Annotated` type hint style and Python 3.10+ syntax. [ex001 · annotated · py310]
+376,core_function,dependencies_models,py39+,source,312,fastapi/dependencies_models.py.py,Implement the FastAPI dependency injection utility `_unwrapped_call`.
+377,core_function,security_oauth2,py39+,source,312,fastapi/security_oauth2.py.py,Implement the FastAPI security utility `__init__`. [flows]
+378,tutorial,path,py310+,basic,312,docs_src/path/operation_advanced_configuration_tutorial003_py310.py.py,Implement path parameter type validation in a FastAPI endpoint using standard parameter defaults and Python 3.10+ syntax. [ex003 · py310] (variant 1)
+379,tutorial,path,py310+,basic,312,docs_src/path/operation_advanced_configuration_tutorial006_py310.py.py,Implement path parameter type validation in a FastAPI endpoint using standard parameter defaults and Python 3.10+ syntax. [ex006 · py310]
+380,core_function,dependencies_models,py39+,source,312,fastapi/dependencies_models.py.py,Implement the FastAPI dependency injection utility `_impartial`.
+381,tutorial,custom,py310+,basic,307,docs_src/custom/response_tutorial005_py310.py.py,Create a FastAPI application with custom response classes or serialisation using standard parameter defaults and Python 3.10+ syntax. [ex005 · py310]
+382,tutorial,query,py310+,annotated,312,docs_src/query/params_str_validations_tutorial003_an_py310.py.py,Implement query parameter validation in a FastAPI endpoint with the `Annotated` type hint style and Python 3.10+ syntax. [ex003 · annotated · py310]
+383,tutorial,dependencies,py310+,annotated,312,docs_src/dependencies/tutorial011_an_py310.py.py,Implement a FastAPI endpoint using `Depends()` with the `Annotated` type hint style and Python 3.10+ syntax. [ex011 · annotated · py310]
+384,core_function,exceptions,py39+,source,312,fastapi/exceptions.py.py,Implement the FastAPI internal function `__str__` from `fastapi/exceptions.py.py`.
+385,core_function,routing,py39+,source,312,fastapi/routing.py.py,Implement the FastAPI routing utility `add_event_handler`.
+386,tutorial,path,py310+,basic,312,docs_src/path/params_tutorial005_py310.py.py,Write a FastAPI route that uses path parameters with standard parameter defaults and Python 3.10+ syntax. [ex005 · py310] (variant 2)
+387,tutorial,path,py310+,basic,312,docs_src/path/params_numeric_validations_tutorial003_py310.py.py,Implement path parameter type validation in a FastAPI endpoint using standard parameter defaults and Python 3.10+ syntax. [ex003 · py310]
+388,tutorial,events,py310+,basic,312,docs_src/events/tutorial002_py310.py.py,Write a FastAPI application with startup and shutdown lifecycle events using standard parameter defaults and Python 3.10+ syntax. [ex002 · py310]
+389,core_function,routing,py39+,source,312,fastapi/routing.py.py,Implement the FastAPI routing utility `options`.
+390,core_function,_compat_v2,py39+,source,312,fastapi/_compat_v2.py.py,Implement the FastAPI internal function `get_model_fields` from `fastapi/_compat_v2.py.py`.
+391,core_function,routing,py39+,source,312,fastapi/routing.py.py,Implement the FastAPI routing utility `matches`.
+392,core_function,_compat_shared,py39+,source,312,fastapi/_compat_shared.py.py,Implement the FastAPI internal function `field_annotation_is_scalar` from `fastapi/_compat_shared.py.py`.
+393,core_function,_compat_v2,py39+,source,312,fastapi/_compat_v2.py.py,Implement the FastAPI internal function `validate` from `fastapi/_compat_v2.py.py`.
+394,core_function,responses,py39+,source,312,fastapi/responses.py.py,Implement the FastAPI response helper `render`. (variant 1)
+395,tutorial,path,py310+,basic,312,docs_src/path/operation_configuration_tutorial002_py310.py.py,Write a FastAPI route that uses path parameters with standard parameter defaults and Python 3.10+ syntax. [ex002 · py310]
+396,tutorial,server,py310+,basic,312,docs_src/server/sent_events_tutorial005_py310.py.py,Implement a FastAPI example for server using standard parameter defaults and Python 3.10+ syntax. [ex005 · py310]
+397,tutorial,dataclasses,py310+,basic,312,docs_src/dataclasses/_tutorial002_py310.py.py,Write a FastAPI endpoint that uses Python dataclasses as request/response models with standard parameter defaults and Python 3.10+ syntax. [ex002 · py310]
+398,core_function,applications,py39+,source,312,fastapi/applications.py.py,Implement the FastAPI application method `middleware`.
+399,core_function,security_api_key,py39+,source,312,fastapi/security_api_key.py.py,Implement the FastAPI security utility `__init__`. [location]
+400,tutorial,request,py310+,basic,312,docs_src/request/form_models_tutorial001_py310.py.py,Write a FastAPI route that reads the raw HTTP request using standard parameter defaults and Python 3.10+ syntax. [ex001 · py310] (variant 1)
+401,tutorial,header,py310+,basic,312,docs_src/header/params_tutorial001_py310.py.py,Implement custom header parameters in a FastAPI endpoint with standard parameter defaults and Python 3.10+ syntax. [ex001 · py310]
+402,core_function,encoders,py39+,source,312,fastapi/encoders.py.py,Implement the FastAPI JSON encoder utility `decimal_encoder`.
+403,core_function,routing,py39+,source,312,fastapi/routing.py.py,Implement the FastAPI routing utility `__aexit__`.
+404,tutorial,metadata,py310+,basic,312,docs_src/metadata/tutorial003_py310.py.py,"Add API metadata (title, description, tags) to a FastAPI app using standard parameter defaults and Python 3.10+ syntax. [ex003 · py310]"
+405,tutorial,query,py310+,annotated,312,docs_src/query/params_str_validations_tutorial005_an_py310.py.py,Implement query parameter validation in a FastAPI endpoint with the `Annotated` type hint style and Python 3.10+ syntax. [ex005 · annotated · py310]
+406,tutorial,additional,py310+,basic,312,docs_src/additional/responses_tutorial001_py310.py.py,Write a FastAPI implementation that demonstrates additional using standard parameter defaults and Python 3.10+ syntax. [ex001 · py310] (variant 1)
+407,tutorial,python,py310+,basic,312,docs_src/python/types_tutorial002_py310.py.py,Write a FastAPI route using Python py310+ type hint features with standard parameter defaults and Python 3.10+ syntax. [ex002 · py310]
+408,tutorial,path,py310+,basic,312,docs_src/path/params_numeric_validations_tutorial002_py310.py.py,Implement path parameter type validation in a FastAPI endpoint using standard parameter defaults and Python 3.10+ syntax. [ex002 · py310]
+409,tutorial,python,py310+,basic,312,docs_src/python/types_tutorial008b_py310.py.py,Write a FastAPI route using Python py310+ type hint features with standard parameter defaults and Python 3.10+ syntax. [ex008 · py310] (variant 1)
+410,tutorial,events,py310+,basic,312,docs_src/events/tutorial001_py310.py.py,Implement lifespan event handlers in FastAPI using standard parameter defaults and Python 3.10+ syntax.
+411,tutorial,additional,py310+,basic,312,docs_src/additional/responses_tutorial004_py310.py.py,Write a FastAPI implementation that demonstrates additional using standard parameter defaults and Python 3.10+ syntax. [ex004 · py310]
+412,tutorial,query,py310+,basic,312,docs_src/query/params_tutorial006_py310.py.py,Write a FastAPI route that accepts query parameters using standard parameter defaults and Python 3.10+ syntax. [ex006 · py310]
+413,tutorial,dependencies,py310+,basic,312,docs_src/dependencies/tutorial007_py310.py.py,Implement a FastAPI endpoint using `Depends()` with standard parameter defaults and Python 3.10+ syntax. [ex007 · py310]
+414,tutorial,body,py310+,annotated,312,docs_src/body/multiple_params_tutorial004_an_py310.py.py,Implement a Pydantic request body model and FastAPI POST route with the `Annotated` type hint style and Python 3.10+ syntax. [ex004 · annotated · py310]
+415,core_function,applications,py39+,source,312,fastapi/applications.py.py,Implement the FastAPI application method `add_api_route`.
+416,core_function,routing,py39+,source,312,fastapi/routing.py.py,Implement the FastAPI routing utility `__init__`. (variant 1)
+417,core_function,routing,py39+,source,312,fastapi/routing.py.py,Implement the FastAPI routing utility `get_route_handler`.
+418,core_function,datastructures,py39+,source,312,fastapi/datastructures.py.py,Define the FastAPI internal data structure `Default`.
+419,core_function,openapi_utils,py39+,source,312,fastapi/openapi_utils.py.py,Implement the FastAPI internal function `get_fields_from_routes` from `fastapi/openapi_utils.py.py`.
+420,core_function,_compat_shared,py39+,source,312,fastapi/_compat_shared.py.py,Implement the FastAPI internal function `field_annotation_is_complex` from `fastapi/_compat_shared.py.py`.
+421,core_function,_compat_v2,py39+,source,312,fastapi/_compat_v2.py.py,Implement the FastAPI internal function `_regenerate_error_with_loc` from `fastapi/_compat_v2.py.py`.
+422,core_function,applications,py39+,source,312,fastapi/applications.py.py,Implement the FastAPI application method `exception_handler`.
+423,core_function,openapi_models,py39+,source,312,fastapi/openapi_models.py.py,Implement the FastAPI internal function `__get_pydantic_json_schema__` from `fastapi/openapi_models.py.py`.
+424,core_function,routing,py39+,source,312,fastapi/routing.py.py,Implement the FastAPI routing utility `request_response`.
+425,tutorial,dependencies,py310+,basic,312,docs_src/dependencies/tutorial012_py310.py.py,Implement a FastAPI endpoint using `Depends()` with standard parameter defaults and Python 3.10+ syntax. [ex012 · py310]
+426,tutorial,encoder,py310+,basic,312,docs_src/encoder/tutorial001_py310.py.py,Serialise complex Python objects to JSON in FastAPI using jsonable_encoder with standard parameter defaults and Python 3.10+ syntax.
+427,core_function,applications,py39+,source,312,fastapi/applications.py.py,Implement the FastAPI application method `include_router`.
+428,tutorial,response,py310+,basic,312,docs_src/response/cookies_tutorial001_py310.py.py,Implement response model validation and serialisation in FastAPI with standard parameter defaults and Python 3.10+ syntax. [ex001 · py310]
+429,core_function,routing,py39+,source,312,fastapi/routing.py.py,Implement the FastAPI routing utility `head`.
+430,tutorial,custom,py310+,basic,312,docs_src/custom/response_tutorial004_py310.py.py,Create a FastAPI application with custom response classes or serialisation using standard parameter defaults and Python 3.10+ syntax. [ex004 · py310]
+431,tutorial,body,py310+,basic,312,docs_src/body/fields_tutorial001_py310.py.py,Implement a Pydantic request body model and FastAPI POST route with standard parameter defaults and Python 3.10+ syntax. [ex001 · py310] (variant 3)
+432,core_function,dependencies_utils,py39+,source,312,fastapi/dependencies_utils.py.py,Implement the FastAPI dependency injection utility `_get_flat_fields_from_params`.
+433,tutorial,websockets,py310+,basic,307,docs_src/websockets/_tutorial001_py310.py.py,Write a FastAPI WebSocket endpoint using standard parameter defaults and Python 3.10+ syntax. [ex001 · py310]
+434,tutorial,query,py310+,basic,312,docs_src/query/params_str_validations_tutorial012_py310.py.py,Implement query parameter validation in a FastAPI endpoint with standard parameter defaults and Python 3.10+ syntax. [ex012 · py310]
+435,tutorial,metadata,py310+,basic,307,docs_src/metadata/tutorial004_py310.py.py,"Add API metadata (title, description, tags) to a FastAPI app using standard parameter defaults and Python 3.10+ syntax. [ex004 · py310]"
+436,tutorial,dependency,py310+,annotated,312,docs_src/dependency/testing_tutorial001_an_py310.py.py,Demonstrate dependency override testing in FastAPI with the `Annotated` type hint style and Python 3.10+ syntax.
+437,core_function,_compat_v2,py39+,source,312,fastapi/_compat_v2.py.py,Implement the FastAPI internal function `get_missing_field_error` from `fastapi/_compat_v2.py.py`.
+438,tutorial,query,py310+,basic,312,docs_src/query/params_tutorial004_py310.py.py,Create a FastAPI endpoint with optional and required query params using standard parameter defaults and Python 3.10+ syntax. [ex004 · py310]
+439,core_function,applications,py39+,source,312,fastapi/applications.py.py,Implement the FastAPI application method `delete`.
+440,tutorial,sql,py310+,annotated,312,docs_src/sql/databases_tutorial001_an_py310.py.py,Implement CRUD routes with an SQL database in FastAPI using the `Annotated` type hint style and Python 3.10+ syntax.
+441,core_function,security_api_key,py39+,source,312,fastapi/security_api_key.py.py,Implement the FastAPI security utility `__call__`. [api_key] (variant 1)
+442,tutorial,response,py310+,basic,312,docs_src/response/change_status_code_tutorial001_py310.py.py,Implement response model validation and serialisation in FastAPI with standard parameter defaults and Python 3.10+ syntax. [ex001 · py310] (variant 2)
+443,tutorial,dependencies,py310+,annotated,312,docs_src/dependencies/tutorial002_an_py310.py.py,Write a FastAPI application that uses dependency injection with the `Annotated` type hint style and Python 3.10+ syntax. [ex002 · annotated · py310]
+444,core_function,background,py39+,source,312,fastapi/background.py.py,Implement the FastAPI background task handler `add_task`.
+445,core_function,security_oauth2,py39+,source,312,fastapi/security_oauth2.py.py,Implement the FastAPI security utility `__call__`. [authorization] (variant 2)
+446,tutorial,query,py310+,annotated,312,docs_src/query/params_str_validations_tutorial008_an_py310.py.py,Write a FastAPI route that accepts query parameters using the `Annotated` type hint style and Python 3.10+ syntax. [ex008 · annotated · py310]
+447,tutorial,body,py310+,basic,312,docs_src/body/tutorial003_py310.py.py,Implement a Pydantic request body model and FastAPI POST route with standard parameter defaults and Python 3.10+ syntax. [ex003 · py310]
+448,core_function,_compat_v2,py39+,source,312,fastapi/_compat_v2.py.py,Implement the FastAPI internal function `serialize` from `fastapi/_compat_v2.py.py`.
+449,core_function,_compat_shared,py39+,source,312,fastapi/_compat_shared.py.py,Implement the FastAPI internal function `_annotation_is_sequence` from `fastapi/_compat_shared.py.py`.
+450,core_function,applications,py39+,source,312,fastapi/applications.py.py,Implement the FastAPI application method `get`.
+451,core_function,routing,py39+,source,312,fastapi/routing.py.py,Implement the FastAPI routing utility `add_api_websocket_route`.
+452,core_function,param_functions,py39+,source,312,fastapi/param_functions.py.py,Implement the FastAPI `Depends` parameter declaration function.
+453,tutorial,body,py310+,basic,312,docs_src/body/tutorial004_py310.py.py,Write a FastAPI endpoint that accepts a JSON request body using standard parameter defaults and Python 3.10+ syntax. [ex004 · py310]
+454,core_function,dependencies_models,py39+,source,312,fastapi/dependencies_models.py.py,Implement the FastAPI dependency injection utility `cache_key`.
+455,core_function,dependencies_utils,py39+,source,312,fastapi/dependencies_utils.py.py,Implement the FastAPI dependency injection utility `get_flat_params`.
+456,core_function,routing,py39+,source,312,fastapi/routing.py.py,Implement the FastAPI routing utility `_wrap_gen_lifespan_context`.
+457,tutorial,query,py310+,basic,312,docs_src/query/params_tutorial001_py310.py.py,Create a FastAPI endpoint with optional and required query params using standard parameter defaults and Python 3.10+ syntax. [ex001 · py310]
+458,tutorial,dependencies,py310+,annotated,312,docs_src/dependencies/tutorial003_an_py310.py.py,Implement a FastAPI endpoint using `Depends()` with the `Annotated` type hint style and Python 3.10+ syntax. [ex003 · annotated · py310]
+459,core_function,_compat_shared,py39+,source,312,fastapi/_compat_shared.py.py,Implement the FastAPI internal function `_annotation_is_complex` from `fastapi/_compat_shared.py.py`.
+460,tutorial,dataclasses,py310+,basic,312,docs_src/dataclasses/_tutorial001_py310.py.py,Write a FastAPI endpoint that uses Python dataclasses as request/response models with standard parameter defaults and Python 3.10+ syntax. [ex001 · py310]
+461,tutorial,header,py310+,annotated,312,docs_src/header/params_tutorial002_an_py310.py.py,Implement custom header parameters in a FastAPI endpoint with the `Annotated` type hint style and Python 3.10+ syntax. [ex002 · annotated · py310]
+462,tutorial,request,py310+,basic,312,docs_src/request/forms_and_files_tutorial001_py310.py.py,Implement form data or file upload handling in FastAPI using standard parameter defaults and Python 3.10+ syntax. [ex001 · py310]
+463,core_function,dependencies_models,py39+,source,312,fastapi/dependencies_models.py.py,Implement the FastAPI dependency injection utility `_security_dependencies`.
+464,tutorial,dependencies,py310+,basic,312,docs_src/dependencies/tutorial006_py310.py.py,Show how to share dependencies across FastAPI routes using standard parameter defaults and Python 3.10+ syntax. [ex006 · py310]
+465,tutorial,custom,py310+,basic,307,docs_src/custom/response_tutorial009c_py310.py.py,Create a FastAPI application with custom response classes or serialisation using standard parameter defaults and Python 3.10+ syntax. [ex009 · py310]
+466,core_function,dependencies_utils,py39+,source,312,fastapi/dependencies_utils.py.py,Implement the FastAPI dependency injection utility `get_stream_item_type`.
+467,core_function,routing,py39+,source,312,fastapi/routing.py.py,Implement the FastAPI routing utility `get_request_handler`.
+468,tutorial,advanced,py310+,basic,307,docs_src/advanced/middleware_tutorial003_py310.py.py,Implement a FastAPI example for advanced using standard parameter defaults and Python 3.10+ syntax.
+469,core_function,security_oauth2,py39+,source,312,fastapi/security_oauth2.py.py,Implement the FastAPI security utility `make_not_authenticated_error`. (variant 1)
+470,tutorial,stream,py310+,basic,312,docs_src/stream/data_tutorial001_py310.py.py,Write a FastAPI endpoint that streams a response using standard parameter defaults and Python 3.10+ syntax.
+471,tutorial,body,py310+,annotated,312,docs_src/body/multiple_params_tutorial005_an_py310.py.py,Implement a Pydantic request body model and FastAPI POST route with the `Annotated` type hint style and Python 3.10+ syntax. [ex005 · annotated · py310]
+472,tutorial,openapi,py310+,basic,312,docs_src/openapi/webhooks_tutorial001_py310.py.py,Customise or extend the OpenAPI documentation in FastAPI using standard parameter defaults and Python 3.10+ syntax. [ex001 · py310] (variant 1)
+473,tutorial,custom,py310+,basic,312,docs_src/custom/response_tutorial002_py310.py.py,Create a FastAPI application with custom response classes or serialisation using standard parameter defaults and Python 3.10+ syntax. [ex002 · py310] (variant 2)
+474,tutorial,header,py310+,basic,312,docs_src/header/params_tutorial003_py310.py.py,Write a FastAPI route that reads and validates HTTP headers using standard parameter defaults and Python 3.10+ syntax. [ex003 · py310]
+475,tutorial,app,py310+,basic,312,docs_src/app/testing_app_b_py310_main.py.py,Create a larger FastAPI application structure with multiple routers using standard parameter defaults and Python 3.10+ syntax. [py310]
+476,tutorial,path,py310+,basic,312,docs_src/path/operation_advanced_configuration_tutorial001_py310.py.py,Write a FastAPI route that uses path parameters with standard parameter defaults and Python 3.10+ syntax. [ex001 · py310] (variant 3)
+477,tutorial,python,py310+,basic,312,docs_src/python/types_tutorial005_py310.py.py,Write a FastAPI route using Python py310+ type hint features with standard parameter defaults and Python 3.10+ syntax. [ex005 · py310]
+478,core_function,applications,py39+,source,312,fastapi/applications.py.py,Implement the FastAPI application method `add_api_websocket_route`.
+479,core_function,dependencies_utils,py39+,source,312,fastapi/dependencies_utils.py.py,Implement the FastAPI dependency injection utility `get_typed_return_annotation`.
+480,tutorial,dependencies,py310+,annotated,312,docs_src/dependencies/tutorial008_an_py310.py.py,Show how to share dependencies across FastAPI routes using the `Annotated` type hint style and Python 3.10+ syntax. [ex008 · annotated · py310] (variant 2)
+481,core_function,dependencies_models,py39+,source,312,fastapi/dependencies_models.py.py,Implement the FastAPI dependency injection utility `is_async_gen_callable`.
+482,tutorial,path,py310+,basic,312,docs_src/path/params_numeric_validations_tutorial005_py310.py.py,Write a FastAPI route that uses path parameters with standard parameter defaults and Python 3.10+ syntax. [ex005 · py310]
+483,core_function,datastructures,py39+,source,312,fastapi/datastructures.py.py,Define the FastAPI internal data structure `read`.
+484,core_function,openapi_models,py39+,source,312,fastapi/openapi_models.py.py,Implement the FastAPI internal function `__get_validators__` from `fastapi/openapi_models.py.py`.
+485,core_function,dependencies_models,py39+,source,312,fastapi/dependencies_models.py.py,Implement the FastAPI dependency injection utility `_uses_scopes`.
+486,tutorial,response,py310+,basic,312,docs_src/response/headers_tutorial002_py310.py.py,Write a FastAPI endpoint that returns a typed response model using standard parameter defaults and Python 3.10+ syntax. [ex002 · py310]
+487,tutorial,app,py310+,annotated,312,docs_src/app/testing_app_b_an_py310_main.py.py,Create a larger FastAPI application structure with multiple routers using the `Annotated` type hint style and Python 3.10+ syntax.
+488,tutorial,settings,py310+,basic,312,docs_src/settings/app03_py310_main.py.py,Implement environment-based configuration in FastAPI using Pydantic Settings with standard parameter defaults and Python 3.10+ syntax. [py310]
+489,tutorial,body,py310+,basic,312,docs_src/body/multiple_params_tutorial001_py310.py.py,Implement a Pydantic request body model and FastAPI POST route with standard parameter defaults and Python 3.10+ syntax. [ex001 · py310] (variant 1)
+490,tutorial,schema,py310+,annotated,312,docs_src/schema/extra_example_tutorial004_an_py310.py.py,Customise the OpenAPI schema or JSON Schema in FastAPI using the `Annotated` type hint style and Python 3.10+ syntax. [ex004 · annotated · py310]
+491,tutorial,background,py310+,basic,312,docs_src/background/tasks_tutorial002_py310.py.py,Write a FastAPI endpoint that triggers a background task using standard parameter defaults and Python 3.10+ syntax.
+492,tutorial,custom,py310+,basic,312,docs_src/custom/request_and_route_tutorial002_py310.py.py,Create a FastAPI application with custom response classes or serialisation using standard parameter defaults and Python 3.10+ syntax. [ex002 · py310]
+493,core_function,security_oauth2,py39+,source,312,fastapi/security_oauth2.py.py,Implement the FastAPI security utility `__init__`. [authorizationUrl]
+494,tutorial,templates,py310+,basic,312,docs_src/templates/tutorial001_py310.py.py,Write a FastAPI implementation that demonstrates templates using standard parameter defaults and Python 3.10+ syntax.
+495,tutorial,handling,py310+,basic,312,docs_src/handling/errors_tutorial006_py310.py.py,Write a FastAPI application with custom HTTP exception handlers using standard parameter defaults and Python 3.10+ syntax. [ex006 · py310]
+496,core_function,routing,py39+,source,312,fastapi/routing.py.py,Implement the FastAPI routing utility `serialize_response`.
+497,tutorial,conditional,py310+,basic,312,docs_src/conditional/openapi_tutorial001_py310.py.py,Write a FastAPI implementation that demonstrates conditional using standard parameter defaults and Python 3.10+ syntax.
+498,tutorial,security,py310+,annotated,312,docs_src/security/tutorial007_an_py310.py.py,Implement the `Annotated` type hint style and Python 3.10+ syntax security in a FastAPI application. [ex007 · annotated · py310]
+499,tutorial,header,py310+,annotated,312,docs_src/header/param_models_tutorial001_an_py310.py.py,Implement custom header parameters in a FastAPI endpoint with the `Annotated` type hint style and Python 3.10+ syntax. [ex001 · annotated · py310] (variant 1)
+500,core_function,params,py39+,source,312,fastapi/params.py.py,Implement the FastAPI internal function `__init__` from `fastapi/params.py.py`. [default] (variant 1)
+501,tutorial,python,py310+,basic,312,docs_src/python/types_tutorial003_py310.py.py,Write a FastAPI route using Python py310+ type hint features with standard parameter defaults and Python 3.10+ syntax. [ex003 · py310]
+502,core_function,dependencies_utils,py39+,source,312,fastapi/dependencies_utils.py.py,Implement the FastAPI dependency injection utility `get_dependant`.
+503,core_function,security_oauth2,py39+,source,312,fastapi/security_oauth2.py.py,Implement the FastAPI security utility `__init__`. [grant_type] (variant 1)
+504,tutorial,security,py310+,basic,312,docs_src/security/tutorial004_py310.py.py,Implement standard parameter defaults and Python 3.10+ syntax security in a FastAPI application. [ex004 · py310]
+505,tutorial,wsgi,py310+,basic,312,docs_src/wsgi/tutorial001_py310.py.py,Write a FastAPI implementation that demonstrates wsgi using standard parameter defaults and Python 3.10+ syntax.
+506,core_function,dependencies_utils,py39+,source,312,fastapi/dependencies_utils.py.py,Implement the FastAPI dependency injection utility `_should_embed_body_fields`.
+507,tutorial,query,py310+,basic,312,docs_src/query/params_tutorial002_py310.py.py,Write a FastAPI route that accepts query parameters using standard parameter defaults and Python 3.10+ syntax. [ex002 · py310] (variant 1)
+508,tutorial,bigger,py310+,annotated,312,docs_src/bigger/applications_app_an_py310_routers_users.py.py,Organise a FastAPI project into multiple files and routers using the `Annotated` type hint style and Python 3.10+ syntax. [annotated · py310] (variant 2)
+509,core_function,sse,py39+,source,312,fastapi/sse.py.py,Implement the FastAPI internal function `format_sse_event` from `fastapi/sse.py.py`.
+510,core_function,utils,py39+,source,312,fastapi/utils.py.py,Implement the FastAPI internal function `generate_operation_id_for_path` from `fastapi/utils.py.py`.
+511,tutorial,pydantic,py310+,annotated,312,docs_src/pydantic/v1_in_v2_tutorial002_an_py310.py.py,Use Pydantic v2 models with a FastAPI endpoint using the `Annotated` type hint style and Python 3.10+ syntax. [ex002 · annotated · py310]
+512,tutorial,path,py310+,basic,312,docs_src/path/params_tutorial001_py310.py.py,Write a FastAPI route that uses path parameters with standard parameter defaults and Python 3.10+ syntax. [ex001 · py310]
+513,tutorial,path,py310+,annotated,312,docs_src/path/params_numeric_validations_tutorial002_an_py310.py.py,Implement path parameter type validation in a FastAPI endpoint using the `Annotated` type hint style and Python 3.10+ syntax. [ex002 · annotated · py310]
+514,tutorial,body,py310+,basic,312,docs_src/body/nested_models_tutorial007_py310.py.py,Write a FastAPI endpoint that accepts a JSON request body using standard parameter defaults and Python 3.10+ syntax. [ex007 · py310]
+515,core_function,_compat_v2,py39+,source,312,fastapi/_compat_v2.py.py,Implement the FastAPI internal function `get_flat_models_from_fields` from `fastapi/_compat_v2.py.py`.
+516,core_function,dependencies_utils,py39+,source,312,fastapi/dependencies_utils.py.py,Implement the FastAPI dependency injection utility `add_param_to_fields`.
+517,core_function,dependencies_utils,py39+,source,312,fastapi/dependencies_utils.py.py,Implement the FastAPI dependency injection utility `analyze_param`.
+518,tutorial,query,py310+,annotated,312,docs_src/query/params_str_validations_tutorial011_an_py310.py.py,Create a FastAPI endpoint with optional and required query params using the `Annotated` type hint style and Python 3.10+ syntax. [ex011 · annotated · py310]
+519,core_function,_compat_shared,py39+,source,312,fastapi/_compat_shared.py.py,Implement the FastAPI internal function `is_uploadfile_sequence_annotation` from `fastapi/_compat_shared.py.py`.
+520,tutorial,header,py310+,basic,312,docs_src/header/params_tutorial002_py310.py.py,Write a FastAPI route that reads and validates HTTP headers using standard parameter defaults and Python 3.10+ syntax. [ex002 · py310]
+521,tutorial,dependencies,py310+,basic,312,docs_src/dependencies/tutorial008_py310.py.py,Write a FastAPI application that uses dependency injection with standard parameter defaults and Python 3.10+ syntax. [ex008 · py310]
+522,tutorial,query,py310+,basic,312,docs_src/query/params_tutorial003_py310.py.py,Write a FastAPI route that accepts query parameters using standard parameter defaults and Python 3.10+ syntax. [ex003 · py310]
+523,tutorial,python,py310+,basic,312,docs_src/python/types_tutorial006_py310.py.py,Write a FastAPI route using Python py310+ type hint features with standard parameter defaults and Python 3.10+ syntax. [ex006 · py310]
+524,core_function,utils,py39+,source,312,fastapi/utils.py.py,Implement the FastAPI internal function `create_model_field` from `fastapi/utils.py.py`.
+525,core_function,dependencies_utils,py39+,source,312,fastapi/dependencies_utils.py.py,Implement the FastAPI dependency injection utility `get_body_field`.
+526,tutorial,app,py310+,basic,312,docs_src/app/testing_tutorial003_py310.py.py,Create a larger FastAPI application structure with multiple routers using standard parameter defaults and Python 3.10+ syntax. [ex003 · py310]
+527,tutorial,header,py310+,basic,312,docs_src/header/param_models_tutorial001_py310.py.py,Implement custom header parameters in a FastAPI endpoint with standard parameter defaults and Python 3.10+ syntax. [ex001 · py310] (variant 1)
+528,core_function,dependencies_utils,py39+,source,314,fastapi/dependencies_utils.py.py,Implement the FastAPI dependency injection utility `_get_signature`.
+529,tutorial,custom,py310+,basic,312,docs_src/custom/response_tutorial003_py310.py.py,Create a FastAPI application with custom response classes or serialisation using standard parameter defaults and Python 3.10+ syntax. [ex003 · py310]
+530,core_function,utils,py39+,source,312,fastapi/utils.py.py,Implement the FastAPI internal function `get_path_param_names` from `fastapi/utils.py.py`.
+531,tutorial,request,py310+,annotated,312,docs_src/request/forms_and_files_tutorial001_an_py310.py.py,Implement form data or file upload handling in FastAPI using the `Annotated` type hint style and Python 3.10+ syntax. [ex001 · annotated · py310] (variant 1)
+532,tutorial,cookie,py310+,annotated,312,docs_src/cookie/params_tutorial001_an_py310.py.py,Implement cookie-based state in a FastAPI route with the `Annotated` type hint style and Python 3.10+ syntax. [ex001 · annotated · py310]
+533,core_function,security_api_key,py39+,source,312,fastapi/security_api_key.py.py,Implement the FastAPI security utility `check_api_key`.
+534,tutorial,response,py310+,basic,312,docs_src/response/model_tutorial003_01_py310.py.py,Implement response model validation and serialisation in FastAPI with standard parameter defaults and Python 3.10+ syntax. [ex003 · py310] (variant 1)
+535,core_function,applications,py39+,source,312,fastapi/applications.py.py,Implement the FastAPI application method `patch`.
+536,tutorial,websockets,py310+,basic,307,docs_src/websockets/_tutorial003_py310.py.py,Write a FastAPI WebSocket endpoint using standard parameter defaults and Python 3.10+ syntax. [ex003 · py310]
+537,tutorial,dependencies,py310+,annotated,312,docs_src/dependencies/tutorial008b_an_py310.py.py,Show how to share dependencies across FastAPI routes using the `Annotated` type hint style and Python 3.10+ syntax. [ex008 · annotated · py310] (variant 3)
+538,tutorial,request,py310+,basic,312,docs_src/request/files_tutorial001_03_py310.py.py,Implement form data or file upload handling in FastAPI using standard parameter defaults and Python 3.10+ syntax. [ex001 · py310] (variant 1)
+539,tutorial,dependencies,py310+,basic,312,docs_src/dependencies/tutorial001_py310.py.py,Show how to share dependencies across FastAPI routes using standard parameter defaults and Python 3.10+ syntax. [ex001 · py310]
+540,tutorial,path,py310+,annotated,312,docs_src/path/params_numeric_validations_tutorial004_an_py310.py.py,Implement path parameter type validation in a FastAPI endpoint using the `Annotated` type hint style and Python 3.10+ syntax. [ex004 · annotated · py310]
+541,core_function,_compat_shared,py39+,source,312,fastapi/_compat_shared.py.py,Implement the FastAPI internal function `value_is_sequence` from `fastapi/_compat_shared.py.py`.
+542,core_function,openapi_utils,py39+,source,312,fastapi/openapi_utils.py.py,Implement the FastAPI internal function `generate_operation_summary` from `fastapi/openapi_utils.py.py`.
+543,core_function,dependencies_utils,py39+,source,312,fastapi/dependencies_utils.py.py,Implement the FastAPI dependency injection utility `_get_multidict_value`.
+544,tutorial,path,py310+,annotated,312,docs_src/path/params_numeric_validations_tutorial003_an_py310.py.py,Implement path parameter type validation in a FastAPI endpoint using the `Annotated` type hint style and Python 3.10+ syntax. [ex003 · annotated · py310]
+545,tutorial,schema,py310+,basic,312,docs_src/schema/extra_example_tutorial005_py310.py.py,Customise the OpenAPI schema or JSON Schema in FastAPI using standard parameter defaults and Python 3.10+ syntax. [ex005 · py310]
+546,tutorial,path,py310+,basic,312,docs_src/path/params_tutorial003b_py310.py.py,Write a FastAPI route that uses path parameters with standard parameter defaults and Python 3.10+ syntax. [ex003 · py310] (variant 1)
+547,tutorial,response,py310+,basic,312,docs_src/response/model_tutorial001_01_py310.py.py,Write a FastAPI endpoint that returns a typed response model using standard parameter defaults and Python 3.10+ syntax. [ex001 · py310] (variant 1)
+548,tutorial,dependencies,py310+,annotated,312,docs_src/dependencies/tutorial012_an_py310.py.py,Write a FastAPI application that uses dependency injection with the `Annotated` type hint style and Python 3.10+ syntax. [ex012 · annotated · py310]
+549,tutorial,python,py310+,basic,312,docs_src/python/types_tutorial009_py310.py.py,Write a FastAPI route using Python py310+ type hint features with standard parameter defaults and Python 3.10+ syntax. [ex009 · py310]
+550,core_function,dependencies_utils,py39+,source,312,fastapi/dependencies_utils.py.py,Implement the FastAPI dependency injection utility `_extract_form_body`.
+551,tutorial,security,py310+,annotated,312,docs_src/security/tutorial005_an_py310.py.py,Implement the `Annotated` type hint style and Python 3.10+ syntax security in a FastAPI application. [ex005 · annotated · py310]
+552,tutorial,schema,py310+,annotated,312,docs_src/schema/extra_example_tutorial005_an_py310.py.py,Customise the OpenAPI schema or JSON Schema in FastAPI using the `Annotated` type hint style and Python 3.10+ syntax. [ex005 · annotated · py310]
+553,tutorial,custom,py310+,basic,312,docs_src/custom/response_tutorial006b_py310.py.py,Create a FastAPI application with custom response classes or serialisation using standard parameter defaults and Python 3.10+ syntax. [ex006 · py310]
+554,tutorial,python,py310+,basic,312,docs_src/python/types_tutorial004_py310.py.py,Write a FastAPI route using Python py310+ type hint features with standard parameter defaults and Python 3.10+ syntax. [ex004 · py310]
+555,tutorial,handling,py310+,basic,312,docs_src/handling/errors_tutorial001_py310.py.py,Implement global error handling in a FastAPI app using standard parameter defaults and Python 3.10+ syntax. [ex001 · py310]
+556,tutorial,request,py310+,annotated,312,docs_src/request/form_models_tutorial001_an_py310.py.py,Implement form data or file upload handling in FastAPI using the `Annotated` type hint style and Python 3.10+ syntax. [ex001 · annotated · py310]
+557,core_function,openapi_utils,py39+,source,312,fastapi/openapi_utils.py.py,Implement the FastAPI internal function `_get_openapi_operation_parameters` from `fastapi/openapi_utils.py.py`.
+558,tutorial,body,py310+,basic,312,docs_src/body/tutorial002_py310.py.py,Implement a Pydantic request body model and FastAPI POST route with standard parameter defaults and Python 3.10+ syntax. [ex002 · py310] (variant 1)
+559,tutorial,response,py310+,basic,312,docs_src/response/model_tutorial006_py310.py.py,Write a FastAPI endpoint that returns a typed response model using standard parameter defaults and Python 3.10+ syntax. [ex006 · py310]
+560,tutorial,schema,py310+,basic,312,docs_src/schema/extra_example_tutorial001_py310.py.py,Customise the OpenAPI schema or JSON Schema in FastAPI using standard parameter defaults and Python 3.10+ syntax. [ex001 · py310]

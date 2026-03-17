@@ -13,38 +13,85 @@ from peft import PeftModel
 UPSERT_BATCH_SIZE = 100
 
 
+def _has_chinese(text: str) -> bool:
+    return any("\u4e00" <= c <= "\u9fff" for c in text)
+
+
 class VersionControlRAG:
-    def __init__(self, pinecone_key, model_path="Qwen/Qwen2.5-Coder-7B", adapter_path=None, index_name="python-rag-v3"):
+    def __init__(self, pinecone_key, model_path="Qwen/Qwen2.5-Coder-7B", adapter_path=None,
+                 index_name="python-rag-v3", ingest_only=False):
+        """
+        ingest_only=True  — skip loading Qwen and BGE reranker entirely.
+                            Uses CPU for embeddings. Use this for re-upsert to avoid OOM.
+                            ~0.3 GB VRAM instead of ~15 GB.
+        ingest_only=False — full pipeline (default). Loads Qwen + adapter on GPU.
+        """
         print("Initializing Version-Controlled RAG Carrier...")
         self.pc = Pinecone(api_key=pinecone_key)
+        self.ingest_only = ingest_only
 
         if index_name not in self.pc.list_indexes().names():
-            self.pc.create_index(name=index_name, dimension=384, metric="cosine",
+            self.pc.create_index(name=index_name, dimension=768, metric="cosine",
                                 spec=ServerlessSpec(cloud="aws", region="us-east-1"))
         self.index = self.pc.Index(index_name)
 
-        self.embedder = SentenceTransformer('all-MiniLM-L6-v2')
-        self.reranker = CrossEncoder('BAAI/bge-reranker-base')
-
-        print(f"Loading Qwen from {model_path}...")
-        self.tokenizer = AutoTokenizer.from_pretrained(model_path, trust_remote_code=True)
-        base_model = AutoModelForCausalLM.from_pretrained(
-            model_path, device_map="auto", torch_dtype=torch.float16, trust_remote_code=True
+        # Embedder always runs on CPU during ingest to avoid competing with Qwen for VRAM.
+        # During retrieval (ingest_only=False) it can stay on CPU too — encoding a single
+        # query takes <50ms on CPU, not worth the VRAM cost of keeping it on GPU.
+        embed_device = "cpu"
+        self.embedder = SentenceTransformer(
+            'flax-sentence-embeddings/st-codesearch-distilroberta-base',
+            device=embed_device
         )
-        if adapter_path:
-            print(f"Applying QLoRA adapter from {adapter_path}...")
-            self.model = PeftModel.from_pretrained(base_model, adapter_path)
-        else:
-            self.model = base_model
-        self.model.eval()
+        print(f"Embedder loaded on {embed_device}")
 
-        self.parser = Parser(Language(tspython.language()))
+        if ingest_only:
+            # Lightweight mode — no Qwen, no reranker, no tree-sitter
+            self.model     = None
+            self.tokenizer = None
+            self.reranker  = None
+            self.parser    = None
+            print("Ingest-only mode: Qwen and reranker skipped (saves ~15 GB VRAM)\n")
+        else:
+            self.reranker = CrossEncoder('BAAI/bge-reranker-base')
+
+            print(f"Loading Qwen from {model_path}...")
+            self.tokenizer = AutoTokenizer.from_pretrained(model_path, trust_remote_code=True)
+            base_model = AutoModelForCausalLM.from_pretrained(
+                model_path, device_map="auto", torch_dtype=torch.float16, trust_remote_code=True
+            )
+            if adapter_path:
+                print(f"Applying QLoRA adapter from {adapter_path}...")
+                self.model = PeftModel.from_pretrained(base_model, adapter_path)
+            else:
+                self.model = base_model
+            self.model.eval()
+
+            self.parser = Parser(Language(tspython.language()))
 
         self.local_corpus = []
-        self._corpus_ids = set()      # Fast duplicate detection for ingest_data
+        self._corpus_ids = set()
         self.bm25_model = None
-        self._upsert_buffer = []      # Batch buffer for Pinecone upserts
+        self._upsert_buffer = []
         print("System ready.\n")
+
+    def free_gpu_memory(self):
+        """Release Qwen from GPU after ingest or generation. Call before switching modes."""
+        import gc
+        if self.model is not None:
+            del self.model
+            self.model = None
+        if self.tokenizer is not None:
+            del self.tokenizer
+            self.tokenizer = None
+        if self.reranker is not None:
+            del self.reranker
+            self.reranker = None
+        gc.collect()
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+            free = torch.cuda.mem_get_info()[0] / 1024**3
+            print(f"GPU memory freed. Available: {free:.1f} GB")
 
     def _parse_version(self, version_str):
         """Convert a version string like '3.12' to an integer (312) for numerical filtering."""
@@ -55,11 +102,25 @@ class VersionControlRAG:
             parts = version_str.split('.')
             return int(parts[0]) * 100 + int(parts[1])
         except Exception:
-            return 308  # Default to 3.8 on parse failure
+            return 308
+
+    def _build_embed_text(self, summary: str, code_content: str) -> str:
+        """
+        FIX 2: smart embedding text.
+        - If summary is English/code (not Chinese) → prepend it: gives the embedder
+          a semantic bridge between natural-language queries and code.
+        - If summary is Chinese → embed code only: Chinese text distorts the embedding
+          space and hurts English query matching.
+        """
+        if summary and not _has_chinese(summary):
+            # Strip the leading [filepath] prefix, keep the descriptive part
+            clean = re.sub(r'^\[[^\]]+\]\s*', '', summary).strip()
+            if clean:
+                return clean + "\n" + code_content
+        return code_content
 
     def extract_functions(self, file_path):
-        """Extract all function definitions from a Python file using Tree-sitter.
-        Uses an iterative traversal to avoid hitting Python's recursion limit on large files."""
+        """Extract all function definitions from a Python file using Tree-sitter."""
         with open(file_path, 'rb') as f:
             code_bytes = f.read()
         tree = self.parser.parse(code_bytes)
@@ -69,16 +130,13 @@ class VersionControlRAG:
             node = stack.pop()
             if node.type == 'function_definition':
                 functions.append(code_bytes[node.start_byte:node.end_byte].decode('utf-8'))
-                # Do not descend into function bodies to avoid capturing nested functions
             else:
-                # Extend in reverse so left-to-right source order is preserved (LIFO stack)
                 stack.extend(reversed(node.children))
         return functions
 
     def get_qwen_metadata(self, code_snippet):
         """Use the Qwen model to extract min_version and a summary from a code snippet."""
         prompt = f"### Role\nPython Version Expert. Output JSON only.\n### Task\nIdentify min_version (e.g. '3.12') and summary for:\n{code_snippet}\n### Response\n"
-        # truncation=True prevents silent failures on functions that exceed the model's context length
         inputs = self.tokenizer(
             prompt, return_tensors="pt", truncation=True, max_length=2048
         ).to(self.model.device)
@@ -90,16 +148,27 @@ class VersionControlRAG:
         except Exception:
             return {"min_version": "3.8", "summary": "Analysis fallback"}
 
-    def ingest_data(self, doc_id, code_content, min_version, summary):
-        """Buffer a document for ingestion. Skips duplicate doc_ids to prevent double-ingestion
-        on retry after partial failures. Flushes automatically when batch size is reached.
-        Call flush_upsert_buffer() after the final document to commit remaining entries."""
+    def ingest_data(self, doc_id, code_content, min_version, summary, tier="docs_src"):
+        """
+        Buffer a document for ingestion.
+        tier: "docs_src" | "fastapi" | "scripts"
+              scripts/ chunks are skipped — build tooling is pure noise for retrieval.
+        """
         if doc_id in self._corpus_ids:
             return
+        if tier == "scripts":
+            return  # excluded: build tooling crowds out tutorial results
 
-        vector_values = self.embedder.encode(summary + " " + code_content).tolist()
+        embed_text = self._build_embed_text(summary, code_content)
+        vector_values = self.embedder.encode(embed_text).tolist()
+
         safe_version_num = self._parse_version(min_version)
-        metadata = {"min_version": safe_version_num, "summary": summary, "code": code_content}
+        metadata = {
+            "min_version": safe_version_num,
+            "summary":     summary,
+            "code":        code_content,
+            "tier":        tier,
+        }
 
         self._upsert_buffer.append({"id": doc_id, "values": vector_values, "metadata": metadata})
         self.local_corpus.append({"id": doc_id, "content": code_content, "metadata": metadata})
@@ -109,7 +178,6 @@ class VersionControlRAG:
             self.flush_upsert_buffer()
 
     def flush_upsert_buffer(self):
-        """Send all buffered vectors to Pinecone in a single batch request."""
         if not self._upsert_buffer:
             return
         try:
@@ -120,8 +188,6 @@ class VersionControlRAG:
             raise
 
     def rebuild_bm25(self):
-        """Rebuild the BM25 index from the current local corpus.
-        Uses regex-based tokenization suited for source code identifiers."""
         if not self.local_corpus:
             print("Warning: local_corpus is empty, skipping BM25 rebuild.")
             return
@@ -129,21 +195,80 @@ class VersionControlRAG:
         self.bm25_model = BM25Okapi(tokenized_corpus)
         print(f"BM25 index rebuilt with {len(self.local_corpus)} documents.")
 
-    def retrieve_complex(self, query, target_version=None, top_k=3, mode="advanced"):
-        """Retrieve relevant code snippets for a given query.
-
-        mode='baseline': vector search only.
-        mode='advanced': hybrid search (vector + BM25) with Cross-Encoder reranking.
+    def _generate_hypothesis(self, query: str, max_new_tokens: int = 150) -> str:
+        if self.ingest_only or self.model is None:
+            raise RuntimeError("_generate_hypothesis requires ingest_only=False.")
         """
-        if mode not in ("baseline", "advanced"):
-            raise ValueError(f"Invalid mode '{mode}'. Expected 'baseline' or 'advanced'.")
+        FIX 3: HyDE — generate a short hypothetical FastAPI code snippet
+        that would answer the query, then embed THAT instead of the query.
 
-        query_vector = self.embedder.encode(query).tolist()
+        A generated snippet contains function names, parameter names, and imports
+        that actually appear in the corpus — massively closing the semantic gap
+        between 'share dependencies across routes' and 'common_parameters'.
+        """
+        messages = [
+            {
+                "role": "system",
+                "content": (
+                    "You are a FastAPI expert. Write a SHORT Python code snippet "
+                    "that directly answers the question. Return ONLY code, no explanation."
+                )
+            },
+            {"role": "user", "content": query}
+        ]
+        text = self.tokenizer.apply_chat_template(
+            messages, tokenize=False, add_generation_prompt=True
+        )
+        inputs = self.tokenizer(
+            text, return_tensors="pt", truncation=True, max_length=1024
+        ).to(self.model.device)
+        with torch.no_grad():
+            out = self.model.generate(
+                **inputs,
+                max_new_tokens=max_new_tokens,
+                do_sample=False,
+                pad_token_id=self.tokenizer.eos_token_id,
+            )
+        hypothesis = self.tokenizer.decode(
+            out[0][inputs.input_ids.shape[1]:], skip_special_tokens=True
+        ).strip()
+        return hypothesis if hypothesis else query   # fallback to raw query if model fails
 
-        parsed_version = self._parse_version(target_version) if target_version else None
-        filter_dict = {"min_version": {"$lte": parsed_version}} if parsed_version else {}
+    def retrieve_complex(self, query, target_version=None, top_k=3, mode="advanced"):
+        """
+        Retrieve relevant code snippets.
 
-        # Fetch more candidates in advanced mode to ensure the reranker has sufficient pool
+        mode='baseline'  — vector search only (raw query embedding)
+        mode='advanced'  — hybrid (vector + BM25) with cross-encoder reranking
+        mode='hyde'      — HyDE: generate hypothesis → embed that → hybrid + reranking
+                           Best for concept queries where function names are unknown.
+        """
+        if self.ingest_only and mode == "hyde":
+            raise RuntimeError(
+                "HyDE requires ingest_only=False (Qwen needed to generate hypothesis). "
+                "Use mode='baseline' or mode='advanced' with ingest_only=True."
+            )
+        if mode not in ("baseline", "advanced", "hyde"):
+            raise ValueError(f"Invalid mode '{mode}'. Expected 'baseline', 'advanced', or 'hyde'.")
+
+        # FIX 3: HyDE — embed a generated hypothesis instead of the raw query
+        if mode == "hyde":
+            print("[HyDE Mode] Generating hypothesis...")
+            hypothesis = self._generate_hypothesis(query)
+            print(f"  Hypothesis: {hypothesis[:120].strip()!r}")
+            query_vector = self.embedder.encode(hypothesis).tolist()
+        else:
+            query_vector = self.embedder.encode(query).tolist()
+
+        # Stratified retrieval: concept queries → docs_src/ tutorials only.
+        # Internal function queries (backtick-quoted name) → search all tiers.
+        # scripts/ is excluded at ingest time so never appears in results.
+        query_names_internal = bool(re.search(r"`[a-z_][a-z0-9_]+`", query))
+        if query_names_internal:
+            filter_dict = {}                               # search docs_src + fastapi
+        else:
+            filter_dict = {"tier": {"$eq": "docs_src"}}   # concept queries → tutorials only
+
         fetch_k = top_k if mode == "baseline" else max(top_k * 3, 10)
         pinecone_res = self.index.query(
             vector=query_vector,
@@ -156,15 +281,18 @@ class VersionControlRAG:
             print("[Baseline Mode]")
             return [match['metadata']['code'] for match in pinecone_res['matches']]
 
-        print("[Advanced Mode]")
-
+        # Advanced / HyDE: hybrid + rerank
         bm25_docs = {}
         if self.bm25_model is not None:
             tokenized_query = re.findall(r'[a-zA-Z_]\w*|\d+', query)
             bm25_scores = self.bm25_model.get_scores(tokenized_query)
-            bm25_docs = {self.local_corpus[i]["id"]: self.local_corpus[i]["content"]
-                         for i, s in enumerate(bm25_scores) if s > 0
-                         if not parsed_version or self.local_corpus[i]["metadata"]["min_version"] <= parsed_version}
+            bm25_docs = {
+                self.local_corpus[i]["id"]: self.local_corpus[i]["content"]
+                for i, s in enumerate(bm25_scores)
+                if s > 0
+                and (query_names_internal or
+                     self.local_corpus[i]["metadata"].get("tier", "docs_src") == "docs_src")
+            }
         else:
             print("Warning: BM25 corpus is empty. Call rebuild_bm25() or load_local_corpus() first.")
 
@@ -176,18 +304,17 @@ class VersionControlRAG:
 
         pairs = [[query, code] for code in candidates.values()]
         scores = self.reranker.predict(pairs)
-        final_results = [c for c, _ in sorted(zip(candidates.values(), scores), key=lambda x: x[1], reverse=True)]
-
+        final_results = [
+            c for c, _ in sorted(zip(candidates.values(), scores), key=lambda x: x[1], reverse=True)
+        ]
         return final_results[:top_k]
 
     def save_local_corpus(self, filepath="local_corpus.json"):
-        """Persist the local corpus to disk for state restoration on next restart."""
         with open(filepath, 'w', encoding='utf-8') as f:
             json.dump(self.local_corpus, f, ensure_ascii=False, indent=2)
         print("Local corpus saved.")
 
     def load_local_corpus(self, filepath="local_corpus.json"):
-        """Restore the local corpus from disk and rebuild the BM25 index."""
         if os.path.exists(filepath):
             with open(filepath, 'r', encoding='utf-8') as f:
                 self.local_corpus = json.load(f)
