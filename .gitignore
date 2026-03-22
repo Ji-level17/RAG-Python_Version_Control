@@ -1,3 +1,7 @@
+# Project-specific
+processed_state.json
+fastapi/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
