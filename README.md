@@ -1,106 +1,219 @@
-# RAG-Python_Version_Control
-Using Qwen coder 7B model with QLoRA. Get a model specific in Python 3.12+. Then use RAG(base), hybrid and Cross encoder reranking, Hierarchical RAG, and Import-Graph RAG to test on the version control. Using fast api as an test base.
+# FastAPI QLoRA RAG Evaluation System
 
-# 🚀 Version-Aware Code RAG Pipeline | 支持版本控制的代码 RAG 系统
+A complete pipeline for ingesting the FastAPI source repository, evaluating a
+QLoRA fine-tuned code generation model, and benchmarking it against frontier
+models using RAGAS.
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
-![Applied ML](https://img.shields.io/badge/Course-Applied%20Machine%20Learning-orange)
+---
 
-**English** | [中文版](#中文说明)
+## Project structure
 
-This repository contains a fully modularized Retrieval-Augmented Generation (RAG) pipeline designed specifically for codebases (e.g., FastAPI). It features a hybrid search mechanism (Vector + BM25), a Cross-Encoder reranker, and uses a custom QLoRA fine-tuned Qwen model to automatically tag code snippets with their minimum required Python version.
-
-## ✨ Core Features
-* **Modular Design:** Data ingestion (`RepoProcessor`) and retrieval (`VersionControlRAG`) are cleanly separated.
-* **Hybrid Search & Reranking:** Combines Pinecone vector search with local BM25, refined by a Cross-Encoder.
-* **Version Control:** Filters out code snippets that are incompatible with the user's target Python version.
-* **Algorithm Lab (For Classmates):** Easily plug in and test your own retrieval algorithms without rewriting the boilerplate code!
-
-## 📦 Quick Start (Out of the Box)
-
-If you just want to run the existing baseline or advanced RAG, it only takes a few lines of code:
-
-```python
-from rag_pipeline import VersionControlRAG
-
-# 1. Initialize the pipeline (Handles Pinecone connection, Embeddings, and Qwen)
-rag = VersionControlRAG(
-    pinecone_key="YOUR_PINECONE_KEY", 
-    model_path="Qwen/Qwen2.5-Coder-7B", 
-    adapter_path="Ivan17Ji/qwen-lora-250"
-)
-
-# 2. Search using the Advanced Hybrid mode
-results = rag.retrieve_complex("How to define an APIRouter?", target_version="3.12", mode="advanced")
-print(results[0])
 ```
-
-## 🛠️ For Teammates: How to Test Your Own RAG Algorithms?
-
-**Don't write everything from scratch!** I have encapsulated the dirty work (connecting to DB, chunking, loading models). To test a new retrieval algorithm for our Applied ML assignment, simply **inherit** my base class and override the `retrieve_complex` method:
-
-```python
-from rag_pipeline import VersionControlRAG
-
-class MyCustomRAG(VersionControlRAG):
-    def retrieve_complex(self, query, target_version, top_k=3, mode="custom"):
-        print("🚀 Running my awesome custom algorithm...")
-        # Write your own TF-IDF / PageRank / GraphRAG logic here!
-        # You can directly access self.local_corpus and self.index
-        return ["My algorithm's result"]
-
-# Test your algorithm
-my_rag = MyCustomRAG(pinecone_key="...", model_path="...", adapter_path="...")
-my_rag.retrieve_complex("Test query", "3.12")
+project/
+│
+├── rag_pipeline_fixed.py          Core RAG system (VersionControlRAG class)
+├── repoProcessor_fixed.py         Repository ingestion with tier-aware chunking
+│
+├── local_corpus.json              889 FastAPI code chunks (scripts/ excluded)
+├── processed_state.json           MD5 hash registry — prevents re-ingesting unchanged files
+│
+├── fastapi_golden_set.jsonl       561 golden QA pairs  (instruction / ground_truth / version)
+├── fastapi_golden_set.json        Same set, pretty-printed for inspection
+├── fastapi_golden_set_manifest.csv  Lightweight index — no code, no answers
+├── fastapi_golden_set_splits.json   Train(392) / Val(84) / Test(85) split
+│
+├── ragas_dataset.jsonl            576 RAGAS records (question / contexts / ground_truth / answer)
+├── ragas_dataset.json             Same, pretty-printed
+├── ragas_dataset_hf.csv           HuggingFace Dataset-compatible format
+├── ragas_eval_template.py         Standalone RAGAS eval script (reference)
+│
+├── validate_datasets.py           Runs 17 automated checks on the datasets
+│
+├── corpus_bootstrap.ipynb         Restore local_corpus.json after kernel restart
+├── oom_safe_upsert.ipynb          Re-upsert to Pinecone without OOM (ingest_only mode)
+├── recover_corpus.ipynb           Rebuild local_corpus.json from Pinecone if overwritten
+│
+├── fastapi_qlora_eval.ipynb       Main eval notebook (retrieval + generation + RAGAS)
+├── qlora_ragas_eval.ipynb         Standalone QLoRA RAGAS eval — base vs QLoRA
+├── groq_eval.ipynb                Frontier eval via Groq (Llama-3.3-70b, Qwen-32B)
+├── model_comparison.ipynb         Combined comparison chart (loads from both above)
+│
+├── retrieval_chunking_eval.ipynb  Chunking strategy A/B test (hit rate / MRR / P@k / recall)
+│
+├── ragas_rag_pipeline_eval.ipynb  Full RAG pipeline eval (live retriever + generator)
+├── ragas_nan_fix.ipynb            Fix: all-NaN RAGAS scores (empty answers / missing judge)
+├── ragas_empty_answer_fix.ipynb   Fix: empty model answers (Qwen chat template fix)
+│
+├── fix_dimension_mismatch.ipynb   Fix: Pinecone 384 vs 768 dim error
+├── definitive_fix.ipynb           Fix: semantic hit metric + force re-upsert
+├── complete_fix.ipynb             Fix: combined re-upsert + all modes test
 ```
 
 ---
 
-<a name="中文说明"></a>
-## 🇨🇳 中文说明
+## System overview
 
-本项目包含一个完全模块化的 RAG（检索增强生成）管道，专门为代码库（如 FastAPI）设计。它集成了混合检索（向量 + BM25）、交叉编码器（Cross-Encoder）重排，并使用微调后的 Qwen 模型（QLoRA）自动为代码片段打上 Python 版本标签。
+### Phase 1 — Corpus ingestion
 
-## ✨ 核心特性
-* **模块化设计**：数据摄取（`RepoProcessor`）和检索逻辑（`VersionControlRAG`）完全解耦。
-* **混合检索与重排**：结合 Pinecone 向量检索与本地 BM25，并通过 Cross-Encoder 提升准确率。
-* **版本控制**：精准过滤掉不兼容目标 Python 版本的代码。
-* **算法实验室（专为同学准备）**：无需重写繁琐的基础代码，即可轻松接入并测试你自己的检索算法！
+`repoProcessor_fixed.py` walks the FastAPI repository and calls
+`VersionControlRAG.ingest_data()` for each Python function found via Tree-sitter
+AST parsing. Each chunk is assigned a **tier**:
 
-## 📦 快速开始（开箱即用）
+| Tier | Source | Kept? |
+|---|---|---|
+| `docs_src` | Tutorial examples (`docs_src/`) | ✅ 628 chunks |
+| `fastapi` | Internal implementation (`fastapi/`) | ✅ 261 chunks |
+| `scripts` | Build tooling (`scripts/`) | ❌ excluded — noise |
 
-如果你只想测试现有的 Baseline 或 Advanced RAG，只需几行代码：
+The embedder (`st-codesearch-distilroberta-base`, 768-dim) encodes each chunk
+on CPU. English summaries are prepended to the code before embedding; Chinese
+summaries (produced by the QLoRA during ingestion) are stripped and only the
+code is embedded.
+
+### Phase 2 — Golden set
+
+561 QA pairs generated from the corpus, split 70/15/15. Each item has:
+- `instruction` — natural-language prompt
+- `ground_truth` — the correct Python code
+- `version` — `{python, style, fastapi_min_version}`
+
+The RAGAS dataset (`ragas_dataset.jsonl`) wraps these into the four fields
+RAGAS expects: `question`, `contexts`, `ground_truth`, `answer` (blank — filled
+by your model at eval time).
+
+### Phase 3 — RAG pipeline (`rag_pipeline_fixed.py`)
+
+`VersionControlRAG` has three retrieval modes:
+
+| Mode | Description |
+|---|---|
+| `baseline` | Dense vector search only |
+| `advanced` | Hybrid (vector + BM25) with BGE cross-encoder reranking |
+| `hyde` | HyDE: generate a hypothetical answer → embed that → hybrid + rerank |
+
+**Stratified retrieval:** concept queries (no backtick-quoted function name)
+search only `docs_src/` tier to avoid internal implementation noise. Queries
+that explicitly name an internal function (e.g. `` `_extract_form` ``) search
+all tiers.
+
+**Memory modes:**
 
 ```python
+# Ingestion only — no Qwen on GPU (~0.3 GB VRAM)
+rag = VersionControlRAG(..., ingest_only=True)
+
+# Full pipeline — Qwen + adapter on GPU (~15.6 GB VRAM)
+rag = VersionControlRAG(..., ingest_only=False)
+
+# Free GPU mid-session
+rag.free_gpu_memory()
+```
+
+### Phase 4 — Retrieval evaluation
+
+`retrieval_chunking_eval.ipynb` measures retrieval quality without any LLM
+judge:
+
+| Metric | Definition |
+|---|---|
+| `hit_rate@k` | 1 if any golden chunk appears in top-k results |
+| `mrr@k` | 1 / rank of first golden hit |
+| `precision@k` | Relevant retrieved / total retrieved |
+| `recall@k` | Relevant retrieved / total golden |
+
+**Current best:** `advanced` mode at `top_k=10` → **70% semantic hit rate**
+on the test split.
+
+**Semantic hit metric:** a retrieved chunk counts as a hit if it defines the
+same function name as a golden chunk, not just if it is the exact same file.
+This correctly treats tutorial variants (`tutorial001_py310.py` vs
+`tutorial001_an_py310.py`) as equivalent correct answers.
+
+### Phase 5 — Generation evaluation (RAGAS)
+
+RAGAS scores four dimensions using an LLM judge (Groq `llama-3.3-70b` — free):
+
+| Metric | Question it answers |
+|---|---|
+| `faithfulness` | Is the answer grounded in the retrieved context? |
+| `answer_relevancy` | Does the answer address the question? |
+| `context_precision` | Are the retrieved chunks relevant to the question? |
+| `context_recall` | Do the chunks cover what is needed to answer? |
+
+**Model comparison:**
+1. Run `qlora_ragas_eval.ipynb` → saves `model_comparison_results.csv`
+2. Run `groq_eval.ipynb` → loads above + runs frontier models → full chart
+
+---
+
+## Hardware requirements
+
+| Component | Requirement |
+|---|---|
+| GPU | 44+ GB VRAM (tested on A40) |
+| Qwen 7B + QLoRA adapter | ~15.6 GB VRAM |
+| Embedder + reranker | CPU only |
+| Frontier eval (Groq) | Zero GPU — API only |
+
+---
+
+## Keys required
+
+| Key | Where to get | Used for |
+|---|---|---|
+| `PINECONE_API_KEY` | app.pinecone.io | Vector store |
+| `GROQ_API_KEY` | console.groq.com/keys | Generation + RAGAS judge (free) |
+
+---
+
+## Quick start — kernel restart recovery
+
+```python
+# Every time you restart the kernel, run this first:
+import rag_pipeline, importlib
+importlib.reload(rag_pipeline)
 from rag_pipeline import VersionControlRAG
 
-# 1. 初始化航母（自动处理数据库连接、向量模型和 Qwen 加载）
 rag = VersionControlRAG(
-    pinecone_key="YOUR_PINECONE_KEY", 
-    model_path="Qwen/Qwen2.5-Coder-7B", 
-    adapter_path="Ivan17Ji/qwen-lora-250"
+    pinecone_key = "YOUR_KEY",
+    model_path   = "Qwen/Qwen2.5-Coder-7B",
+    adapter_path = "Ivan17Ji/qwen-lora-250",
+    ingest_only  = False,
 )
-
-# 2. 使用进阶混合模式进行搜索
-results = rag.retrieve_complex("How to define an APIRouter?", target_version="3.12", mode="advanced")
-print(results[0])
+rag.load_local_corpus("local_corpus.json")
 ```
 
-## 🛠️ 给组员的指南：如何测试你自己的 RAG 算法？
+If `local_corpus.json` is empty or missing, run `recover_corpus.ipynb` — it
+reconstructs the file from Pinecone metadata without re-embedding anything.
 
-**千万不要从头写脏活累活！** 我已经封装好了底层设施（连接数据库、文本切分、加载大模型等）。为了完成我们 Applied ML 的作业要求，你只需要**继承**我的基类，并重写 `retrieve_complex` 方法即可：
+---
+
+## Tomorrow — chunking experiments
+
+`retrieval_chunking_eval.ipynb` already has four strategies implemented.
+To test a new strategy, add it to the `strategies` dict in Section 1:
 
 ```python
-from rag_pipeline import VersionControlRAG
-
-class MyCustomRAG(VersionControlRAG):
-    def retrieve_complex(self, query, target_version, top_k=3, mode="custom"):
-        print("🚀 正在运行我开发的牛逼算法...")
-        # 在这里写你自己的 TF-IDF / 各种神仙匹配逻辑！
-        # 你可以直接调用 self.local_corpus 和 self.index 获取数据
-        return ["这是我的算法找出来的结果"]
-
-# 测试你的新算法
-my_rag = MyCustomRAG(pinecone_key="...", model_path="...", adapter_path="...")
-my_rag.retrieve_complex("测试问题", "3.12")
+strategies = {
+    "ast_function":   chunks_ast,       # current baseline
+    "ast_with_class": chunks_ast_ctx,   # adds parent class name
+    "fixed_512":      chunks_fixed,     # 512-token windows
+    "semantic":       chunks_semantic,  # embed + cluster similar fns
+    "your_new_method": your_chunks,     # ← add here
+}
 ```
+
+The eval loop runs all strategies automatically and produces hit rate / MRR /
+precision / recall charts plus a recall@k curve showing the optimal `top_k`.
+
+---
+
+## Known limitations
+
+- `min_version` metadata is unreliable — QLoRA assigns 3.12 to ~99% of chunks,
+  so the version filter in `retrieve_complex` is disabled.
+- 60% of test queries are concept-only (no function name in the query). These
+  require HyDE for good recall; pure vector search plateaus at ~30%.
+- The golden set contains tutorial variants of the same function across
+  multiple files. Use `hit_rate_semantic()` (function-name matching) not
+  `hit_rate_strict()` (exact fingerprint) for meaningful evaluation.
