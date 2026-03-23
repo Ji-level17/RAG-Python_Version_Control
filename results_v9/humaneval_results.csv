@@ -1,0 +1,1669 @@
+task_id,n_samples,n_passed,passed,completion,error
+HumanEval/0,1,1,True,"def has_close_elements(numbers: List[float], threshold: float) -> bool:
+    n = len(numbers)
+    if n < 2:
+        return False
+    for i in range(n):
+        for j in range(i + 1, n):
+            if abs(numbers[i] - numbers[j]) < threshold:
+                return True
+    return False",
+HumanEval/1,1,1,True,"def separate_paren_groups(paren_string: str) -> List[str]:
+    result = []
+    current_group_chars = []
+    balance = 0
+
+    for char in paren_string:
+        if char == ' ':
+            continue
+
+        current_group_chars.append(char)
+
+        if char == '(':
+            balance += 1
+        elif char == ')':
+            balance -= 1
+
+        if balance == 0:
+            result.append("""".join(current_group_chars))
+            current_group_chars = []
+            
+    return result",
+HumanEval/2,1,1,True,"def truncate_number(number: float) -> float:
+    return number - int(number)",
+HumanEval/3,1,1,True,"def below_zero(operations: List[int]) -> bool:
+    balance = 0
+    for op in operations:
+        balance += op
+        if balance < 0:
+            return True
+    return False",
+HumanEval/4,1,1,True,"def mean_absolute_deviation(numbers: List[float]) -> float:
+    if not numbers:
+        return 0.0
+
+    data_mean = sum(numbers) / len(numbers)
+
+    sum_abs_diff = 0.0
+    for x in numbers:
+        sum_abs_diff += abs(x - data_mean)
+
+    mad = sum_abs_diff / len(numbers)
+
+    return mad",
+HumanEval/5,1,1,True,"def intersperse(numbers: List[int], delimeter: int) -> List[int]:
+    result = []
+    for i, num in enumerate(numbers):
+        result.append(num)
+        if i < len(numbers) - 1:
+            result.append(delimeter)
+    return result",
+HumanEval/6,1,1,True,"def parse_nested_parens(paren_string: str) -> List[int]:
+    groups = paren_string.split(' ')
+    result = []
+    for group in groups:
+        current_depth = 0
+        max_depth = 0
+        for char in group:
+            if char == '(':
+                current_depth += 1
+                max_depth = max(max_depth, current_depth)
+            elif char == ')':
+                current_depth -= 1
+        result.append(max_depth)
+    return result",
+HumanEval/7,1,1,True,"def filter_by_substring(strings: List[str], substring: str) -> List[str]:
+    return [s for s in strings if substring in s]",
+HumanEval/8,1,1,True,"def sum_product(numbers: List[int]) -> Tuple[int, int]:
+    total_sum = 0
+    total_product = 1
+    for num in numbers:
+        total_sum += num
+        total_product *= num
+    return (total_sum, total_product)",
+HumanEval/9,1,1,True,"def rolling_max(numbers: List[int]) -> List[int]:
+    result = []
+    current_max = float('-inf')
+    for number in numbers:
+        current_max = max(current_max, number)
+        result.append(current_max)
+    return result",
+HumanEval/10,1,0,False,"def make_palindrome(string: str) -> str:
+    if not string:
+        return """"
+
+    n = len(string)
+    
+    # Iterate through possible starting points for the palindromic suffix.
+    # The suffix is string[i:].
+    # We are looking for the longest palindromic suffix, so we iterate `i` from 0 upwards","Traceback (most recent call last):
+  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpe86if2h9.py"", line 26, in <module>
+    check(make_palindrome)
+    ~~~~~^^^^^^^^^^^^^^^^^
+  File ""C:\Users\Imgigi\AppDat"
+HumanEval/11,1,1,True,"def string_xor(a: str, b: str) -> str:
+    result = []
+    for i in range(len(a)):
+        if a[i] == b[i]:
+            result.append('0')
+        else:
+            result.append('1')
+    return """".join(result)",
+HumanEval/12,1,1,True,"def longest(strings: List[str]) -> Optional[str]:
+    if not strings:
+        return None
+    return max(strings, key=len)",
+HumanEval/13,1,1,True,"def greatest_common_divisor(a: int, b: int) -> int:
+    while b:
+        a, b = b, a % b
+    return a",
+HumanEval/14,1,1,True,"def all_prefixes(string: str) -> List[str]:
+    return [string[0:i] for i in range(1, len(string) + 1)]",
+HumanEval/15,1,1,True,"def string_sequence(n: int) -> str:
+    return ' '.join(str(i) for i in range(n + 1))",
+HumanEval/16,1,1,True,"def count_distinct_characters(string: str) -> int:
+    seen_characters = set()
+    for char in string:
+        seen_characters.add(char.lower())
+    return len(seen_characters)",
+HumanEval/17,1,1,True,"def parse_music(music_string: str) -> List[int]:
+    note_beats_map = {
+        'o': 4,
+        'o|': 2,
+        '.|': 1
+    }
+    
+    notes = music_string.split(' ')
+    
+    result = []
+    for note in notes:
+        if note in note_beats_map:
+            result.append(note_beats_map[note])
+            
+    return result",
+HumanEval/18,1,1,True,"def how_many_times(string: str, substring: str) -> int:
+    count = 0
+    if not substring: # Handle empty substring case: it occurs len(string) + 1 times
+        return len(string) + 1
+    if len(substring) > len(string):
+        return 0
+    
+    for i in range(len(string) - len(substring) + 1):
+        if string[i:i+len(substring)] == substring:
+            count += 1
+    return count",
+HumanEval/19,1,1,True,"def sort_numbers(numbers: str) -> str:
+    word_to_int = {
+        'zero': 0, 'one': 1, 'two': 2, 'three': 3, 'four': 4,
+        'five': 5, 'six': 6, 'seven': 7, 'eight': 8, 'nine': 9
+    }
+
+    words_list = numbers.split()
+    
+    sorted_words = sorted(words_list, key=lambda word: word_to_int[word])
+    
+    return ' '.join(sorted_words)",
+HumanEval/20,1,0,False,"def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
+    sorted_numbers = sorted(numbers)
+    
+    min_diff = float('inf')
+    closest_pair = (0.0, 0.0) # Placeholder, will be updated
+
+    # Iterate through adjacent elements in the sorted list
+    # The","Traceback (most recent call last):
+  File ""C:\Users\Imgigi\AppData\Local\Temp\tmp6f9ft2y0.py"", line 27, in <module>
+    check(find_closest_elements)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File ""C:\Users\I"
+HumanEval/21,1,0,False,"def rescale_to_unit(numbers: List[float]) -> List[float]:
+    min_val = min(numbers)
+    max_val = max(numbers)
+
+    diff = max_val - min_val
+
+    if diff == 0:
+        # If all numbers are the same, there's no range to scale.
+        # Map all","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpd4fqfkco.py"", line 14
+    METADATA = {
+IndentationError: expected an indented block after 'if' statement on line 8
+"
+HumanEval/22,1,1,True,"def filter_integers(values: List[Any]) -> List[int]:
+    return [value for value in values if isinstance(value, int)]",
+HumanEval/23,1,1,True,"def strlen(string: str) -> int:
+    return len(string)",
+HumanEval/24,1,1,True,"def largest_divisor(n: int) -> int:
+    if n % 2 == 0:
+        return n // 2
+    
+    i = 3
+    while i * i <= n:
+        if n % i == 0:
+            return n // i
+        i += 2
+            
+    return 1",
+HumanEval/25,1,0,False,"def factorize(n: int) -> List[int]:
+    factors = []
+
+    # Handle factor 2
+    while n % 2 == 0:
+        factors.append(2)
+        n //= 2
+
+    # Handle odd factors starting from 3
+    d = 3
+    while d * d <= n:
+        while n %","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpjg420fn3.py"", line 13
+    while n %
+             ^
+SyntaxError: invalid syntax
+"
+HumanEval/26,1,1,True,"def remove_duplicates(numbers: List[int]) -> List[int]:
+    counts = {}
+    for num in numbers:
+        counts[num] = counts.get(num, 0) + 1
+
+    result = []
+    for num in numbers:
+        if counts[num] == 1:
+            result.append(num)
+    return result",
+HumanEval/27,1,1,True,"def flip_case(string: str) -> str:
+    return """".join([char.swapcase() for char in string])",
+HumanEval/28,1,1,True,"def concatenate(strings: List[str]) -> str:
+    return """".join(strings)",
+HumanEval/29,1,1,True,"def filter_by_prefix(strings: List[str], prefix: str) -> List[str]:
+    return [s for s in strings if s.startswith(prefix)]",
+HumanEval/30,1,1,True,"def get_positive(l: list):
+    return [x for x in l if x > 0]",
+HumanEval/31,1,1,True,"def is_prime(n):
+    if n <= 1:
+        return False
+    if n == 2:
+        return True
+    if n % 2 == 0:
+        return False
+    i = 3
+    while i * i <= n:
+        if n % i == 0:
+            return False
+        i += 2
+    return True",
+HumanEval/32,1,0,False,"import math
+
+
+def poly(xs: list, x: float):
+    """"""
+    Evaluates polynomial with coefficients xs at point x.
+    return xs[0] + xs[1] * x + xs[1] * x^2 + .... xs[n] * x^n
+    """"""
+    return sum([coeff * math.pow(x","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpktkphvec.py"", line 10
+    return sum([coeff * math.pow(x
+                                ^
+SyntaxError: '(' was never closed
+"
+HumanEval/33,1,1,True,"def sort_third(l: list):
+    third_values = []
+    for i in range(len(l)):
+        if i % 3 == 0:
+            third_values.append(l[i])
+
+    third_values.sort()
+
+    result_list = [None] * len(l)
+    third_idx = 0
+
+    for i in range(len(l)):
+        if i % 3 == 0:
+            result_list[i] = third_values[third_idx]
+            third_idx += 1
+        else:
+            result_list[i] = l[i]
+            
+    return result_list",
+HumanEval/34,1,1,True,"def unique(l: list):
+    return sorted(list(set(l)))",
+HumanEval/35,1,1,True,"def max_element(l: list):
+    return max(l)",
+HumanEval/36,1,1,True,"def fizz_buzz(n: int):
+    count_of_sevens = 0
+    for i in range(1, n):
+        if i % 11 == 0 or i % 13 == 0:
+            count_of_sevens += str(i).count('7')
+    return count_of_sevens",
+HumanEval/37,1,1,True,"def sort_even(l: list):
+    if not l:
+        return []
+
+    even_indexed_values = []
+    for i in range(len(l)):
+        if i % 2 == 0:
+            even_indexed_values.append(l[i])
+
+    even_indexed_values.sort()
+
+    result_list = [0] * len(l)
+    even_sorted_ptr = 0
+
+    for i in range(len(l)):
+        if i % 2 == 0:
+            result_list[i] = even_indexed_values[even_sorted_ptr]
+            even_sorted_ptr += 1
+        else:
+            result_list[i] = l[i]
+
+    return result_list",
+HumanEval/38,1,0,False,"def decode_cyclic(s: str):
+    # split string to groups. Each of length 3.
+    groups = [s[(3 * i):min((3 * i + 3), len(s))] for i in range((len(s) + 2) // 3)]
+    # reverse cycle elements in each group. Unless group has fewer elements than 3.
+    groups = [(group[-1] + group[:-1]) if len(group) == 3 else group for group in groups]
+    return """".join(groups)","Traceback (most recent call last):
+  File ""C:\Users\Imgigi\AppData\Local\Temp\tmp87o7_ufg.py"", line 24, in <module>
+    check(decode_cyclic)
+    ~~~~~^^^^^^^^^^^^^^^
+  File ""C:\Users\Imgigi\AppData\Lo"
+HumanEval/39,1,0,False,"def prime_fib(n: int):
+    import math
+
+    def is_prime(num: int) -> bool:
+        if num < 2:
+            return False
+        if num == 2:
+            return True
+        if num % 2 == 0:
+            return False
+        for i in range(3, int(math.","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpkcu0e27s.py"", line 11
+    for i in range(3, int(math.
+                         ^
+SyntaxError: '(' was never closed
+"
+HumanEval/40,1,0,False,"def triples_sum_to_zero(l: list):
+    n = len(l)
+    if n < 3:
+        return False
+
+    for i in range(n - 2):
+        for j in range(i + 1, n - 1):
+            for k in range(j + 1, n):
+                if l[i","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpv4t2pvij.py"", line 9
+    if l[i
+        ^
+SyntaxError: '[' was never closed
+"
+HumanEval/41,1,1,True,"def car_race_collision(n: int):
+    return n * n",
+HumanEval/42,1,1,True,"def incr_list(l: list):
+    return [x + 1 for x in l]",
+HumanEval/43,1,1,True,"def pairs_sum_to_zero(l):
+    seen = set()
+    for x in l:
+        if -x in seen:
+            return True
+        seen.add(x)
+    return False",
+HumanEval/44,1,1,True,"def change_base(x: int, base: int):
+    if x == 0:
+        return ""0""
+
+    result = """"
+    while x > 0:
+        remainder = x % base
+        result = str(remainder) + result
+        x //= base
+    return result",
+HumanEval/45,1,1,True,"def triangle_area(a, h):
+    return (a * h) / 2",
+HumanEval/46,1,0,False,"def fib4(n: int):
+    if n == 0:
+        return 0
+    if n == 1:
+        return 0
+    if n == 2:
+        return 2
+    if n == 3:
+        return 0
+
+    # Initialize the last four values: fib4(0), fib4(1), fib4(","Traceback (most recent call last):
+  File ""C:\Users\Imgigi\AppData\Local\Temp\tmp2d4bcxtn.py"", line 25, in <module>
+    check(fib4)
+    ~~~~~^^^^^^
+  File ""C:\Users\Imgigi\AppData\Local\Temp\tmp2d4bcx"
+HumanEval/47,1,0,False,"def median(l: list):
+    n = len(l)
+    if n == 0:
+        raise ValueError(""Median is not defined for an empty list."")
+
+    l_sorted = sorted(l)
+
+    if n % 2 == 1:
+        # Odd number of elements
+        return l_sorted[n // 2]
+    else:","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmp0voxyene.py"", line 15
+    METADATA = {}
+IndentationError: expected an indented block after 'else' statement on line 11
+"
+HumanEval/48,1,1,True,"def is_palindrome(text: str):
+    return text == text[::-1]",
+HumanEval/49,1,1,True,"def modp(n: int, p: int):
+    return pow(2, n, p)",
+HumanEval/50,1,0,False,"def decode_shift(s: str):
+    return """".join([chr(((ord(ch) - 5 - ord(""a"")) % 26) + ord(""a"")) for ch in s])","Traceback (most recent call last):
+  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpxfupi4us.py"", line 21, in <module>
+    check(decode_shift)
+    ~~~~~^^^^^^^^^^^^^^
+  File ""C:\Users\Imgigi\AppData\Loca"
+HumanEval/51,1,1,True,"def remove_vowels(text):
+    vowels = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'}
+    return """".join([char for char in text if char not in vowels])",
+HumanEval/52,1,1,True,"def below_threshold(l: list, t: int):
+    return all(x < t for x in l)",
+HumanEval/53,1,1,True,"def add(x: int, y: int):
+    return x + y",
+HumanEval/54,1,1,True,"def same_chars(s0: str, s1: str):
+    return set(s0) == set(s1)",
+HumanEval/55,1,1,True,"def fib(n: int):
+    if n == 1:
+        return 1
+    elif n == 2:
+        return 1
+    
+    a, b = 1, 1
+    for _ in range(3, n + 1):
+        next_fib = a + b
+        a = b
+        b = next_fib
+    return b",
+HumanEval/56,1,1,True,"def correct_bracketing(brackets: str):
+    count = 0
+    for char in brackets:
+        if char == '<':
+            count += 1
+        elif char == '>':
+            count -= 1
+        
+        if count < 0:
+            return False
+            
+    return count == 0",
+HumanEval/57,1,0,False,"def monotonic(l: list):
+    if len(l) <= 1:
+        return True
+
+    is_increasing = True
+    is_decreasing = True
+
+    for i in range(len(l) - 1):
+        if l[i] > l[i+1]:
+            is_increasing = False
+        if l[i]","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmp96bhceu0.py"", line 11
+    if l[i]
+           ^
+SyntaxError: expected ':'
+"
+HumanEval/58,1,1,True,"def common(l1: list, l2: list):
+    set1 = set(l1)
+    set2 = set(l2)
+    common_elements = list(set1.intersection(set2))
+    common_elements.sort()
+    return common_elements",
+HumanEval/59,1,0,False,"def largest_prime_factor(n: int):
+    largest_factor = 1
+
+    # Handle factor 2
+    while n % 2 == 0:
+        largest_factor = 2
+        n //= 2
+
+    # Handle odd factors
+    # We only need to check up to sqrt(n)
+    # Since n is reduced","Traceback (most recent call last):
+  File ""C:\Users\Imgigi\AppData\Local\Temp\tmp055fqtr7.py"", line 26, in <module>
+    check(largest_prime_factor)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File ""C:\Users\Img"
+HumanEval/60,1,1,True,"def sum_to_n(n: int):
+    return n * (n + 1) // 2",
+HumanEval/61,1,1,True,"def correct_bracketing(brackets: str):
+    balance = 0
+    for char in brackets:
+        if char == '(':
+            balance += 1
+        elif char == ')':
+            balance -= 1
+        
+        if balance < 0:
+            return False
+            
+    return balance == 0",
+HumanEval/62,1,1,True,"def derivative(xs: list):
+    result = []
+    for i in range(1, len(xs)):
+        result.append(xs[i] * i)
+    return result",
+HumanEval/63,1,1,True,"def fibfib(n: int):
+    if n == 0:
+        return 0
+    if n == 1:
+        return 0
+    if n == 2:
+        return 1
+
+    a = 0  # Represents fibfib(i-3)
+    b = 0  # Represents fibfib(i-2)
+    c = 1  # Represents fibfib(i-1)
+
+    for _ in range(3, n + 1):
+        next_fib = c + b + a
+        a = b
+        b = c
+        c = next_fib
+    
+    return c",
+HumanEval/64,1,1,True,"def vowels_count(s):
+    count = 0
+    vowels = {'a', 'e', 'i', 'o', 'u'}
+    s_lower = s.lower()
+    n = len(s_lower)
+    for i, char in enumerate(s_lower):
+        if char in vowels:
+            count += 1
+        elif char == 'y' and i == n - 1:
+            count += 1
+    return count",
+HumanEval/65,1,0,False,"def circular_shift(x, shift):
+    s = str(x)
+    n = len(s)
+
+    if shift > n:
+        return s[::-1]
+    else:
+        # Perform circular right shift
+        # The last 'shift' characters move to the beginning
+        # The first 'n - shift' characters move to the end
+        k =","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpm4b5emce.py"", line 11
+    k =
+       ^
+SyntaxError: invalid syntax
+"
+HumanEval/66,1,1,True,"def digitSum(s):
+    return sum(ord(char) for char in s if char.isupper())",
+HumanEval/67,1,1,True,"def fruit_distribution(s,n):
+    parts = s.split("" apples and "")
+    num_apples = int(parts[0])
+    
+    oranges_part = parts[1]
+    num_oranges = int(oranges_part.split("" oranges"")[0])
+    
+    return n - num_apples - num_oranges",
+HumanEval/68,1,1,True,"def pluck(arr):
+    min_even_value = float('inf')
+    min_even_index = -1
+
+    for i, num in enumerate(arr):
+        if num % 2 == 0:
+            if num < min_even_value:
+                min_even_value = num
+                min_even_index = i
+            # If num == min_even_value, we do not update min_even_index
+            # because we are looking for the smallest index among equal smallest values,
+            # and iterating from left to right naturally ensures the first occurrence's
+        ",
+HumanEval/69,1,0,False,"def search(lst):
+    from collections import Counter
+    counts = Counter(lst)
+    
+    max_candidate = -1
+    
+    for num in counts:
+        # The problem states ""non-empty list of positive integers"",
+        # so num will always be > 0.
+        frequency = counts[num]
+        
+        if frequency >=","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpv8a7k6o4.py"", line 12
+    if frequency >=
+                   ^
+SyntaxError: invalid syntax
+"
+HumanEval/70,1,0,False,"def strange_sort_list(lst):
+    if not lst:
+        return []
+
+    sorted_lst = sorted(lst)
+    result = []
+    
+    is_min_turn = True
+    
+    while sorted_lst:
+        if is_min_turn:
+            result.append(sorted_lst.pop(0))
+        else:","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpk4ijk9c9.py"", line 15
+    def check(candidate):
+IndentationError: expected an indented block after 'else' statement on line 13
+"
+HumanEval/71,1,0,False,"import math
+
+def triangle_area(a, b, c):
+    if a <= 0 or b <= 0 or c <= 0:
+        return -1
+    
+    if not (a + b > c and a + c > b and b + c > a):
+        return -1
+    
+    s = (a + b + c)","Traceback (most recent call last):
+  File ""C:\Users\Imgigi\AppData\Local\Temp\tmp4c_d0jju.py"", line 28, in <module>
+    check(triangle_area)
+    ~~~~~^^^^^^^^^^^^^^^
+  File ""C:\Users\Imgigi\AppData\Lo"
+HumanEval/72,1,1,True,"def will_it_fly(q,w):
+    return q == q[::-1] and sum(q) <= w",
+HumanEval/73,1,1,True,"def smallest_change(arr):
+    n = len(arr)
+    changes = 0
+    for i in range(n // 2):
+        if arr[i] != arr[n - 1 - i]:
+            changes += 1
+    return changes",
+HumanEval/74,1,1,True,"def total_match(lst1, lst2):
+    sum_chars_lst1 = sum(len(s) for s in lst1)
+    sum_chars_lst2 = sum(len(s) for s in lst2)
+
+    if sum_chars_lst1 <= sum_chars_lst2:
+        return lst1
+    else:
+        return lst2",
+HumanEval/75,1,0,False,"def is_multiply_prime(a):
+    if a < 1:
+        return False
+
+    prime_factors_count = 0
+    temp_a = a
+    i = 2
+
+    while i * i <= temp_a:
+        if temp_a % i == 0:
+            # i is a prime factor (because we are checking factors in","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpyuy5tga8.py"", line 13
+    def check(candidate):
+IndentationError: expected an indented block after 'if' statement on line 10
+"
+HumanEval/76,1,0,False,"def is_simple_power(x, n):
+    if x == 1:
+        # Any number n (including 0) raised to the power of 0 is 1.
+        # So, 1 is always a simple power of n.
+        return True
+
+    if n == 1:
+        # If n is 1, then 1 raised to","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmplnw_ls2l.py"", line 10
+    def check(candidate):
+IndentationError: expected an indented block after 'if' statement on line 7
+"
+HumanEval/77,1,1,True,"def iscube(a):
+    root = round(abs(a)**(1/3))
+    if a < 0:
+        root = -root
+    return root * root * root == a",
+HumanEval/78,1,1,True,"def hex_key(num):
+    prime_hex_digits = {'2', '3', '5', '7', 'B', 'D'}
+    count = 0
+    for digit in num:
+        if digit in prime_hex_digits:
+            count += 1
+    return count",
+HumanEval/79,1,1,True,"def decimal_to_binary(decimal):
+    binary_representation = bin(decimal)[2:]
+    return ""db"" + binary_representation + ""db""",
+HumanEval/80,1,1,True,"def is_happy(s):
+    if len(s) < 3:
+        return False
+
+    for i in range(len(s) - 2):
+        if len(set([s[i], s[i+1], s[i+2]])) < 3:
+            return False
+
+    return True",
+HumanEval/81,1,1,True,"def numerical_letter_grade(grades):
+    letter_grades = []
+    for gpa in grades:
+        if gpa == 4.0:
+            letter_grades.append('A+')
+        elif gpa > 3.7:
+            letter_grades.append('A')
+        elif gpa > 3.3:
+            letter_grades.append('A-')
+        elif gpa > 3.0:
+            letter_grades.append('B+')
+        elif gpa > 2.7:
+            letter_grades.append('B')
+        elif gpa > 2.3:
+            letter_grades.append('B-')
+        elif gpa > 2.0:
+            letter_",
+HumanEval/82,1,1,True,"def prime_length(string):
+    length = len(string)
+    if length <= 1:
+        return False
+    if length == 2:
+        return True
+    if length % 2 == 0:
+        return False
+    i = 3
+    while i * i <= length:
+        if length % i == 0:
+            return False
+        i += 2
+    return True",
+HumanEval/83,1,0,False,"def starts_one_ends(n):
+    if n == 1:
+        return 1
+    else:
+        # Count of n-digit numbers that start with 1: 1 followed by (n-1) digits (0-9)
+        # This is 10^(n-1)
+        starts_with_1 = 10**(","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpl9svab9g.py"", line 7
+    starts_with_1 = 10**(
+                        ^
+SyntaxError: '(' was never closed
+"
+HumanEval/84,1,1,True,"def solve(N):
+    sum_of_digits = sum(int(digit) for digit in str(N))
+    return bin(sum_of_digits)[2:]",
+HumanEval/85,1,1,True,"def add(lst):
+    total = 0
+    for i, num in enumerate(lst):
+        if i % 2 != 0 and num % 2 == 0:
+            total += num
+    return total",
+HumanEval/86,1,0,False,"def anti_shuffle(s):
+    import re
+    
+    # Split the string by one or more spaces, keeping the spaces as delimiters.
+    # This creates a list where elements at even indices are non-space segments (words or empty strings)
+    # and elements at odd indices are the space delimiters themselves.
+    parts = re.split(r'(\s+)',","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmp0cuf39ce.py"", line 7
+    parts = re.split(r'(\s+)',
+                    ^
+SyntaxError: '(' was never closed
+"
+HumanEval/87,1,1,True,"def get_row(lst, x):
+    coordinates = []
+    for r_idx, row in enumerate(lst):
+        for c_idx, val in enumerate(row):
+            if val == x:
+                coordinates.append((r_idx, c_idx))
+
+    # Sort coordinates:
+    # Primary sort by row in ascending order (coord[0])
+    # Secondary sort by column in descending order (-coord[1])
+    coordinates.sort(key=lambda coord: (coord[0], -coord[1]))
+
+    return coordinates",
+HumanEval/88,1,1,True,"def sort_array(array):
+    if len(array) < 2:
+        return list(array)
+
+    first_val = array[0]
+    last_val = array[-1]
+    
+    s = first_val + last_val
+    
+    if s % 2 != 0: # Odd sum, sort ascending
+        return sorted(array)
+    else: # Even sum, sort descending
+        return sorted(array, reverse=True)",
+HumanEval/89,1,1,True,"def encrypt(s):
+    result = []
+    shift = 4  # The alphabet should be rotated by 2 * 2 = 4 places
+
+    for char in s:
+        if 'a' <= char <= 'z':
+            # Handle lowercase letters
+            start_ascii = ord('a')
+            # Calculate the new position, apply shift, and wrap around using modulo 26
+            shifted_ascii = start_ascii + (ord(char) - start_ascii + shift) % 26
+            result.append(chr(shifted_ascii))
+        elif 'A' <= char <= 'Z':
+            # Handle upperca",
+HumanEval/90,1,1,True,"def next_smallest(lst):
+    unique_elements = sorted(list(set(lst)))
+    if len(unique_elements) >= 2:
+        return unique_elements[1]
+    else:
+        return None",
+HumanEval/91,1,0,False,"import re
+
+def is_bored(S):
+    boredom_count = 0
+    # Split the string by sentence delimiters: '.', '?', '!'
+    # re.split will return a list of strings, where the delimiters are removed.
+    # It might also return empty strings if there are multiple delimiters in a row
+    # or if the string","Traceback (most recent call last):
+  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpowcqjl1d.py"", line 24, in <module>
+    check(is_bored)
+    ~~~~~^^^^^^^^^^
+  File ""C:\Users\Imgigi\AppData\Local\Temp\t"
+HumanEval/92,1,1,True,"def any_int(x, y, z):
+    return (isinstance(x, int) and isinstance(y, int) and isinstance(z, int)) and \
+           ((x == y + z) or (y == x + z) or (z == x + y))",
+HumanEval/93,1,0,False,"def encode(message):
+    vowels = ""aeiouAEIOU""
+    
+    encoded_chars = []
+    
+    # Step 1: Swap the case of all letters in the message
+    swapped_case_message = message.swapcase()
+    
+    # Step 2: Iterate through the case-swapped message and replace vowels","Traceback (most recent call last):
+  File ""C:\Users\Imgigi\AppData\Local\Temp\tmp4witu4qt.py"", line 23, in <module>
+    check(encode)
+    ~~~~~^^^^^^^^
+  File ""C:\Users\Imgigi\AppData\Local\Temp\tmp4w"
+HumanEval/94,1,0,False,"def skjkasdkd(lst):
+    largest_prime = -1
+
+    def is_prime(n):
+        if n <= 1:
+            return False
+        if n <= 3:
+            return True
+        if n % 2 == 0 or n % 3 == 0:
+            return False
+        i = 5
+        while i * i <= n:
+            if n % i == 0 or n % (i + 2) == 0:
+                return False
+            i += 6
+        return True
+
+    for num in lst:
+        if is_prime(num):
+            if num > largest_prime:
+                largest_prime = num
+
+    sum_of_","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpwqlce5qm.py"", line 28
+    temp_prime //=
+                  ^
+SyntaxError: invalid syntax
+"
+HumanEval/95,1,0,False,"def check_dict_case(dict):
+    if not dict:
+        return False
+
+    # Determine the expected case (0 for lower, 1 for upper) from the first non-empty string key
+    expected_case = None
+
+    for key in dict.keys():
+        if not isinstance(key, str):
+            return False  # Found a non-string","Traceback (most recent call last):
+  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpsn7kz356.py"", line 27, in <module>
+    check(check_dict_case)
+    ~~~~~^^^^^^^^^^^^^^^^^
+  File ""C:\Users\Imgigi\AppDat"
+HumanEval/96,1,1,True,"def count_up_to(n):
+    def is_prime(num):
+        if num < 2:
+            return False
+        if num == 2:
+            return True
+        if num % 2 == 0:
+            return False
+        i = 3
+        while i * i <= num:
+            if num % i == 0:
+                return False
+            i += 2
+        return True
+
+    primes = []
+    for i in range(2, n):
+        if is_prime(i):
+            primes.append(i)
+    return primes",
+HumanEval/97,1,1,True,"def multiply(a, b):
+    unit_a = a % 10
+    unit_b = b % 10
+    return unit_a * unit_b",
+HumanEval/98,1,1,True,"def count_upper(s):
+    count = 0
+    uppercase_vowels = {'A', 'E', 'I', 'O', 'U'}
+    for i in range(len(s)):
+        if i % 2 == 0 and s[i] in uppercase_vowels:
+            count += 1
+    return count",
+HumanEval/99,1,0,False,"def closest_integer(value):
+    num = float(value)
+
+    # If the number is already an integer, return it directly.
+    # This handles cases like ""10"" -> 10
+    if num == int(num):
+        return int(num)
+
+    # Get the floor and ceiling integers
+    import math
+    lower_int","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmp7la05kaz.py"", line 1
+    from two integers, round it away from zero.
+IndentationError: unexpected indent
+"
+HumanEval/100,1,1,True,"def make_a_pile(n):
+    pile = []
+    current_stones = n
+    for _ in range(n):
+        pile.append(current_stones)
+        current_stones += 2
+    return pile",
+HumanEval/101,1,1,True,"def words_string(s):
+    return s.replace(',', ' ').split()",
+HumanEval/102,1,0,False,"def choose_num(x, y):
+    if x > y:
+        return -1
+    
+    if y % 2 == 0:
+        return y
+    else:
+        # y is odd, so the largest possible even number is y-1
+        candidate = y - 1
+        # Check if this candidate is within the range [x, y","Traceback (most recent call last):
+  File ""C:\Users\Imgigi\AppData\Local\Temp\tmp1vrmfzbq.py"", line 27, in <module>
+    check(choose_num)
+    ~~~~~^^^^^^^^^^^^
+  File ""C:\Users\Imgigi\AppData\Local\Te"
+HumanEval/103,1,1,True,"def rounded_avg(n, m):
+    if n > m:
+        return -1
+    
+    avg_val = (n + m) / 2
+    rounded_val = round(avg_val)
+    binary_string = bin(rounded_val)
+    
+    return binary_string",
+HumanEval/104,1,0,False,"def unique_digits(x):
+    filtered_numbers = []
+    for num in x:
+        has_even_digit = False
+        # Convert number to string to iterate through its digits
+        s_num = str(num)
+        for char_digit in s_num:
+            digit = int(char_digit)
+            if digit % 2","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpkmjz6ghw.py"", line 9
+    if digit % 2
+                ^
+SyntaxError: expected ':'
+"
+HumanEval/105,1,1,True,"def by_length(arr):
+    digit_names = {
+        1: ""One"", 2: ""Two"", 3: ""Three"", 4: ""Four"", 5: ""Five"",
+        6: ""Six"", 7: ""Seven"", 8: ""Eight"", 9: ""Nine""
+    }
+
+    filtered_and_sorted = sorted([n for n in arr if 1 <= n <= 9])
+    
+    reversed_numbers = filtered_and_sorted[::-1]
+    
+    result = [digit_names[n] for n in reversed_numbers]
+    
+    return result",
+HumanEval/106,1,1,True,"def f(n):
+    result = []
+    current_factorial = 1
+    current_sum = 0
+    for i in range(1, n + 1):
+        current_factorial *= i
+        current_sum += i
+        if i % 2 == 0:  # i is even
+            result.append(current_factorial)
+        else:  # i is odd
+            result.append(current_sum)
+    return result",
+HumanEval/107,1,1,True,"def even_odd_palindrome(n):
+    even_count = 0
+    odd_count = 0
+    for i in range(1, n + 1):
+        s = str(i)
+        if s == s[::-1]:
+            if i % 2 == 0:
+                even_count += 1
+            else:
+                odd_count += 1
+    return (even_count, odd_count)",
+HumanEval/108,1,0,False,"def count_nums(arr):
+    def sum_digits(num):
+        if num == 0:
+            return 0
+        
+        if num > 0:
+            s = 0
+            temp_num = num
+            while temp_num > 0:
+                s += temp_num % 10
+                temp_num //=","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpkke85ec7.py"", line 11
+    temp_num //=
+                ^
+SyntaxError: invalid syntax
+"
+HumanEval/109,1,0,False,"def move_one_ball(arr):
+    n = len(arr)
+
+    if n <= 1:
+        return True
+
+    descents = 0
+    for i in range(n - 1):
+        if arr[i] > arr[i+1]:
+            descents += 1
+
+    if descents == 0:","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpg6wfe_fl.py"", line 14
+    def check(candidate):
+IndentationError: expected an indented block after 'if' statement on line 12
+"
+HumanEval/110,1,1,True,"def exchange(lst1, lst2):
+    odd_count_lst1 = 0
+    for x in lst1:
+        if x % 2 != 0:
+            odd_count_lst1 += 1
+
+    even_count_lst2 = 0
+    for y in lst2:
+        if y % 2 == 0:
+            even_count_lst2 += 1
+
+    if odd_count_lst1 <= even_count_lst2:
+        return ""YES""
+    else:
+        return ""NO""",
+HumanEval/111,1,0,False,"def histogram(test):
+    if not test:
+        return {}
+
+    import collections
+    
+    letters = test.split()
+    counts = collections.Counter(letters)
+
+    if not counts:
+        # This handles cases where test might be ' ' or '   ' resulting in an empty list of letters
+        return {}
+
+    max_count = max(","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmp7a1emmli.py"", line 14
+    max_count = max(
+                   ^
+SyntaxError: '(' was never closed
+"
+HumanEval/112,1,1,True,"def reverse_delete(s, c):
+    chars_to_delete = set(c)
+    
+    result_chars = []
+    for char_s in s:
+        if char_s not in chars_to_delete:
+            result_chars.append(char_s)
+            
+    result_string = """".join(result_chars)
+    
+    is_palindrome = (result_string == result_string[::-1])
+    
+    return (result_string, is_palindrome)",
+HumanEval/113,1,1,True,"def odd_count(lst):
+    result = []
+    for s in lst:
+        odd_digits = 0
+        for char_digit in s:
+            if int(char_digit) % 2 != 0:
+                odd_digits += 1
+        result.append(f""the number of odd elements {odd_digits}n the str{odd_digits}ng {odd_digits} of the {odd_digits}nput."")
+    return result",
+HumanEval/114,1,1,True,"def minSubArraySum(nums):
+    global_min = nums[0]
+    current_min = nums[0]
+
+    for i in range(1, len(nums)):
+        num = nums[i]
+        current_min = min(num, current_min + num)
+        global_min = min(global_min, current_min)
+
+    return global_min",
+HumanEval/115,1,0,False,"def max_fill(grid, capacity):
+    import math
+    total_lowers = 0
+    for row in grid:
+        water_in_well = sum(row)
+        if water_in_well > 0:
+            lowers_for_this_well = math.ceil(water_in_well / capacity)
+            total_lowers += lowers_for_this_well
+    return total_lowers","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpsudh3onc.py"", line 1
+    import math
+IndentationError: unexpected indent
+"
+HumanEval/116,1,1,True,"def sort_array(arr):
+    return sorted(arr, key=lambda x: (bin(x).count('1'), x))",
+HumanEval/117,1,1,True,"def select_words(s, n):
+    if not s:
+        return []
+
+    vowels = {'a', 'e', 'i', 'o', 'u'}
+    result = []
+
+    words = s.split()
+
+    for word in words:
+        consonant_count = 0
+        for char in word:
+            if char.lower() not in vowels:
+                consonant_count += 1
+        
+        if consonant_count == n:
+            result.append(word)
+            
+    return result",
+HumanEval/118,1,0,False,"def get_closest_vowel(word):
+    VOWELS = ""aeiouAEIOU""
+
+    def is_vowel(char):
+        return char in VOWELS
+
+    def is_consonant(char):
+        # Assuming the word contains only English letters,
+        # a consonant is any letter that is not a vowel.
+        return","Traceback (most recent call last):
+  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpr4krdmqh.py"", line 33, in <module>
+    check(get_closest_vowel)
+    ~~~~~^^^^^^^^^^^^^^^^^^^
+  File ""C:\Users\Imgigi\Ap"
+HumanEval/119,1,0,False,"def match_parens(lst):
+    def get_balance_info(s):
+        balance = 0
+        min_balance = 0
+        for char in s:
+            if char == '(':
+                balance += 1
+            else: # char == ')'
+                balance -= 1
+            min_balance = min(min_balance, balance)","Traceback (most recent call last):
+  File ""C:\Users\Imgigi\AppData\Local\Temp\tmps_but0pz.py"", line 32, in <module>
+    check(match_parens)
+    ~~~~~^^^^^^^^^^^^^^
+  File ""C:\Users\Imgigi\AppData\Loca"
+HumanEval/120,1,1,True,"def maximum(arr, k):
+    if k == 0:
+        return []
+    arr.sort()
+    return arr[-k:]",
+HumanEval/121,1,1,True,"def solution(lst):
+    total_sum = 0
+    for i, num in enumerate(lst):
+        if i % 2 == 0 and num % 2 != 0:
+            total_sum += num
+    return total_sum",
+HumanEval/122,1,1,True,"def add_elements(arr, k):
+    total_sum = 0
+    for i in range(k):
+        num = arr[i]
+        if -99 <= num <= 99:
+            total_sum += num
+    return total_sum",
+HumanEval/123,1,1,True,"def get_odd_collatz(n):
+    odd_numbers = set()
+    current_n = n
+    while True:
+        if current_n % 2 != 0:  # Check if current_n is odd
+            odd_numbers.add(current_n)
+        
+        if current_n == 1:
+            break
+        
+        if current_n % 2 == 0:  # If even
+            current_n = current_n // 2
+        else:  # If odd
+            current_n = 3 * current_n + 1
+            
+    result = list(odd_numbers)
+    result.sort()
+    return result",
+HumanEval/124,1,1,True,"def valid_date(date):
+    if not date:
+        return False
+
+    parts = date.split('-')
+    if len(parts) != 3:
+        return False
+
+    month_str, day_str, year_str = parts
+
+    if not (len(month_str) == 2 and len(day_str) == 2 and len(year_str) == 4):
+        return False
+
+    try:
+        month = int(month_str)
+        day = int(day_str)
+        year = int(year_str) # Year is parsed but not further validated beyond format and type
+    except ValueError:
+        return False
+
+    if not (1 <",
+HumanEval/125,1,1,True,"def split_words(txt):
+    if any(c.isspace() for c in txt):
+        return txt.split()
+    
+    if ',' in txt:
+        return txt.split(',')
+    
+    count = 0
+    for char in txt:
+        if 'a' <= char <= 'z':  # Check if it's a lowercase letter
+            order = ord(char) - ord('a')
+            if order % 2 != 0:
+                count += 1
+    return count",
+HumanEval/126,1,0,False,"def is_sorted(lst):
+    if len(lst) <= 1:
+        return True
+
+    counts = {}
+    
+    # Initialize count for the first element
+    counts[lst[0]] = 1
+
+    for i in range(1, len(lst)):
+        current_num = lst[i]
+        prev_num = lst[i","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmptvt_19b2.py"", line 12
+    prev_num = lst[i
+                  ^
+SyntaxError: '[' was never closed
+"
+HumanEval/127,1,1,True,"def intersection(interval1, interval2):
+    s1, e1 = interval1
+    s2, e2 = interval2
+
+    start_intersect = max(s1, s2)
+    end_intersect = min(e1, e2)
+
+    if start_intersect > end_intersect:
+        return ""NO""
+
+    length = end_intersect - start_intersect
+
+    if length <= 1:
+        return ""NO""
+    
+    if length == 2 or length == 3:
+        return ""YES""
+    
+    if length % 2 == 0 or length % 3 == 0:
+        return ""NO""
+    
+    i = 5
+    while i * i <= length:
+        if length % i == 0 o",
+HumanEval/128,1,1,True,"def prod_signs(arr):
+    if not arr:
+        return None
+
+    sum_magnitudes = 0
+    product_signs = 1
+
+    for num in arr:
+        sum_magnitudes += abs(num)
+
+        if num > 0:
+            product_signs *= 1
+        elif num < 0:
+            product_signs *= -1
+        else:  # num == 0
+            product_signs *= 0
+
+    return sum_magnitudes * product_signs",
+HumanEval/129,1,0,False,"def minPath(grid, k):
+    N = len(grid)
+    
+    # Priority queue stores (path_tuple, row, col)
+    # path_tuple is used for lexicographical comparison
+    import heapq
+    pq = []
+
+    # memo stores the lexicographically smallest path_tuple of a given length
+    # ending at a specific cell: memo[(row","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmp4ruoyubh.py"", line 1
+    from any cell, and in each step you can move to any of the neighbor cells,
+IndentationError: unexpected indent
+"
+HumanEval/130,1,0,False,"def tri(n):
+    if n < 0:
+        return []
+
+    # Determine the maximum index we need to compute.
+    # If n is odd, tri(n) depends on tri(n+1), so we need to compute up to n+1.
+    # If n is even, tri(n) is directly computable, so we need to compute up","Traceback (most recent call last):
+  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpyg0sioxa.py"", line 26, in <module>
+    check(tri)
+    ~~~~~^^^^^
+  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpyg0sioxa"
+HumanEval/131,1,1,True,"def digits(n):
+    product_of_odd = 1
+    found_odd_digit = False
+    
+    while n > 0:
+        digit = n % 10
+        if digit % 2 != 0: # Check if the digit is odd
+            product_of_odd *= digit
+            found_odd_digit = True
+        n //= 10
+            
+    if found_odd_digit:
+        return product_of_odd
+    else:
+        return 0",
+HumanEval/132,1,0,False,"def is_nested(string):
+    open_count = 0
+    for char in string:
+        if char == '[':
+            open_count += 1
+        elif char == ']':
+            open_count -= 1
+        
+        # If open_count reaches 2, it means we have seen at least two '['
+        # without encountering a '","Traceback (most recent call last):
+  File ""C:\Users\Imgigi\AppData\Local\Temp\tmphktm6k0c.py"", line 33, in <module>
+    check(is_nested)
+    ~~~~~^^^^^^^^^^^
+  File ""C:\Users\Imgigi\AppData\Local\Temp"
+HumanEval/133,1,1,True,"import math
+
+def sum_squares(lst):
+    return sum([math.ceil(x)**2 for x in lst])",
+HumanEval/134,1,0,False,"def check_if_last_char_is_a_letter(txt):
+    if not txt:
+        return False
+
+    last_char = txt[-1]
+
+    if not last_char.isalpha():
+        return False
+
+    # At this point, txt is not empty and the last character is an alphabetical letter.
+
+    if len(txt) ==","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpmdhrcohl.py"", line 12
+    if len(txt) ==
+                  ^
+SyntaxError: invalid syntax
+"
+HumanEval/135,1,1,True,"def can_arrange(arr):
+    for i in range(len(arr) - 1, 0, -1):
+        if arr[i] < arr[i-1]:
+            return i
+    return -1",
+HumanEval/136,1,1,True,"def largest_smallest_integers(lst):
+    negatives = [x for x in lst if x < 0]
+    positives = [x for x in lst if x > 0]
+
+    largest_neg = max(negatives) if negatives else None
+    smallest_pos = min(positives) if positives else None
+
+    return (largest_neg, smallest_pos)",
+HumanEval/137,1,1,True,"def compare_one(a, b):
+    def _to_float_comparable(x):
+        if isinstance(x, (int, float)):
+            return float(x)
+        elif isinstance(x, str):
+            s = x.replace(',', '.')
+            return float(s)
+        # This case should not be reached based on problem description (integers, floats, or strings)
+        raise TypeError(""Unsupported type for comparison"")
+
+    val_a = _to_float_comparable(a)
+    val_b = _to_float_comparable(b)
+
+    if val_a > val_b:
+        return a
+    e",
+HumanEval/138,1,1,True,"def is_equal_to_sum_even(n):
+    return n % 2 == 0 and n >= 8",
+HumanEval/139,1,1,True,"def special_factorial(n):
+    import math
+    result = 1
+    for i in range(1, n + 1):
+        result *= math.factorial(i)
+    return result",
+HumanEval/140,1,0,False,"import re
+
+def fix_spaces(text):
+    text = re.sub(r' {3,}', '-', text)
+    text = re.sub(r' {1,2}', '_', text)
+    return text","\Users\Imgigi\AppData\Local\Temp\tmp80s4w6nd.py"", line 20, in <module>
+    check(fix_spaces)
+    ~~~~~^^^^^^^^^^^^
+  File ""C:\Users\Imgigi\AppData\Local\Temp\tmp80s4w6nd.py"", line 13, in check
+    ass"
+HumanEval/141,1,1,True,"def file_name_check(file_name):
+    if file_name.count('.') != 1:
+        return 'No'
+
+    parts = file_name.split('.')
+    before_dot = parts[0]
+    after_dot = parts[1]
+
+    if not before_dot:
+        return 'No'
+
+    if not before_dot[0].isalpha():
+        return 'No'
+
+    if after_dot not in ['txt', 'exe', 'dll']:
+        return 'No'
+
+    digit_count = 0
+    for char in file_name:
+        if char.isdigit():
+            digit_count += 1
+    
+    if digit_count > 3:
+        return 'No'
+
+    re",
+HumanEval/142,1,1,True,"def sum_squares(lst):
+    total_sum = 0
+    for index, num in enumerate(lst):
+        if index % 3 == 0:
+            total_sum += num ** 2
+        elif index % 4 == 0:
+            total_sum += num ** 3
+        else:
+            total_sum += num
+    return total_sum",
+HumanEval/143,1,1,True,"def words_in_sentence(sentence):
+    def is_prime(n):
+        if n < 2:
+            return False
+        if n == 2:
+            return True
+        if n % 2 == 0:
+            return False
+        i = 3
+        while i * i <= n:
+            if n % i == 0:
+                return False
+            i += 2
+        return True
+
+    words = sentence.split()
+    result_words = []
+    for word in words:
+        if is_prime(len(word)):
+            result_words.append(word)
+
+    return ' '.join(result_word",
+HumanEval/144,1,1,True,"def simplify(x, n):
+    x_parts = x.split('/')
+    x_numerator = int(x_parts[0])
+    x_denominator = int(x_parts[1])
+
+    n_parts = n.split('/')
+    n_numerator = int(n_parts[0])
+    n_denominator = int(n_parts[1])
+
+    product_numerator = x_numerator * n_numerator
+    product_denominator = x_denominator * n_denominator
+
+    return product_numerator % product_denominator == 0",
+HumanEval/145,1,0,False,"def order_by_points(nums):
+    def get_digit_sum(n):
+        s = 0
+        # Take absolute value to sum digits for both positive and negative numbers
+        n_abs = abs(n)
+        # Convert to string to iterate over digits
+        for digit_char in str(n_abs):
+            s += int(digit_","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpo_vlanj1.py"", line 8
+    s += int(digit_
+            ^
+SyntaxError: '(' was never closed
+"
+HumanEval/146,1,0,False,"def specialFilter(nums):
+    count = 0
+    for num in nums:
+        if num > 10:
+            # Get the absolute value to extract digits consistently
+            abs_num = abs(num)
+            
+            # Get the last digit
+            last_digit = abs_num % 10
+            
+            # Check if last digit is odd","Traceback (most recent call last):
+  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpuszkyeuw.py"", line 28, in <module>
+    check(specialFilter)
+    ~~~~~^^^^^^^^^^^^^^^
+  File ""C:\Users\Imgigi\AppData\Lo"
+HumanEval/147,1,0,False,"def get_max_triples(n):
+    count0 = 0  # Count of a[i] such that a[i] % 3 == 0
+    count1 = 0  # Count of a[i] such that a[i] % 3 == 1
+
+    # Analyze a[i] = i*i - i + 1 modulo","Traceback (most recent call last):
+  File ""C:\Users\Imgigi\AppData\Local\Temp\tmp4rf4qgi3.py"", line 14, in <module>
+    check(get_max_triples)
+    ~~~~~^^^^^^^^^^^^^^^^^
+  File ""C:\Users\Imgigi\AppDat"
+HumanEval/148,1,1,True,"def bf(planet1, planet2):
+    planets = (""Mercury"", ""Venus"", ""Earth"", ""Mars"", ""Jupiter"", ""Saturn"", ""Uranus"", ""Neptune"")
+
+    if planet1 not in planets or planet2 not in planets:
+        return ()
+
+    idx1 = planets.index(planet1)
+    idx2 = planets.index(planet2)
+
+    if idx1 == idx2:
+        return ()
+
+    start_idx = min(idx1, idx2)
+    end_idx = max(idx1, idx2)
+
+    return planets[start_idx + 1:end_idx]",
+HumanEval/149,1,1,True,"def sorted_list_sum(lst):
+    filtered_list = [s for s in lst if len(s) % 2 == 0]
+    filtered_list.sort(key=lambda s: (len(s), s))
+    return filtered_list",
+HumanEval/150,1,1,True,"def x_or_y(n, x, y):
+    if n < 2:
+        is_n_prime = False
+    elif n == 2:
+        is_n_prime = True
+    elif n % 2 == 0:
+        is_n_prime = False
+    else:
+        is_n_prime = True
+        i = 3
+        while i * i <= n:
+            if n % i == 0:
+                is_n_prime = False
+                break
+            i += 2
+    
+    if is_n_prime:
+        return x
+    else:
+        return y",
+HumanEval/151,1,1,True,"def double_the_difference(lst):
+    total_sum_of_squares = 0
+    for num in lst:
+        if isinstance(num, int) and num >= 0 and num % 2 != 0:
+            total_sum_of_squares += num * num
+    return total_sum_of_squares",
+HumanEval/152,1,1,True,"def compare(game,guess):
+    return [0 if game_score == guess_score else abs(game_score - guess_score) for game_score, guess_score in zip(game, guess)]",
+HumanEval/153,1,0,False,"def Strongest_Extension(class_name, extensions):
+    strongest_extension_name = """"
+    max_strength = -float('inf')
+
+    for extension in extensions:
+        cap_count = 0
+        sm_count = 0
+        for char in extension:
+            if char.isupper():
+                cap_count += 1
+            elif","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpa9an3xvb.py"", line 11
+    elif
+        ^
+SyntaxError: invalid syntax
+"
+HumanEval/154,1,0,False,"def cycpattern_check(a , b):
+    n = len(b)
+    if n == 0:
+        return True
+    
+    # Create a string that contains all rotations of b as substrings of length n.
+    # For example, if b = ""abc"", b_doubled = ""abcabc"".
+    # Substrings of length 3 are","Traceback (most recent call last):
+  File ""C:\Users\Imgigi\AppData\Local\Temp\tmped472ju6.py"", line 25, in <module>
+    check(cycpattern_check)
+    ~~~~~^^^^^^^^^^^^^^^^^^
+  File ""C:\Users\Imgigi\AppD"
+HumanEval/155,1,1,True,"def even_odd_count(num):
+    even_count = 0
+    odd_count = 0
+    num_str = str(abs(num))
+    
+    for digit_char in num_str:
+        digit = int(digit_char)
+        if digit % 2 == 0:
+            even_count += 1
+        else:
+            odd_count += 1
+            
+    return (even_count, odd_count)",
+HumanEval/156,1,1,True,"def int_to_mini_roman(number):
+    roman_map = [
+        (1000, 'm'), (900, 'cm'), (500, 'd'), (400, 'cd'),
+        (100, 'c'), (90, 'xc'), (50, 'l'), (40, 'xl'),
+        (10, 'x'), (9, 'ix'), (5, 'v'), (4, 'iv'), (1, 'i')
+    ]
+
+    result = []
+    for value, symbol in roman_map:
+        while number >= value:
+            result.append(symbol)
+            number -= value
+    return """".join(result)",
+HumanEval/157,1,1,True,"def right_angle_triangle(a, b, c):
+    sides = [a, b, c]
+    sides.sort()
+    x, y, z = sides[0], sides[1], sides[2]
+    return x*x + y*y == z*z",
+HumanEval/158,1,1,True,"def find_max(words):
+    best_word = """"
+    max_unique_count = -1
+
+    for word in words:
+        current_unique_count = len(set(word))
+
+        if current_unique_count > max_unique_count:
+            max_unique_count = current_unique_count
+            best_word = word
+        elif current_unique_count == max_unique_count:
+            # Tie-breaking: return the one which comes first in lexicographical order
+            if word < best_word:
+                best_word = word
+    
+    return best_wo",
+HumanEval/159,1,1,True,"def eat(number, need, remaining):
+    carrots_eaten_now = min(need, remaining)
+    total_eaten = number + carrots_eaten_now
+    carrots_left = remaining - carrots_eaten_now
+    return [total_eaten, carrots_left]",
+HumanEval/160,1,1,True,"def do_algebra(operator, operand):
+    expression_str = str(operand[0])
+    for i in range(len(operator)):
+        expression_str += operator[i]
+        expression_str += str(operand[i+1])
+    
+    return eval(expression_str)",
+HumanEval/161,1,1,True,"def solve(s):
+    has_letters = False
+    for char in s:
+        if char.isalpha():
+            has_letters = True
+            break
+
+    if not has_letters:
+        return s[::-1]
+    else:
+        result_chars = []
+        for char in s:
+            if char.isalpha():
+                if char.islower():
+                    result_chars.append(char.upper())
+                else:
+                    result_chars.append(char.lower())
+            else:
+                result_chars.append(char)
+    ",
+HumanEval/162,1,1,True,"def string_to_md5(text):
+    import hashlib
+    if not text:
+        return None
+    return hashlib.md5(text.encode('utf-8')).hexdigest()",
+HumanEval/163,1,1,True,"def generate_integers(a, b):
+    min_val = min(a, b)
+    max_val = max(a, b)
+    
+    result = []
+    
+    # The problem asks for ""even digits"". These are typically single-digit numbers.
+    # The even single digits are 2, 4, 6, 8 (since a and b are positive, 0 is excluded).
+    for digit in [2, 4, 6, 8]:
+        if min_val <= digit <= max_val:
+            result.append(digit)
+            
+    return result",

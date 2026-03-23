@@ -1,0 +1,2553 @@
+task_id,n_samples,n_passed,passed,code,error
+11,1,0,False,"def remove_Occ(s: str, char: str) -> str:
+    """"""
+    Removes the first and last occurrence of a given character from the string.
+
+    Args:
+        s: The input string.
+        char: The character to remove. Must be a single character string.
+
+    Returns:
+        The string with the first and last occurrences of 'char'","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpf85qni4o.py"", line 2
+    """"""
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 14)
+"
+12,1,1,True,"def sort_matrix(matrix):
+    return sorted(matrix, key=sum)",
+14,1,1,True,"def find_Volume(base, height, length):
+  """"""
+  Calculates the volume of a triangular prism.
+
+  Args:
+    base: The base length of the triangular face.
+    height: The height of the triangular face.
+    length: The length (or depth) of the prism.
+
+  Returns:
+    The volume of the triangular prism.
+  """"""
+  return 0.5 * base * height * length",
+16,1,0,False,"import re
+
+def text_lowercase_underscore(text):
+    """"""
+    Checks if the input string contains sequences of lowercase letters 
+    joined with an underscore.
+    """"""
+    pattern = r'[a-z]+_[a-z]+'
+    if re.search(pattern, text):
+        return True
+    else:
+        return False","Traceback (most recent call last):
+  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpcs416ola.py"", line 16, in <module>
+    assert text_lowercase_underscore(""Aaab_abbbc"")==(False)
+           ^^^^^^^^^^^^^"
+17,1,1,True,"def square_perimeter(side_length):
+    """"""
+    Calculates the perimeter of a square given its side length.
+
+    Args:
+        side_length (int or float): The length of one side of the square.
+
+    Returns:
+        int or float: The perimeter of the square.
+    """"""
+    return 4 * side_length",
+18,1,1,True,"def remove_dirty_chars(s1, s2):
+    """"""
+    Removes characters from the first string (s1) that are present in the second string (s2).
+
+    Args:
+        s1 (str): The string from which characters will be removed.
+        s2 (str): The string containing characters to be removed from s1.
+
+    Returns:
+        str: A new string with characters from s1 that are not present in s2.
+    """"""
+    chars_to_remove = set(s2)
+    result_chars = [char for char in s1 if char not in chars_to_remove]
+    return ",
+19,1,1,True,"def test_duplicate(nums):
+    """"""
+    Checks if a given array of integers contains any duplicate element.
+
+    Args:
+        nums: A list of integers.
+
+    Returns:
+        True if the array contains duplicates, False otherwise.
+    """"""
+    return len(nums) != len(set(nums))",
+20,1,1,True,"def is_woodall(num):
+    if num <= 0:
+        return False
+
+    n = 1
+    while True:
+        woodall_candidate = n * (2**n) - 1
+        if woodall_candidate == num:
+            return True
+        if woodall_candidate > num:
+            return False
+        n += 1",
+56,1,1,True,"def check(num):
+    """"""
+    Checks if a given number is one less than twice its reverse.
+
+    Args:
+        num: An integer.
+
+    Returns:
+        True if the condition is met, False otherwise.
+    """"""
+    s_num = str(num)
+    reversed_s_num = s_num[::-1]
+    reversed_num = int(reversed_s_num)
+    
+    return num == (2 * reversed_num) - 1",
+57,1,1,True,"def find_Max_Num(digits):
+    """"""
+    Finds the largest number that can be formed with the given list of digits.
+
+    Args:
+        digits: A list of integers representing the digits.
+
+    Returns:
+        An integer representing the largest number formed by the digits.
+    """"""
+    # Sort the digits in descending order to form the largest number
+    digits.sort(reverse=True)
+
+    # Convert the sorted digits to strings and join them
+    largest_num_str = """".join(str(d) for d in digits)
+
+    # Con",
+58,1,1,True,"def opposite_Signs(a, b):
+    """"""
+    Checks whether two given integers have opposite signs.
+
+    Args:
+        a (int): The first integer.
+        b (int): The second integer.
+
+    Returns:
+        bool: True if the integers have opposite signs, False otherwise.
+              Zero is considered neither positive nor negative, so if either
+              number is zero, they do not have opposite signs.
+    """"""
+    return (a * b < 0)",
+59,1,1,True,"def is_octagonal(n):
+    """"""
+    Calculates the nth octagonal number.
+
+    An octagonal number is a figurate number that represents the number of dots
+    in a pattern of regular octagons with a common vertex and two sides.
+    The formula for the nth octagonal number is n * (3*n - 2).
+
+    Args:
+        n (int): The position of the octagonal number to find (n must be a positive integer).
+
+    Returns:
+        int: The nth octagonal number.
+    """"""
+    return n * (3 * n - 2)",
+61,1,0,False,"def count_Substrings(s: str) -> int:
+    """"""
+    Counts the number of substrings in a given string of digits where the
+    sum of the digits in the substring is equal to the length of the substring.
+
+    Args:
+        s: A string consisting of digits.
+
+    Returns:
+        The total count of such substrings.
+    """"""","Traceback (most recent call last):
+  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpg6smmb2j.py"", line 13, in <module>
+    assert count_Substrings('112112') == 6
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+62,1,1,True,"def smallest_num(numbers):
+    return min(numbers)",
+63,1,1,True,"def max_difference(tuple_list):
+    """"""
+    Finds the maximum difference between available pairs in the given tuple list.
+
+    Args:
+        tuple_list: A list of tuples, where each tuple contains two numbers.
+
+    Returns:
+        The maximum absolute difference found between the numbers in any pair.
+    """"""
+    max_diff = 0
+    for pair in tuple_list:
+        diff = abs(pair[0] - pair[1])
+        if diff > max_diff:
+            max_diff = diff
+    return max_diff",
+64,1,1,True,"def subject_marks(marks_list):
+    return sorted(marks_list, key=lambda x: x[1])",
+65,1,1,True,"def recursive_list_sum(nested_list):
+    total_sum = 0
+    for element in nested_list:
+        if isinstance(element, list):
+            total_sum += recursive_list_sum(element)
+        else:
+            total_sum += element
+    return total_sum",
+66,1,1,True,"def pos_count(numbers):
+    count = 0
+    for num in numbers:
+        if num > 0:
+            count += 1
+    return count",
+67,1,0,False,"def bell_number(n):
+    """"""
+    Calculates the nth Bell number.
+
+    The Bell number B(n) is the number of ways to partition a set of n elements.
+    B(0) = 1.
+
+    This implementation uses a dynamic programming approach based on the Bell triangle.
+    It calculates the Bell numbers iteratively, storing only the current row of the","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmp31kijaum.py"", line 2
+    """"""
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 13)
+"
+68,1,1,True,"def is_Monotonic(array):
+    if len(array) <= 1:
+        return True
+
+    is_increasing = True
+    is_decreasing = True
+
+    for i in range(1, len(array)):
+        if array[i] < array[i-1]:
+            is_increasing = False
+        if array[i] > array[i-1]:
+            is_decreasing = False
+            
+        # If it's neither increasing nor decreasing, it's not monotonic
+        if not is_increasing and not is_decreasing:
+            return False
+
+    return is_increasing or is_decreasing",
+69,1,1,True,"def is_sublist(main_list, sub_list):
+    n = len(main_list)
+    m = len(sub_list)
+
+    if m == 0:
+        return True  # An empty list is considered a sublist of any list
+
+    if m > n:
+        return False # A sublist cannot be longer than the main list
+
+    for i in range(n - m + 1):
+        if main_list[i:i+m] == sub_list:
+            return True
+            
+    return False",
+70,1,1,True,"def get_equal(tuples_list):
+    lengths = {len(t) for t in tuples_list}
+    return len(lengths) <= 1",
+71,1,0,False,"def comb_sort(arr):
+    n = len(arr)
+    if n <= 1:
+        return arr
+
+    gap = n
+    shrink_factor = 1.3
+    swapped = True
+
+    while gap != 1 or swapped:
+        # Update the gap value
+        gap = int(gap / shrink_factor)",TIMEOUT
+72,1,0,False,"def dif_Square(n):
+    if n % 2 != 0:  # If n is odd
+        return True
+    elif n % 4 == 0:  # If n is a multiple of 4
+        return True
+    else:  # If n is even but not a multiple of 4 (i.e., n % 4 ==","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmp31hf99p1.py"", line 8
+    assert dif_Square(5) == True
+IndentationError: expected an indented block after 'else' statement on line 6
+"
+74,1,1,True,"def is_samepatterns(words, patterns):
+    if len(words) != len(patterns):
+        return False
+
+    pattern_to_word = {}
+    word_to_pattern = {}
+
+    for i in range(len(words)):
+        word = words[i]
+        pattern_char = patterns[i]
+
+        # Check mapping from pattern character to word
+        if pattern_char in pattern_to_word:
+            if pattern_to_word[pattern_char] != word:
+                return False
+        else:
+            pattern_to_word[pattern_char] = word
+
+        # Check",
+75,1,1,True,"def find_tuples(list_of_tuples, k):
+    """"""
+    Finds tuples from a given list where all elements are divisible by k.
+
+    Args:
+        list_of_tuples: A list of tuples, where each tuple contains integers.
+        k: An integer divisor.
+
+    Returns:
+        A list of tuples where all elements in each tuple are divisible by k.
+    """"""
+    result = []
+    for tup in list_of_tuples:
+        if all(element % k == 0 for element in tup):
+            result.append(tup)
+    return result",
+77,1,1,True,"def is_Diff(number):
+    """"""
+    Checks if a number is divisible by 11 using the alternating sum of digits rule.
+
+    A number is divisible by 11 if the alternating sum of its digits (starting from the rightmost
+    digit and alternating between adding and subtracting) is divisible by 11.
+
+    Args:
+        number (int): The integer to check for divisibility by 11.
+
+    Returns:
+        bool: True if the number is divisible by 11, False otherwise.
+    """"""
+    s_num = str(number)
+    alternating_",
+79,1,1,True,"def word_len(word):
+    """"""
+    Checks whether the length of the word is odd or not.
+
+    Args:
+        word: The input string.
+
+    Returns:
+        True if the length of the word is odd, False otherwise.
+    """"""
+    return len(word) % 2 != 0",
+80,1,1,True,"def tetrahedral_number(n):
+    """"""
+    Calculates the nth tetrahedral number.
+
+    A tetrahedral number is a figurate number that represents a pyramid with a triangular base
+    and three sides, called a tetrahedron. The nth tetrahedral number is the sum of the first
+    n triangular numbers.
+
+    The formula for the nth tetrahedral number is n * (n + 1) * (n + 2) / 6.
+
+    Args:
+        n (int): The position of the tetrahedral number to find (must be a non-negative integer).
+
+    Returns:
+     ",
+82,1,1,True,"def volume_sphere(radius):
+    import math
+    return (4/3) * math.pi * (radius ** 3)",
+83,1,0,False,"def get_Char(s: str) -> str:
+    """"""
+    Calculates a character based on the sum of ASCII values of characters in a string.
+
+    The process involves:
+    1. Summing the ASCII values of all characters in the input string.
+    2. Taking this sum modulo 26.
+    3. Adjusting the result by subtracting 3","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpff39cf8i.py"", line 2
+    """"""
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 12)
+"
+84,1,0,False,"def sequence(n: int) -> int:
+    """"""
+    Calculates the nth number in a variation of the Newman-Conway sequence.
+
+    The sequence is defined as:
+    a(1) = 1
+    a(2) = 1
+    a(n) = a(a(n-1)) + a(n - a","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpe5msl7oo.py"", line 2
+    """"""
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 12)
+"
+85,1,1,True,"import math
+
+def surfacearea_sphere(r):
+    """"""
+    Calculates the surface area of a sphere given its radius.
+
+    Args:
+        r (float or int): The radius of the sphere.
+
+    Returns:
+        float: The surface area of the sphere.
+    """"""
+    return 4 * math.pi * (r ** 2)",
+86,1,1,True,"def centered_hexagonal_number(n):
+    """"""
+    Calculates the nth centered hexagonal number.
+
+    A centered hexagonal number is a centered figurate number that represents a hexagon
+    with a dot in the center and all other dots surrounding the center in a hexagonal lattice.
+    The formula for the nth centered hexagonal number is 3n(n-1) + 1.
+
+    Args:
+        n (int): The position of the centered hexagonal number to find (n >= 1).
+
+    Returns:
+        int: The nth centered hexagonal number.
+",
+87,1,0,False,"def merge_dictionaries_three(dict1, dict2, dict3):
+    """"""
+    Merges three dictionaries into a single dictionary.
+    If a key exists in multiple dictionaries, the value from the
+    dictionary that appears earliest in the argument list will take precedence.
+    """"""
+    merged_dict = {}
+    merged_dict.update(dict3","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpqoia93p0.py"", line 8
+    merged_dict.update(dict3
+                      ^
+SyntaxError: '(' was never closed
+"
+88,1,1,True,"def freq_count(input_list):
+    frequency = {}
+    for item in input_list:
+        frequency[item] = frequency.get(item, 0) + 1
+    return frequency",
+89,1,1,True,"def closest_num(n):
+    return n - 1",
+90,1,1,True,"def len_log(words):
+    """"""
+    Finds the length of the longest word in a list of words.
+
+    Args:
+        words: A list of strings.
+
+    Returns:
+        An integer representing the length of the longest word.
+        Returns 0 if the input list is empty.
+    """"""
+    if not words:
+        return 0
+    
+    longest_word = max(words, key=len)
+    return len(longest_word)",
+91,1,1,True,"def find_substring(string_list, substring_to_find):
+    for s in string_list:
+        if substring_to_find in s:
+            return True
+    return False",
+92,1,0,False,"def is_undulating(number: int) -> bool:
+    s = str(number)
+    n = len(s)
+
+    # An undulating number must have at least two digits to show alternation.
+    # Also, handle potential negative sign if present.
+    start_index = 0
+    if s[0] == '-':
+        start_index =","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpjeh31gpl.py"", line 9
+    start_index =
+                 ^
+SyntaxError: invalid syntax
+"
+93,1,1,True,"def power(a, b):
+    return a ** b",
+94,1,1,True,"def index_minimum(data_list):
+    """"""
+    Given a list of tuples, returns the first value of the tuple with the smallest second value.
+    """"""
+    if not data_list:
+        raise ValueError(""The input list cannot be empty."")
+    
+    # Use the min function with a key to find the tuple with the smallest second element
+    min_tuple = min(data_list, key=lambda item: item[1])
+    
+    # Return the first element of that tuple
+    return min_tuple[0]",
+95,1,1,True,"def Find_Min_Length(list_of_lists):
+    return min(len(sublist) for sublist in list_of_lists)",
+96,1,1,True,"def divisor(n):
+    count = 0
+    i = 1
+    while i * i <= n:
+        if n % i == 0:
+            if i * i == n:
+                count += 1
+            else:
+                count += 2
+        i += 1
+    return count",
+97,1,1,True,"from collections import Counter
+
+def frequency_lists(list_of_lists):
+    """"""
+    Finds the frequency of each element in a flattened list of lists.
+
+    Args:
+        list_of_lists: A list of lists, where each inner list contains elements.
+
+    Returns:
+        A dictionary where keys are the unique elements from the flattened list
+        and values are their respective frequencies.
+    """"""
+    flattened_list = [item for sublist in list_of_lists for item in sublist]
+    frequency_dict = Counter(",
+98,1,1,True,"def multiply_num(numbers):
+    product = 1
+    for num in numbers:
+        product *= num
+
+    list_length = len(numbers)
+
+    # The problem statement and provided tests imply that the input 'numbers'
+    # will always be a non-empty sequence, ensuring list_length > 0.
+    # Therefore, explicit handling for an empty list (which would lead to
+    # ZeroDivisionError) is not included as per the given constraints.
+    
+    return product / list_length",
+99,1,1,True,"def decimal_to_binary(decimal_num):
+    return bin(decimal_num)[2:]",
+100,1,0,False,"def next_smallest_palindrome(n: int) -> int:
+    """"""
+    Finds the next smallest palindrome of a specified integer.
+
+    Args:
+        n: The input integer.
+
+    Returns:
+        The next smallest palindrome as an integer.
+    """"""
+    s = str(n)
+    length = len(s)","Traceback (most recent call last):
+  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpxh2naf8g.py"", line 14, in <module>
+    assert next_smallest_palindrome(99)==101
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+101,1,1,True,"def kth_element(arr, k):
+    """"""
+    Finds the kth element in the given array using 1-based indexing.
+
+    Args:
+        arr (list): The input array.
+        k (int): The 1-based index of the element to find.
+
+    Returns:
+        The element at the kth position (1-based index).
+    """"""
+    return arr[k - 1]",
+102,1,1,True,"def snake_to_camel(snake_str):
+    """"""
+    Converts a snake_case string to a CamelCase string.
+
+    Args:
+        snake_str (str): The input string in snake_case.
+
+    Returns:
+        str: The converted string in CamelCase.
+    """"""
+    components = snake_str.split('_')
+    # Capitalize the first letter of each component and join them
+    return """".join(x.capitalize() for x in components)",
+103,1,0,False,"import math
+
+def eulerian_num(n, m):
+    """"""
+    Calculates the Eulerian number A(n, m).
+
+    The Eulerian number A(n, m) counts the number of permutations of {1, ..., n}
+    that have exactly m ascents.
+
+    The formula used is:
+    A(n, m) = sum","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpdfino2nf.py"", line 4
+    """"""
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 15)
+"
+104,1,1,True,"def sort_sublists(list_of_lists):
+    return [sorted(sublist) for sublist in list_of_lists]",
+105,1,1,True,"def count(boolean_list):
+    return sum(boolean_list)",
+106,1,1,True,"def add_lists(list_to_append, original_tuple):
+    return original_tuple + tuple(list_to_append)",
+108,1,1,True,"def merge_sorted_list(list1, list2, list3):
+    """"""
+    Merges three lists into a single sorted list.
+
+    Args:
+        list1 (list): The first list of numbers.
+        list2 (list): The second list of numbers.
+        list3 (list): The third list of numbers.
+
+    Returns:
+        list: A new list containing all elements from the three input lists, sorted in ascending order.
+    """"""
+    merged_list = list1 + list2 + list3
+    merged_list.sort()
+    return merged_list",
+109,1,0,False,"def odd_Equivalent(s: str, n: int) -> int:
+    """"""
+    Finds the number of numbers with an odd value when rotating a binary string
+    the given number of times.
+
+    A binary number has an odd value if its least significant bit (rightmost bit) is '1'.
+    The function considers `n` rotations, starting from","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmp0v849_wf.py"", line 2
+    """"""
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 11)
+"
+111,1,1,True,"def common_in_nested_lists(nested_lists):
+    if not nested_lists:
+        return []
+
+    # Initialize common_elements with the set of the first sublist
+    common_elements = set(nested_lists[0])
+
+    # Iterate through the rest of the sublists and find the intersection
+    for sublist in nested_lists[1:]:
+        common_elements = common_elements.intersection(set(sublist))
+        # Optimization: if common_elements becomes empty, no further intersection is needed
+        if not common_elements:
+",
+113,1,1,True,"def check_integer(s):
+    try:
+        int(s)
+        return True
+    except ValueError:
+        return False",
+115,1,0,False,"def empty_dit(data):
+    if isinstance(data, dict):
+        # If the input itself is a dictionary, check if it's empty.
+        # This handles the test case empty_dit({}) == True
+        return not bool(data)
+    elif isinstance(data, list):
+        # If the input is a list, iterate through its elements.","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpq8ewmne2.py"", line 9
+    assert empty_dit([{},{},{}])==True
+IndentationError: expected an indented block after 'elif' statement on line 6
+"
+116,1,1,True,"def tuple_to_int(tup):
+    result = 0
+    for digit in tup:
+        result = result * 10 + digit
+    return result",
+117,1,0,False,"def list_to_float(data):
+    """"""
+    Converts all possible convertible elements in a list of lists (or tuples) to floats.
+
+    Args:
+        data: A list of lists or tuples, where inner elements might be strings
+              representing numbers.
+
+    Returns:
+        A new list with convertible elements converted to floats.
+        The outer","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpab7bckvm.py"", line 2
+    """"""
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 15)
+"
+118,1,1,True,"def string_to_list(input_string):
+    return input_string.split(' ')",
+119,1,0,False,"def search(nums):
+    low = 0
+    high = len(nums) - 1
+
+    while low < high:
+        mid = (low + high) // 2
+
+        # Ensure mid is even for consistent pair checking
+        # If mid is odd, decrement it to point to the start of its pair
+        # This simplifies the logic: we always check nums",TIMEOUT
+120,1,0,False,"def max_product_tuple(list_of_tuples):
+    """"""
+    Finds the maximum absolute product between numbers within pairs of tuples
+    in a given list.
+
+    Args:
+        list_of_tuples: A list of tuples, where each tuple contains two numbers.
+
+    Returns:
+        The maximum absolute product found among all tuples.
+        Returns 0 if","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpyfl080fg.py"", line 2
+    """"""
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 15)
+"
+123,1,0,False,"import math
+
+def amicable_numbers_sum(limit: int) -> int:
+    """"""
+    Calculates the sum of all amicable numbers up to a specified limit.
+
+    Two different numbers a and b are amicable if the sum of the proper
+    divisors of a (divisors excluding a itself) is equal to b and the
+    sum of the proper divisors of b","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmph0mm7rge.py"", line 4
+    """"""
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 13)
+"
+124,1,0,False,"import cmath
+
+def angle_complex(real_part, imag_complex_part):
+    """"""
+    Calculates the angle (phase) of a complex number formed by a real part
+    and a complex number representing the imaginary component.
+
+    The complex number is constructed as `real_part + imag_complex_part`.
+
+    Args:
+        real_part (float or int): The real part of the complex number.
+        imag_complex_part (complex): A complex number whose imaginary part
+                                     will be used as the im","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpoq_rg9r6.py"", line 5
+    """"""
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 23)
+"
+125,1,0,False,"def find_length(s: str) -> int:
+    """"""
+    Finds the maximum difference between the number of 0s and number of 1s
+    in any sub-string of the given binary string.
+
+    This problem can be transformed into finding the maximum subarray sum.
+    Replace '0' with 1 and '1' with -1. Then","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpq3syk31a.py"", line 2
+    """"""
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 11)
+"
+126,1,1,True,"import math
+
+def sum(a, b):
+    """"""
+    Calculates the sum of common divisors of two given numbers.
+
+    Args:
+        a (int): The first number.
+        b (int): The second number.
+
+    Returns:
+        int: The sum of common divisors of a and b.
+    """"""
+    # The common divisors of two numbers are exactly the divisors of their greatest common divisor (GCD).
+    # We use math.gcd to find the GCD efficiently.
+    gcd_val = math.gcd(a, b)
+
+    sum_of_divisors = 0
+    # Iterate from 1 up to the GC",
+127,1,1,True,"def multiply_int(a, b):
+    return a * b",
+128,1,1,True,"def long_words(n, text):
+    words = text.split()
+    result = []
+    for word in words:
+        if len(word) > n:
+            result.append(word)
+    return result",
+129,1,0,False,"def magic_square_test(matrix):
+    n = len(matrix)
+
+    # An empty matrix is not a magic square
+    if n == 0:
+        return False
+
+    # Check if it's a square matrix and all rows have the same length
+    for row in matrix:
+        if len(row) != n:
+            return False
+
+    #","Traceback (most recent call last):
+  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpc96u0mdo.py"", line 15, in <module>
+    assert magic_square_test([[7, 12, 1, 14], [2, 13, 8, 11], [16, 3, 10, 5], [9, 6,"
+130,1,0,False,"from collections import Counter
+
+def max_occurrences(input_list):
+    """"""
+    Finds the item with the maximum frequency in a given list.
+
+    Args:
+        input_list: A list of items.
+
+    Returns:
+        The item that appears most frequently in the list.
+        If there's a tie in frequency, the item that","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmprvi9c2u3.py"", line 4
+    """"""
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 16)
+"
+131,1,1,True,"def reverse_vowels(s: str) -> str:
+    vowels = ""aeiouAEIOU""
+    s_list = list(s)
+
+    found_vowels = []
+    vowel_indices = []
+    for i, char in enumerate(s_list):
+        if char in vowels:
+            found_vowels.append(char)
+            vowel_indices.append(i)
+
+    found_vowels.reverse()
+
+    for i, original_vowel_index in enumerate(vowel_indices):
+        s_list[original_vowel_index] = found_vowels[i]
+
+    return """".join(s_list)",
+132,1,1,True,"def tup_string(tup):
+    return """".join(tup)",
+133,1,1,True,"def sum_negativenum(numbers):
+    """"""
+    Calculates the sum of the negative numbers in a given list of numbers.
+
+    Args:
+        numbers: A list of integers or floats.
+
+    Returns:
+        The sum of all negative numbers in the list.
+    """"""
+    total_negative = 0
+    for num in numbers:
+        if num < 0:
+            total_negative += num
+    return total_negative",
+135,1,1,True,"def hexagonal_num(n):
+    """"""
+    Calculates the nth hexagonal number.
+
+    A hexagonal number is a figurate number that represents the number of dots
+    in a pattern of nested hexagons. The formula for the nth hexagonal number is
+    H_n = n * (2n - 1).
+
+    Args:
+        n (int): The position of the hexagonal number to find (n must be a positive integer).
+
+    Returns:
+        int: The nth hexagonal number.
+    """"""
+    return n * (2 * n - 1)",
+137,1,0,False,"def zero_count(arr):
+    num_zeroes = 0
+    num_non_zeroes = 0
+
+    for x in arr:
+        if x == 0:
+            num_zeroes += 1
+        else:
+            num_non_zeroes += 1
+
+    if num_non_zeroes == 0:","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpgwjeniz5.py"", line 14
+    assert math.isclose(zero_count([0, 1, 2, -1, -5, 6, 0, -3, -2, 3, 4, 6, 8]), 0.181818, rel_tol=0.001)
+IndentationError: expected"
+138,1,0,False,"def is_Sum_Of_Powers_Of_Two(n):
+    """"""
+    Checks if the given number can be represented as a sum of non-zero powers of 2.
+    ""Non-zero powers of 2"" are interpreted as 2^k where k >= 1 (i.e., 2, 4, 8, 16, ...","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmp5yy_h6kg.py"", line 2
+    """"""
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 8)
+"
+139,1,1,True,"import math
+
+def circle_circumference(radius):
+    """"""
+    Calculates the circumference of a circle given its radius.
+
+    Args:
+        radius (float or int): The radius of the circle.
+
+    Returns:
+        float: The circumference of the circle.
+    """"""
+    return 2 * math.pi * radius",
+140,1,1,True,"def extract_singly(list_of_lists):
+    """"""
+    Flattens a list of lists (or tuples) into a single set of numbers.
+
+    Args:
+        list_of_lists: A list where each element is an iterable (e.g., list or tuple)
+                       containing numbers.
+
+    Returns:
+        A set containing all unique numbers from the input list of lists.
+    """"""
+    result_set = set()
+    for inner_list in list_of_lists:
+        for number in inner_list:
+            result_set.add(number)
+    return result_set",
+141,1,0,False,"def pancake_sort(arr):
+    n = len(arr)
+
+    # Helper function to reverse a sublist from index 0 to k
+    def _flip(sub_arr, k):
+        start = 0
+        end = k
+        while start < end:
+            sub_arr[start], sub_arr[end] = sub_arr[","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpdx1eexlt.py"", line 9
+    sub_arr[start], sub_arr[end] = sub_arr[
+                                          ^
+SyntaxError: '[' was never closed
+"
+142,1,1,True,"def count_samepair(list1, list2, list3):
+    count = 0
+    # Iterate up to the length of the shortest list to avoid IndexError,
+    # though the problem implies lists of equal length.
+    min_length = min(len(list1), len(list2), len(list3))
+    
+    for i in range(min_length):
+        if list1[i] == list2[i] and list2[i] == list3[i]:
+            count += 1
+            
+    return count",
+143,1,0,False,"def find_lists(input_tuple):
+    """"""
+    Finds the number of lists present in the given tuple.
+
+    Args:
+        input_tuple: A tuple which may contain various types of elements,
+                     including lists.
+
+    Returns:
+        An integer representing the count of lists within the tuple.
+    """"""
+    list_count = 0
+    for item in input_tuple:
+        if isinstance(item, list):
+            list_count += 1
+    return list_count","Traceback (most recent call last):
+  File ""C:\Users\Imgigi\AppData\Local\Temp\tmp1fu2d3b1.py"", line 20, in <module>
+    assert find_lists(([9, 8, 7, 6, 5, 4, 3, 2, 1])) == 1
+           ^^^^^^^^^^^^^^^"
+145,1,1,True,"def max_Abs_Diff(arr):
+    """"""
+    Finds the maximum difference between any two elements in a given array.
+
+    Args:
+        arr: A sequence of numbers (e.g., a list or tuple).
+
+    Returns:
+        The maximum difference between any two elements in the array.
+        Returns 0 if the array is empty or contains only one element.
+    """"""
+    if not arr or len(arr) < 2:
+        return 0
+    
+    max_val = max(arr)
+    min_val = min(arr)
+    
+    return max_val - min_val",
+160,1,0,False,"def find_solution(a, b, n):
+    """"""
+    Finds integers x and y that satisfy the linear Diophantine equation ax + by = n.
+
+    Args:
+        a (int): Coefficient of x.
+        b (int): Coefficient of y.
+        n (int): The constant term.
+
+    Returns:
+        tuple: A","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpffycyx6d.py"", line 2
+    """"""
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 15)
+"
+161,1,1,True,"def remove_elements(list1, list2):
+    """"""
+    Removes all elements from list1 that are present in list2.
+
+    Args:
+        list1: The original list from which elements will be removed.
+        list2: The list containing elements to be removed from list1.
+
+    Returns:
+        A new list with elements from list1 that are not present in list2.
+    """"""
+    elements_to_remove = set(list2)
+    return [element for element in list1 if element not in elements_to_remove]",
+162,1,1,True,"def sum_series(n):
+    """"""
+    Calculates the sum (n - 2*i) from i=0 to n // 2.
+    For example, n + (n-2) + (n-4)... (until n-x =< 0).
+    """"""
+    return sum(n - 2 * i for i in range(n // 2 + 1))",
+163,1,1,True,"import math
+
+def area_polygon(n, s):
+    numerator = n * (s ** 2)
+    denominator = 4 * math.tan(math.pi / n)
+    area = numerator / denominator
+    return area",
+164,1,0,False,"import math
+
+def are_equivalent(a: int, b: int) -> bool:
+    """"""
+    Determines if the sum of the proper divisors of two integers are the same.
+
+    A proper divisor of a number is any divisor other than the number itself.
+    For example, the proper divisors of 6 are 1, 2, and 3. Their","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpk54j166p.py"", line 4
+    """"""
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 12)
+"
+165,1,0,False,"def count_char_position(s: str) -> int:
+    """"""
+    Counts the number of characters in a string that occur at the same position
+    in the string as in the English alphabet (case insensitive).
+
+    For example:
+    - 'a' at index 0 is a match (1st letter, 0-indexed position 0)","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpeng1imq9.py"", line 2
+    """"""
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 11)
+"
+166,1,1,True,"def find_even_pair(numbers):
+    count_even = 0
+    count_odd = 0
+
+    for num in numbers:
+        if num % 2 == 0:
+            count_even += 1
+        else:
+            count_odd += 1
+
+    # A pair (a, b) has a XOR b as an even number if and only if
+    # a and b have the same parity (both even or both odd).
+
+    # Calculate pairs of even numbers
+    # The number of ways to choose 2 items from N items is N * (N - 1) / 2
+    pairs_from_even = (count_even * (count_even - 1)) // 2
+    
+    # Calcu",
+167,1,1,True,"def next_power_of_2(n):
+    if n == 0:
+        return 1
+    
+    power = 1
+    while power < n:
+        power *= 2
+    return power",
+168,1,1,True,"def frequency(data_list, target_number):
+    return data_list.count(target_number)",
+170,1,1,True,"def sum_range_list(numbers, start_index, end_index):
+    return sum(numbers[start_index : end_index + 1])",
+171,1,1,True,"def perimeter_pentagon(side_length):
+    """"""
+    Calculates the perimeter of a regular pentagon from the length of its sides.
+
+    A regular pentagon has 5 equal sides. The perimeter is the sum of the lengths
+    of these 5 sides.
+
+    Args:
+        side_length (float or int): The length of one side of the regular pentagon.
+
+    Returns:
+        float or int: The perimeter of the regular pentagon.
+    """"""
+    return side_length * 5",
+172,1,1,True,"def count_occurance(input_string):
+    return input_string.count('std')",
+222,1,1,True,"def check_type(tup):
+    if not tup:
+        return True
+    
+    first_type = type(tup[0])
+    
+    for element in tup:
+        if type(element) != first_type:
+            return False
+            
+    return True",
+223,1,0,False,"def is_majority(arr, n, element):
+    """"""
+    Checks if a given element is the majority element in a sorted array.
+
+    The majority element is the element that occurs more than n/2 times.
+    Since the array is sorted, all occurrences of the element will be contiguous.
+    We can find the first occurrence of the element using binary search.","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpnrwlf3cf.py"", line 2
+    """"""
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 12)
+"
+224,1,1,True,"def count_Set_Bits(n):
+    return bin(n).count('1')",
+226,1,1,True,"def odd_values_string(s):
+    return s[::2]",
+227,1,1,True,"def min_of_three(num1, num2, num3):
+    return min(num1, num2, num3)",
+228,1,0,False,"def all_Bits_Set_In_The_Given_Range(number, start_range, end_range):
+    """"""
+    Checks if all bits within the specified 1-based range are unset (0) in the given number.
+
+    Args:
+        number (int): The integer to check.
+        start_range (int): The 1-based","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpp092h7p1.py"", line 2
+    """"""
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 11)
+"
+229,1,0,False,"def re_arrange_array(arr, n):
+    """"""
+    Re-arranges the first n elements of the given array so that all negative elements
+    appear before positive ones, and where the relative order among negative and
+    positive elements is preserved.
+
+    Args:
+        arr (list): The input array.
+        n (int): The number of elements","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmp6kjtplth.py"", line 2
+    """"""
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 13)
+"
+230,1,1,True,"def replace_blank(text, char):
+    return text.replace(' ', char)",
+232,1,1,True,"def larg_nnum(input_list, n):
+    """"""
+    Returns a list containing the n largest items from the input list.
+    """"""
+    # Sort the list in descending order
+    sorted_list = sorted(input_list, reverse=True)
+    # Return the first n elements
+    return sorted_list[:n]",
+233,1,1,True,"import math
+
+def lateralsuface_cylinder(radius, height):
+  """"""
+  Calculates the lateral surface area of a cylinder.
+
+  Args:
+    radius: The radius of the cylinder's base.
+    height: The height of the cylinder.
+
+  Returns:
+    The lateral surface area of the cylinder.
+  """"""
+  return 2 * math.pi * radius * height",
+234,1,1,True,"def volume_cube(side_length):
+  """"""
+  Calculates the volume of a cube given its side length.
+
+  Args:
+    side_length: The length of one side of the cube.
+
+  Returns:
+    The volume of the cube.
+  """"""
+  return side_length ** 3",
+235,1,0,False,"def even_bit_set_number(n: int) -> int:
+    """"""
+    Sets all odd-indexed bits (1, 3, 5, ...) of a given number to 1.
+    This function interprets ""even bits"" as a non-standard term,
+    and its behavior is derived directly from the provided test cases.
+    Specifically,","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpukvmvnkx.py"", line 2
+    """"""
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 10)
+"
+237,1,1,True,"def check_occurences(list_of_tuples):
+    """"""
+    Takes a list of tuples and returns a dictionary mapping each unique,
+    normalized tuple to the number of times it occurs in the list.
+    A tuple (a, b) is normalized to (min(a, b), max(a, b)).
+    """"""
+    from collections import Counter
+
+    normalized_tuples = []
+    for tpl in list_of_tuples:
+        # Normalize the tuple by sorting its elements
+        normalized_tuples.append(tuple(sorted(tpl)))
+
+    return Counter(normalized_tuples)",
+238,1,1,True,"def number_of_substrings(s):
+    """"""
+    Counts the number of non-empty substrings of a given string.
+
+    Args:
+        s: The input string.
+
+    Returns:
+        The total count of non-empty substrings.
+    """"""
+    n = len(s)
+    # The number of non-empty substrings of a string of length n is
+    # the sum of integers from 1 to n, which is n * (n + 1) / 2.
+    return n * (n + 1) // 2",
+239,1,0,False,"def get_total_number_of_sequences(m: int, n: int) -> int:
+    """"""
+    Calculates the number of possible sequences of length n,
+    such that each element is a positive integer and is greater than or equal to
+    twice the previous element but less than or equal to m.
+
+    Args:
+        m: The maximum allowed value for","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmp918nwpbc.py"", line 2
+    """"""
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 12)
+"
+240,1,1,True,"def replace_list(list1, list2):
+    list1.pop()
+    list1.extend(list2)
+    return list1",
+242,1,1,True,"def count_charac(input_string):
+    return len(input_string)",
+244,1,1,True,"def next_Perfect_Square(n):
+    import math
+    root = int(math.sqrt(n))
+    next_root = root + 1
+    return next_root * next_root",
+245,1,0,False,"def max_sum(arr):
+    n = len(arr)
+
+    if n == 0:
+        return 0
+    if n == 1:
+        return arr[0]
+
+    # msis[i] stores the maximum sum of an increasing subsequence ending at arr[i]
+    msis = list(arr)
+
+    # msds[","Traceback (most recent call last):
+  File ""C:\Users\Imgigi\AppData\Local\Temp\tmppw5qf1nd.py"", line 14, in <module>
+    assert max_sum([1, 15, 51, 45, 33, 100, 12, 18, 9]) == 194
+           ^^^^^^^^^^"
+246,1,0,False,"def babylonian_squareroot(number):
+    """"""
+    Computes the square root of a non-negative number using the Babylonian method.
+
+    Args:
+        number (float or int): The non-negative number for which to compute the square root.
+
+    Returns:
+        float: The approximate square root of the number.
+
+    Raises:","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmp7tz8jn6p.py"", line 3
+    """"""
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 16)
+"
+247,1,0,False,"def lps(s: str) -> int:
+    """"""
+    Finds the length of the longest palindromic subsequence in the given string.
+
+    Args:
+        s: The input string.
+
+    Returns:
+        The length of the longest palindromic subsequence.
+    """"""
+    n = len(s)
+
+    # Create a 2D DP table","Traceback (most recent call last):
+  File ""C:\Users\Imgigi\AppData\Local\Temp\tmprtavjl_1.py"", line 15, in <module>
+    assert lps(""TENS FOR TENS"") == 5
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionE"
+248,1,1,True,"def harmonic_sum(n: int) -> float:
+    """"""
+    Calculates the nth harmonic number, H_n, which is the sum of the reciprocals
+    of the first n positive integers: 1 + 1/2 + 1/3 + ... + 1/n.
+
+    Args:
+        n: An integer representing the upper limit of the sum.
+           It is assumed that n will be a positive integer based on the tests.
+
+    Returns:
+        The harmonic sum H_n as a float.
+    """"""
+    if n <= 0:
+        # Harmonic sum is typically defined for positive integers.
+        # For",
+249,1,0,False,"def intersection_array(arr1, arr2):
+    """"""
+    Finds the intersection of two arrays.
+
+    The intersection contains elements that are present in both arrays.
+    The order of elements in the result is determined by their appearance
+    in the second array (arr2). If an element appears multiple times in arr2
+    and is present in arr1, it will","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmp7e6cx7_v.py"", line 2
+    """"""
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 12)
+"
+250,1,1,True,"def count_X(my_tuple, element):
+    return my_tuple.count(element)",
+251,1,1,True,"def insert_element(lst, elem):
+    result = []
+    for item in lst:
+        result.append(elem)
+        result.append(item)
+    return result",
+252,1,1,True,"import cmath
+
+def convert(z):
+    """"""
+    Converts a complex number to its polar coordinates (magnitude, phase).
+
+    Args:
+        z: A complex number.
+
+    Returns:
+        A tuple (r, theta) where r is the magnitude and theta is the phase
+        in radians.
+    """"""
+    return cmath.polar(z)",
+253,1,1,True,"def count_integer(input_list):
+    count = 0
+    for element in input_list:
+        if type(element) is int:
+            count += 1
+    return count",
+255,1,1,True,"import itertools
+
+def combinations_colors(elements, n):
+    """"""
+    Generates all combinations (with repetition) of the elements of the list
+    and returns a list with a tuple for each combination.
+
+    Args:
+        elements (list): The list of elements to choose from.
+        n (int): The length of each combination.
+
+    Returns:
+        list: A list of tuples, where each tuple represents a combination
+              with repetition of length n.
+    """"""
+    return list(itertools.combinations_w",
+256,1,0,False,"import math
+
+def count_Primes_nums(n: int) -> int:
+    """"""
+    Counts the number of prime numbers less than a given non-negative number n.
+
+    Args:
+        n: A non-negative integer.
+
+    Returns:
+        The count of prime numbers strictly less than n.
+    """"""
+    if n <=","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpcuh_nmbp.py"", line 13
+    if n <=
+           ^
+SyntaxError: invalid syntax
+"
+257,1,1,True,"def swap_numbers(num1, num2):
+    return (num2, num1)",
+259,1,1,True,"def maximize_elements(tuple1, tuple2):
+    result = []
+    for t1_inner, t2_inner in zip(tuple1, tuple2):
+        max_inner_tuple = (max(t1_inner[0], t2_inner[0]), max(t1_inner[1], t2_inner[1]))
+        result.append(max_inner_tuple)
+    return tuple(result)",
+260,1,0,False,"def newman_prime(n: int) -> int:
+    """"""
+    Finds the nth Newman-Shanks-Williams prime number, where 'n' refers to the
+    index 'k' of the NSW number S_k.
+
+    The Newman-Shanks-Williams (NSW) numbers are defined by the recurrence relation:
+    S_0 = 1","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpi4calfvt.py"", line 2
+    """"""
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 11)
+"
+261,1,1,True,"def division_elements(tuple1, tuple2):
+    return tuple(a // b for a, b in zip(tuple1, tuple2))",
+262,1,1,True,"def split_two_parts(input_list, L):
+    """"""
+    Splits the given list into two parts where the length of the first part
+    of the list is L, and returns the resulting lists in a tuple.
+
+    Args:
+        input_list (list): The list to be split.
+        L (int): The desired length of the first part of the list.
+
+    Returns:
+        tuple: A tuple containing two lists: (first_part, second_part).
+    """"""
+    first_part = input_list[:L]
+    second_part = input_list[L:]
+    return (first_part, seco",
+264,1,1,True,"def dog_age(human_age):
+    return 4 * human_age + 13",
+265,1,0,False,"def list_split(input_list, n):
+    """"""
+    Splits a list for every nth element, returning a list of the resulting lists.
+
+    Elements are distributed into n sublists based on their original index modulo n.
+    The element at index `i` in the input_list will be placed into the sublist
+    at index `i % n` in","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpgqg64icb.py"", line 2
+    """"""
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 11)
+"
+266,1,1,True,"def lateralsurface_cube(side_length):
+    """"""
+    Calculates the lateral surface area of a cube given its side length.
+
+    The lateral surface area of a cube is the sum of the areas of its four side faces.
+    Each face is a square with area side_length * side_length.
+
+    Args:
+        side_length (float or int): The length of one side of the cube.
+
+    Returns:
+        float or int: The lateral surface area of the cube.
+    """"""
+    return 4 * side_length * side_length",
+267,1,1,True,"def square_Sum(n):
+    """"""
+    Calculates the sum of the squares of the first n odd natural numbers.
+
+    Args:
+        n (int): The number of odd natural numbers to consider.
+
+    Returns:
+        int: The sum of their squares.
+    """"""
+    return sum([(2 * i - 1)**2 for i in range(1, n + 1)])",
+268,1,1,True,"def find_star_num(n):
+    """"""
+    Calculates the n'th star number.
+
+    A star number is a centered figurate number that represents a hexagram
+    (a six-pointed star). The formula for the n-th star number is 6n(n-1) + 1.
+
+    Args:
+        n (int): The position of the star number to find (n >= 1).
+
+    Returns:
+        int: The n'th star number.
+    """"""
+    return 6 * n * (n - 1) + 1",
+269,1,1,True,"def ascii_value(char):
+    return ord(char)",
+270,1,1,True,"def sum_even_and_even_index(numbers):
+    total_sum = 0
+    for index, num in enumerate(numbers):
+        # Check if the current position (index) is even
+        # and if the number at that position is also even
+        if index % 2 == 0 and num % 2 == 0:
+            total_sum += num
+    return total_sum",
+271,1,1,True,"def even_Power_Sum(n: int) -> int:
+    """"""
+    Calculates the sum of the first n even natural numbers, each raised to the fifth power.
+
+    Args:
+        n: An integer representing the count of even natural numbers to consider.
+
+    Returns:
+        The sum of the first n even natural numbers raised to the fifth power.
+    """"""
+    total_sum = 0
+    for i in range(1, n + 1):
+        even_number = 2 * i
+        total_sum += even_number ** 5
+    return total_sum",
+272,1,1,True,"def rear_extract(list_of_tuples):
+    return [t[-1] for t in list_of_tuples]",
+273,1,1,True,"def substract_elements(tuple1, tuple2):
+    return tuple(a - b for a, b in zip(tuple1, tuple2))",
+274,1,1,True,"def even_binomial_Coeff_Sum(n: int) -> int:
+    """"""
+    Calculates the sum of even-indexed binomial coefficients for a given positive integer n.
+    The sum is C(n, 0) + C(n, 2) + C(n, 4) + ...
+
+    Args:
+        n: A positive integer.
+
+    Returns:
+        The sum of even-indexed binomial coefficients.
+    """"""
+    return 2**(n - 1)",
+276,1,1,True,"import math
+
+def volume_cylinder(radius, height):
+    """"""
+    Calculates the volume of a cylinder given its radius and height.
+
+    Args:
+        radius (float or int): The radius of the cylinder's base.
+        height (float or int): The height of the cylinder.
+
+    Returns:
+        float: The volume of the cylinder.
+    """"""
+    volume = math.pi * (radius ** 2) * height
+    return volume",
+277,1,1,True,"def dict_filter(input_dict, n):
+    """"""
+    Filters a dictionary to only include entries with values greater than or equal to n.
+
+    Args:
+        input_dict (dict): The dictionary to filter.
+        n (int): The minimum value to include.
+
+    Returns:
+        dict: A new dictionary containing only the entries where the value is >= n.
+    """"""
+    return {key: value for key, value in input_dict.items() if value >= n}",
+278,1,1,True,"def count_first_elements(input_tuple):
+    count = 0
+    for element in input_tuple:
+        if isinstance(element, tuple):
+            return count
+        count += 1
+    return count",
+279,1,1,True,"def is_num_decagonal(n):
+    """"""
+    Calculates the nth decagonal number.
+
+    A decagonal number is a figurate number that represents a decagon.
+    The formula for the nth decagonal number is n * (4n - 3).
+    """"""
+    return n * (4 * n - 3)",
+280,1,1,True,"def sequential_search(arr, element):
+    for i in range(len(arr)):
+        if arr[i] == element:
+            return (True, i)
+    return (False, -1)",
+281,1,1,True,"def all_unique(input_list):
+    return len(input_list) == len(set(input_list))",
+282,1,1,True,"def sub_list(list1, list2):
+    """"""
+    Subtracts two lists element-wise.
+
+    Args:
+        list1 (list): The first list (minuend).
+        list2 (list): The second list (subtrahend).
+
+    Returns:
+        list: A new list where each element is the result of
+              subtracting the corresponding element of list2 from list1.
+              The length of the resulting list will be the length of the
+              shorter of the two input lists.
+    """"""
+    return [a - b for a, b in zip(list1,",
+283,1,0,False,"def validate(n: int) -> bool:
+    s = str(n)
+    digit_counts = {}
+    for char_digit in s:
+        digit_counts[char_digit] = digit_counts.get(char_digit, 0) + 1
+
+    for digit_char, count in digit_counts.items():
+        digit_","Traceback (most recent call last):
+  File ""C:\Users\Imgigi\AppData\Local\Temp\tmp2z51cb8w.py"", line 10, in <module>
+    assert validate(1234) == True
+           ~~~~~~~~^^^^^^
+  File ""C:\Users\Imgigi\"
+284,1,1,True,"def check_element(my_list, element):
+    return all(item == element for item in my_list)",
+285,1,1,True,"import re
+
+def text_match_two_three(text):
+    """"""
+    Checks whether a string contains the 'a' character followed by two or three 'b' characters.
+    """"""
+    pattern = r'ab{2,3}'
+    if re.search(pattern, text):
+        return True
+    else:
+        return False",
+286,1,0,False,"def max_sub_array_sum_repeated(arr, n, k):
+    """"""
+    Finds the largest sum of a contiguous array in the modified array
+    which is formed by repeating the given array k times.
+
+    Args:
+        arr (list): The input array of integers.
+        n (int): The length of the input array.
+        k (","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpsw7nxhn7.py"", line 2
+    """"""
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 13)
+"
+287,1,0,False,"def square_Sum(n):
+    """"""
+    Calculates the sum of squares of the first n even natural numbers.
+
+    The sum is given by the formula:
+    Sum = (2*1)^2 + (2*2)^2 + ... + (2*n)^2
+        = 4*1^2 + 4*2^2 + ... +","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmp0gch_l60.py"", line 2
+    """"""
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 11)
+"
+290,1,1,True,"def max_length(list_of_lists):
+    if not list_of_lists:
+        return (0, [])
+
+    longest_list = max(list_of_lists, key=len)
+    max_len = len(longest_list)
+    return (max_len, longest_list)",
+291,1,0,False,"def count_no_of_ways(n, k):
+    """"""
+    Calculates the number of ways to paint a fence with n posts and k colors
+    such that at most 2 adjacent posts have the same color.
+
+    Args:
+        n: The number of posts in the fence.
+        k: The number of available colors.
+
+    Returns","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpnhgkkv_z.py"", line 2
+    """"""
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 14)
+"
+292,1,1,True,"def find(num1, num2):
+    return num1 // num2",
+293,1,1,True,"import math
+
+def otherside_rightangle(side1, side2):
+    """"""
+    Calculates the length of the hypotenuse of a right-angled triangle
+    given the lengths of its two legs.
+    """"""
+    return math.sqrt(side1**2 + side2**2)",
+294,1,1,True,"def max_val(data_list):
+    max_value = None
+    for item in data_list:
+        if isinstance(item, (int, float)):
+            if max_value is None or item > max_value:
+                max_value = item
+    return max_value",
+295,1,0,False,"def sum_div(n):
+    if n <= 0:
+        return 0  # Or raise an error, depending on desired behavior for non-positive numbers
+    
+    total_sum = 0
+    # Iterate from 1 up to the square root of n
+    # We only need to check divisors up to sqrt(n)","Traceback (most recent call last):
+  File ""C:\Users\Imgigi\AppData\Local\Temp\tmptui_7ns9.py"", line 9, in <module>
+    assert sum_div(8)==7
+           ^^^^^^^^^^^^^
+AssertionError
+"
+296,1,0,False,"def get_Inv_Count(arr):
+    """"""
+    Counts the number of inversions in an array using a modified merge sort algorithm.
+
+    An inversion is a pair of indices (i, j) such that i < j and arr[i] > arr[j].
+
+    Args:
+        arr: A list of numbers.
+
+    Returns:","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpgghuzrqp.py"", line 2
+    """"""
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 14)
+"
+297,1,1,True,"def flatten_list(nested_list):
+    flat = []
+    for item in nested_list:
+        if isinstance(item, list):
+            flat.extend(flatten_list(item))
+        else:
+            flat.append(item)
+    return flat",
+299,1,0,False,"from collections import defaultdict
+
+def max_aggregate(data):
+    """"""
+    Calculates the maximum aggregate score from a list of (name, score) tuples.
+
+    Args:
+        data: A list of tuples, where each tuple contains a string (name)
+              and an integer (score).
+
+    Returns:
+        A tuple containing the name and its total","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmp0itgv0ii.py"", line 4
+    """"""
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 16)
+"
+300,1,0,False,"import math
+
+def count_binary_seq(n: int) -> int:
+    """"""
+    Calculates the count of all binary sequences of length 2n such that
+    the sum of the first n bits is the same as the sum of the last n bits.
+
+    This problem is equivalent to finding the central binomial coefficient C(2n, n).
+
+    Args:","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpx75g61j4.py"", line 5
+    """"""
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 15)
+"
+301,1,1,True,"def dict_depth(d):
+    max_depth = 0
+    for key, value in d.items():
+        if isinstance(value, dict):
+            max_depth = max(max_depth, dict_depth(value))
+    return 1 + max_depth",
+304,1,0,False,"def find_Element(arr, ranges, rotations, index):
+    """"""
+    Finds the element at a given index after a specified number of rotations.
+
+    A ""rotation"" is defined as reversing the sub-array within the given range [L, R].
+    The rotations are applied sequentially based on the 'ranges' list, cycling
+    through the list if '","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmptebpgpsi.py"", line 2
+    """"""
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 11)
+"
+305,1,1,True,"def start_withp(word_list):
+    found_words = []
+    for item in word_list:
+        words = item.split()
+        for word in words:
+            if word.lower().startswith('p'):
+                found_words.append(word)
+                if len(found_words) == 2:
+                    return (found_words[0], found_words[1])",
+306,1,0,False,"def max_sum_increasing_subseq(arr: list[int], n: int, i: int, k: int) -> int:
+    """"""
+    Finds the maximum sum of an increasing subsequence from the prefix of the array
+    (up to the ith index) and also including a given kth element (where k > i).
+
+    The subsequence must","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmps7l49sd5.py"", line 2
+    """"""
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 10)
+"
+307,1,1,True,"def colon_tuplex(tuplex, index, value):
+    """"""
+    Replaces an element at a specific index in a tuple with a list containing the given value.
+
+    Args:
+        tuplex (tuple): The input tuple.
+        index (int): The index of the element to replace.
+        value: The value to be placed inside a list at the specified index.
+
+    Returns:
+        tuple: A new tuple with the element at 'index' replaced by [value].
+    """"""
+    temp_list = list(tuplex)
+    temp_list[index] = [value]
+    return tu",
+308,1,1,True,"def large_product(list1, list2, k):
+    """"""
+    Finds the specified number of largest products from two given lists,
+    selecting one factor from each list.
+
+    Args:
+        list1 (list): The first list of numbers.
+        list2 (list): The second list of numbers.
+        k (int): The number of largest products to return.
+
+    Returns:
+        list: A list containing the k largest products, sorted in descending order.
+    """"""
+    all_products = []
+    for x in list1:
+        for y in list2:
+ ",
+309,1,1,True,"def maximum(a, b):
+    if a > b:
+        return a
+    else:
+        return b",
+310,1,1,True,"def string_to_tuple(input_string):
+    """"""
+    Converts a given string to a tuple of characters, excluding spaces.
+    """"""
+    return tuple(char for char in input_string if char != ' ')",
+311,1,0,False,"def set_left_most_unset_bit(n: int) -> int:
+    """"""
+    Sets the left-most (most significant) unset bit in the given integer.
+
+    If all bits are already set (e.g., for n=15 in a 4-bit context, or if n is
+    the maximum possible value for a","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmp2bac82q5.py"", line 2
+    """"""
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 10)
+"
+312,1,1,True,"import math
+
+def volume_cone(r, h):
+    """"""
+    Calculates the volume of a cone given its radius and height.
+
+    Args:
+        r (float or int): The radius of the cone's base.
+        h (float or int): The height of the cone.
+
+    Returns:
+        float: The volume of the cone.
+    """"""
+    volume = (1/3) * math.pi * (r**2) * h
+    return volume",
+388,1,0,False,"def highest_Power_of_2(n):
+    if n < 1:
+        # For n < 1, the highest power of 2 less than or equal to n is not well-defined
+        # in the context of positive powers of 2.
+        # Based on the test cases, n is expected to be a positive integer.
+        #","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmps34scx5e.py"", line 8
+    assert highest_Power_of_2(10) == 8
+IndentationError: expected an indented block after 'if' statement on line 2
+"
+389,1,1,True,"def find_lucas(n):
+    if n == 0:
+        return 2
+    elif n == 1:
+        return 1
+    else:
+        # Initialize L_0 and L_1
+        l_prev2 = 2  # Represents L_{i-2}
+        l_prev1 = 1  # Represents L_{i-1}
+
+        # Iterate from L_2 up to L_n
+        for _ in range(2, n + 1):
+            current_l = l_prev1 + l_prev2
+            l_prev2 = l_prev1
+            l_prev1 = current_l
+        return current_l",
+390,1,1,True,"def add_string(input_list, format_string):
+    """"""
+    Applies a given format string to all elements in a list.
+
+    Args:
+        input_list (list): The list of elements to format.
+        format_string (str): The format string to apply. It should contain '{0}'
+                             as a placeholder for the element.
+
+    Returns:
+        list: A new list with all elements formatted according to the format string.
+    """"""
+    return [format_string.format(item) for item in input_list]",
+391,1,1,True,"def convert_list_dictionary(list1, list2, list3):
+    return [{item1: {item2: item3}} for item1, item2, item3 in zip(list1, list2, list3)]",
+392,1,1,True,"def get_max_sum(n: int) -> int:
+    memo = {}
+
+    def solve(k: int) -> int:
+        if k == 0:
+            return 0
+        if k in memo:
+            return memo[k]
+
+        # Calculate the sum of parts using integer division
+        sum_of_parts = solve(k // 2) + solve(k // 3) + solve(k // 4) + solve(k // 5)
+
+        # The result is the maximum of k itself or the sum of its parts
+        result = max(sum_of_parts, k)
+        memo[k] = result
+        return result
+
+    return solve(n)",
+393,1,0,False,"def max_length_list(list_of_lists):
+    max_len = 0
+    max_list = []
+
+    for sublist in list_of_lists:
+        current_len = len(sublist)
+        if current_len > max_len:
+            max_len = current_len
+            max_list","Traceback (most recent call last):
+  File ""C:\Users\Imgigi\AppData\Local\Temp\tmp1n5ocgbq.py"", line 11, in <module>
+    assert max_length_list([[0], [1, 3], [5, 7], [9, 11], [13, 15, 17]])==(3, [13, 1"
+394,1,1,True,"def check_distinct(input_tuple):
+    """"""
+    Checks if the given tuple contains no duplicate elements.
+
+    Args:
+        input_tuple: A tuple of elements.
+
+    Returns:
+        True if the tuple contains no duplicates, False otherwise.
+    """"""
+    return len(input_tuple) == len(set(input_tuple))",
+395,1,1,True,"def first_non_repeating_character(s: str) -> str | None:
+    if not s:
+        return None
+
+    char_counts = {}
+    for char in s:
+        char_counts[char] = char_counts.get(char, 0) + 1
+
+    for char in s:
+        if char_counts[char] == 1:
+            return char
+
+    return None",
+396,1,1,True,"def check_char(s):
+    if s[0] == s[-1]:
+        return ""Valid""
+    else:
+        return ""Invalid""",
+397,1,1,True,"def median_numbers(num1, num2, num3):
+    numbers = sorted([num1, num2, num3])
+    return float(numbers[1])",
+398,1,0,False,"def sum_of_digits(numbers_list):
+    total_sum = 0
+    for item in numbers_list:
+        if isinstance(item, list):
+            # Recursively call the function for nested lists
+            total_sum += sum_of_digits(item)
+        elif isinstance(item, (int, float)):
+            # Convert the number to its","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpu2vid3xu.py"", line 10
+    assert sum_of_digits([10,2,56])==14
+IndentationError: expected an indented block after 'elif' statement on line 7
+"
+399,1,1,True,"def bitwise_xor(tuple1, tuple2):
+    """"""
+    Performs the mathematical bitwise XOR operation across the given tuples element-wise.
+
+    Args:
+        tuple1 (tuple): The first tuple of integers.
+        tuple2 (tuple): The second tuple of integers.
+
+    Returns:
+        tuple: A new tuple containing the bitwise XOR result for each corresponding pair of elements.
+    """"""
+    return tuple(a ^ b for a, b in zip(tuple1, tuple2))",
+400,1,0,False,"def extract_freq(tuple_list):
+    """"""
+    Extracts the number of unique tuples in the given list, considering
+    tuples like (a, b) and (b, a) as the same.
+
+    Args:
+        tuple_list: A list of tuples.
+
+    Returns:
+        The count of unique tuples after normalization (sorting elements within","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmptngau98r.py"", line 2
+    """"""
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 14)
+"
+401,1,1,True,"def add_nested_tuples(tuple1, tuple2):
+    """"""
+    Performs index-wise addition of tuple elements in two given nested tuples.
+
+    Args:
+        tuple1 (tuple): The first nested tuple.
+        tuple2 (tuple): The second nested tuple.
+
+    Returns:
+        tuple: A new nested tuple where corresponding elements from the input
+               tuples have been added.
+    """"""
+    return tuple(
+        tuple(x + y for x, y in zip(inner_tuple1, inner_tuple2))
+        for inner_tuple1, inner_tuple2 in zi",
+404,1,1,True,"def minimum(a, b):
+    return min(a, b)",
+405,1,1,True,"def check_tuplex(tuplex, element):
+  return element in tuplex",
+406,1,1,True,"def find_Parity(number):
+  """"""
+  Checks if the parity of a given number is odd.
+
+  Args:
+    number: An integer.
+
+  Returns:
+    True if the number is odd (i.e., its parity is odd), False otherwise.
+  """"""
+  return number % 2 != 0",
+407,1,0,False,"def rearrange_bigger(n):
+    s_digits = list(str(n))
+    length = len(s_digits)
+
+    # Step 1: Find the largest index k such that s_digits[k] < s_digits[k + 1]
+    # If no such index exists, the number is already the largest possible permutation.
+    k = -","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpg605_ld0.py"", line 7
+    k = -
+         ^
+SyntaxError: invalid syntax
+"
+408,1,0,False,"import heapq
+
+def k_smallest_pairs(nums1, nums2, k):
+    """"""
+    Finds k number of smallest pairs which consist of one element from the first array
+    and one element from the second array. The ""smallest"" is determined by the sum of the pair.
+
+    Args:
+        nums1: A list of integers (assumed to","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmptz8566tu.py"", line 4
+    """"""
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 13)
+"
+409,1,1,True,"def min_product_tuple(list_of_tuples):
+    products = [t[0] * t[1] for t in list_of_tuples]
+    return min(products)",
+410,1,1,True,"def min_val(data_list):
+    min_so_far = float('inf')
+    for item in data_list:
+        if isinstance(item, int):
+            if item < min_so_far:
+                min_so_far = item
+    return min_so_far",
+411,1,1,True,"def snake_to_camel(snake_str):
+    components = snake_str.split('_')
+    # Capitalize the first letter of each component and join them
+    return """".join(x.capitalize() for x in components)",
+412,1,1,True,"def remove_odd(numbers_list):
+    """"""
+    Removes odd numbers from a given list and returns a new list containing only even numbers.
+
+    Args:
+        numbers_list: A list of integers.
+
+    Returns:
+        A new list containing only the even numbers from the input list.
+    """"""
+    return [number for number in numbers_list if number % 2 == 0]",
+413,1,1,True,"def extract_nth_element(list_of_tuples, n):
+    """"""
+    Extracts the nth element from each tuple in a given list of tuples.
+
+    Args:
+        list_of_tuples: A list where each element is a tuple.
+        n: An integer representing the index of the element to extract from each tuple.
+
+    Returns:
+        A list containing the nth element from each tuple.
+    """"""
+    return [tup[n] for tup in list_of_tuples]",
+414,1,1,True,"def overlapping(seq1, seq2):
+    """"""
+    Checks whether any value in the first sequence exists in the second sequence.
+
+    Args:
+        seq1: The first sequence (e.g., list, tuple).
+        seq2: The second sequence (e.g., list, tuple).
+
+    Returns:
+        True if any element from seq1 is found in seq2, False otherwise.
+    """"""
+    set2 = set(seq2)
+    for item in seq1:
+        if item in set2:
+            return True
+    return False",
+415,1,0,False,"def max_Product(arr):
+    """"""
+    Finds a pair with the highest product from a given array of integers.
+
+    Args:
+        arr: A list of integers. Assumed to have at least two elements.
+
+    Returns:
+        A tuple containing the two integers that form the pair with the highest product.
+        The order of elements in the tuple is not guaranteed","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmprxly4vqh.py"", line 2
+    """"""
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 14)
+"
+417,1,0,False,"def group_tuples(list_of_tuples):
+    grouped_data = {}
+    for first_elem, second_elem in list_of_tuples:
+        if first_elem not in grouped_data:
+            grouped_data[first_elem] = []
+        grouped_data[first_elem].append(second_elem)
+
+    result =","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpy0uwwasc.py"", line 8
+    result =
+            ^
+SyntaxError: invalid syntax
+"
+418,1,1,True,"def Find_Max(input_list):
+    return max(input_list, key=len)",
+419,1,1,True,"def round_and_sum(numbers):
+    """"""
+    Rounds every number of a given list of numbers, sums the rounded numbers,
+    and returns the total sum multiplied by the length of the list.
+    """"""
+    rounded_sum = 0
+    for num in numbers:
+        rounded_sum += round(num)
+    
+    list_length = len(numbers)
+    
+    return rounded_sum * list_length",
+420,1,1,True,"def cube_Sum(n):
+    """"""
+    Calculates the cube sum of the first n even natural numbers.
+
+    The sum is given by the formula:
+    (2*1)^3 + (2*2)^3 + ... + (2*n)^3
+    = 2^3 * (1^3 + 2^3 + ... + n^3)
+    Using the formula for the sum of the first n cubes, which is (n * (n + 1) / 2)^2:
+    = 8 * (n * (n + 1) / 2)^2
+    = 8 * (n^2 * (n + 1)^2 / 4)
+    = 2 * n^2 * (n + 1)^2
+    """"""
+    return 2 * (n**2) * ((n + 1)**2)",
+421,1,1,True,"def concatenate_tuple(input_tuple):
+    """"""
+    Concatenates each element of a tuple into a single string,
+    using a hyphen '-' as the delimiter.
+
+    Args:
+        input_tuple: A tuple containing elements of various types
+                     (e.g., strings, integers).
+
+    Returns:
+        A single string with all elements concatenated by the delimiter.
+    """"""
+    return ""-"".join(str(item) for item in input_tuple)",
+422,1,1,True,"def find_Average_Of_Cube(n):
+    """"""
+    Calculates the average of the cubes of the first n natural numbers.
+
+    Args:
+        n: An integer representing the number of natural numbers.
+           Assumes n is a positive integer (n >= 1).
+
+    Returns:
+        A float representing the average of the cubes.
+    """"""
+    # The sum of the first n cubes is given by the formula:
+    # (n * (n + 1) / 2)^2
+    sum_of_cubes = (n * (n + 1) / 2)**2
+
+    # The average is the sum divided by n
+    average = s",
+424,1,1,True,"def extract_rear(input_tuple):
+    """"""
+    Extracts only the rear index element (last character) of each string in the given tuple.
+
+    Args:
+        input_tuple: A tuple of strings.
+
+    Returns:
+        A list containing the last character of each string in the input tuple.
+    """"""
+    rear_elements = []
+    for s in input_tuple:
+        if s:  # Ensure the string is not empty before trying to access the last character
+            rear_elements.append(s[-1])
+        else:
+            # Decide",
+425,1,1,True,"def count_element_in_list(main_list, element):
+    count = 0
+    for sublist in main_list:
+        if element in sublist:
+            count += 1
+    return count",
+426,1,1,True,"def filter_oddnumbers(numbers):
+    """"""
+    Filters a list of numbers, returning only the odd numbers.
+    """"""
+    return [num for num in numbers if num % 2 != 0]",
+427,1,1,True,"def change_date_format(date_str):
+    parts = date_str.split('-')
+    year = parts[0]
+    month = parts[1]
+    day = parts[2]
+    return f""{day}-{month}-{year}""",
+428,1,0,False,"def shell_sort(arr):
+    n = len(arr)
+    
+    # Start with a large gap, then reduce the gap
+    gap = n // 2
+    
+    # Do a gapped insertion sort for this gap size.
+    # The first gap elements arr[0..gap-1] are already in gapped order
+    # keep adding","Traceback (most recent call last):
+  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpuc0_xua6.py"", line 11, in <module>
+    assert shell_sort([12, 23, 4, 5, 3, 2, 12, 81, 56, 95]) == [2, 3, 4, 5, 12, 12, "
+429,1,1,True,"def and_tuples(t1, t2):
+    return tuple(a & b for a, b in zip(t1, t2))",
+430,1,0,False,"def parabola_directrix(a, b, c):
+    """"""
+    Calculates the directrix of a parabola based on a specific formula.
+
+    This function does not use the standard directrix formula for y = ax^2 + bx + c
+    or x = ay^2 + by + c. Instead, it implements a specific formula
+    derived from the","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmp0nw8u8vn.py"", line 2
+    """"""
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 11)
+"
+431,1,1,True,"def common_element(list1, list2):
+    set1 = set(list1)
+    set2 = set(list2)
+    
+    if set1.intersection(set2):
+        return True
+    else:
+        return None",
+432,1,1,True,"def median_trapezium(a, b, h):
+    """"""
+    Calculates the median length of a trapezium.
+
+    The median of a trapezium is the line segment connecting the midpoints
+    of the non-parallel sides. Its length is the average of the lengths
+    of the parallel sides. The height 'h' is not used in this calculation.
+
+    Args:
+        a (float or int): The length of one parallel side.
+        b (float or int): The length of the other parallel side.
+        h (float or int): The height of the trapezium ",
+433,1,1,True,"def check_greater(arr, num):
+  """"""
+  Checks whether the entered number is strictly greater than all elements of the given array.
+
+  Args:
+    arr: A list of numbers (the array).
+    num: The number to compare against the array elements.
+
+  Returns:
+    True if 'num' is strictly greater than every element in 'arr', False otherwise.
+    Returns True if 'arr' is empty.
+  """"""
+  return all(num > element for element in arr)",
+434,1,1,True,"import re
+
+def text_match_one(text):
+    pattern = r'ab+'
+    return bool(re.search(pattern, text))",
+435,1,1,True,"def last_Digit(number):
+    return number % 10",
+436,1,1,True,"def neg_nos(numbers):
+    """"""
+    Returns a new list containing only the negative numbers from the input list.
+
+    Args:
+        numbers: A list of numbers (integers or floats).
+
+    Returns:
+        A new list containing only the negative numbers from the input list.
+    """"""
+    return [num for num in numbers if num < 0]",
+437,1,1,True,"def remove_odd(s):
+    return s[1::2]",
+438,1,0,False,"from collections import Counter
+
+def count_bidirectional(tuples_list):
+    """"""
+    Counts bidirectional tuple pairs in a list of tuples.
+
+    A bidirectional tuple pair consists of two tuples (a, b) and (b, a).
+    The function counts how many such pairs can be formed from the input list,
+    considering the multiplicity of each tuple","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpdnmd0mlo.py"", line 4
+    """"""
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 13)
+"
+439,1,1,True,"def multiple_to_single(int_list):
+    """"""
+    Joins a list of multiple integers into a single integer.
+
+    Args:
+        int_list: A list of integers.
+
+    Returns:
+        A single integer formed by concatenating the string representations
+        of the input integers.
+    """"""
+    # Convert each integer in the list to its string representation
+    string_parts = [str(num) for num in int_list]
+
+    # Join all the string parts into a single string
+    joined_string = """".join(string_parts)
+
+    ",
+440,1,0,False,"def find_adverb_position(sentence: str) -> tuple[int, int, str]:
+    """"""
+    Finds the first adverb and its positions in a given sentence.
+
+    The function assumes the adverb is the first word in the sentence,
+    immediately followed by ""!!"", based on the provided test cases.
+
+    Args:
+        sentence: The input","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpxxozn4e5.py"", line 2
+    """"""
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 13)
+"
+441,1,1,True,"def surfacearea_cube(side):
+  """"""
+  Calculates the surface area of a cube given its side length.
+
+  Args:
+    side: The length of one side of the cube.
+
+  Returns:
+    The surface area of the cube.
+  """"""
+  return 6 * side * side",
+442,1,1,True,"def positive_count(arr):
+    """"""
+    Calculates the ratio of positive numbers in an array of integers,
+    rounded to two decimal places.
+
+    Args:
+        arr: A list of integers.
+
+    Returns:
+        A float representing the ratio of positive numbers, rounded to two decimal places.
+        Returns 0.0 if the input array is empty.
+    """"""
+    if not arr:
+        return 0.0
+
+    count_positive = 0
+    for num in arr:
+        if num > 0:
+            count_positive += 1
+
+    ratio = count_positi",
+443,1,1,True,"def largest_neg(numbers):
+    negative_numbers = [num for num in numbers if num < 0]
+    return min(negative_numbers)",
+444,1,0,False,"def trim_tuple(tuple_list, k):
+    trimmed_list = []
+    for t in tuple_list:
+        # Slice the tuple from index k up to (but not including) the last k elements.
+        # Python's slicing handles cases where k is too large, resulting in an empty tuple.
+        # For example, if t has length 5","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpu1r3pdnw.py"", line 8
+    assert trim_tuple([(5, 3, 2, 1, 4), (3, 4, 9, 2, 1),(9, 1, 2, 3, 5), (4, 8, 2, 1, 7)], 2) == '[(2,), (9,), (2,), (2,)]'
+Indentati"
+445,1,1,True,"def index_multiplication(tuple1, tuple2):
+    """"""
+    Performs index-wise multiplication of tuple elements in two given tuples.
+
+    Args:
+        tuple1 (tuple): The first tuple containing sub-tuples of numbers.
+        tuple2 (tuple): The second tuple containing sub-tuples of numbers.
+
+    Returns:
+        tuple: A new tuple where each sub-tuple contains the products of
+               corresponding elements from the input sub-tuples.
+    """"""
+    return tuple(
+        tuple(elem1 * elem2 for el",
+446,1,1,True,"def count_Occurrence(tup, lst):
+    total_count = 0
+    for item in lst:
+        total_count += tup.count(item)
+    return total_count",
+447,1,1,True,"def cube_nums(numbers_list):
+    return [num ** 3 for num in numbers_list]",
+448,1,0,False,"def cal_sum(n):
+    if n < 0:
+        return 0
+
+    # Initialize Perrin numbers P(0), P(1), P(2)
+    # p_n_minus_3, p_n_minus_2, p_n_minus_1
+    p0 = 3
+    p1 = 0","Traceback (most recent call last):
+  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpethsczs9.py"", line 10, in <module>
+    assert cal_sum(9) == 49
+           ^^^^^^^^^^^^^^^^
+AssertionError
+"
+450,1,1,True,"def extract_string(string_list, size):
+    """"""
+    Extracts strings of a specified size from a given list of string values.
+
+    Args:
+        string_list (list): A list of string values.
+        size (int): The desired length of the strings to extract.
+
+    Returns:
+        list: A new list containing only the strings from string_list
+              whose length is equal to 'size'.
+    """"""
+    result = []
+    for s in string_list:
+        if len(s) == size:
+            result.append(s)
+    retur",
+451,1,1,True,"def remove_whitespaces(s: str) -> str:
+    return """".join(char for char in s if not char.isspace())",
+452,1,1,True,"def loss_amount(sale_price, cost_price):
+    if sale_price < cost_price:
+        return cost_price - sale_price
+    else:
+        return 0",
+453,1,1,True,"def sumofFactors(n):
+    total_even_sum = 0
+    for i in range(1, n + 1):
+        if n % i == 0:
+            if i % 2 == 0:
+                total_even_sum += i
+    return total_even_sum",
+454,1,1,True,"def text_match_wordz(text):
+    """"""
+    Checks if a word containing 'z' is present in the given text.
+    The check is case-insensitive.
+    """"""
+    return 'z' in text.lower()",
+455,1,1,True,"def check_monthnumb_number(month_number):
+    """"""
+    Checks whether the given month number contains 31 days or not.
+
+    Args:
+        month_number (int): The number of the month (1-12).
+
+    Returns:
+        bool: True if the month has 31 days, False otherwise.
+    """"""
+    months_with_31_days = {1, 3, 5, 7, 8, 10, 12}
+    return month_number in months_with_31_days",
+456,1,1,True,"def reverse_string_list(string_list):
+    """"""
+    Reverses each string in a given list of string values.
+
+    Args:
+        string_list: A list of strings.
+
+    Returns:
+        A new list containing each string from the input list, reversed.
+    """"""
+    reversed_strings = []
+    for s in string_list:
+        reversed_strings.append(s[::-1])
+    return reversed_strings",
+457,1,1,True,"def Find_Min(list_of_sublists):
+    return min(list_of_sublists, key=len)",
+458,1,1,True,"def rectangle_area(length, width):
+  """"""
+  Calculates the area of a rectangle given its length and width.
+
+  Args:
+    length: The length of the rectangle.
+    width: The width of the rectangle.
+
+  Returns:
+    The area of the rectangle.
+  """"""
+  return length * width",
+459,1,1,True,"def remove_uppercase(s: str) -> str:
+    """"""
+    Removes all uppercase characters from the given string.
+
+    Args:
+        s: The input string.
+
+    Returns:
+        A new string with all uppercase characters removed.
+    """"""
+    return """".join(char for char in s if not char.isupper())",
+460,1,1,True,"def Extract(list_of_lists):
+    return [sublist[0] for sublist in list_of_lists]",
+461,1,0,False,"def upper_ctr(input_string):
+    """"""
+    Counts the number of uppercase characters in a given string.
+
+    Args:
+        input_string: The string to analyze.
+
+    Returns:
+        The count of uppercase characters in the string.
+    """"""
+    count = 0
+    for char in input_string:
+        if char.isupper():
+            count += 1
+    return count","Traceback (most recent call last):
+  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpdl6cz39a.py"", line 17, in <module>
+    assert upper_ctr('PYthon') == 1
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionErr"
+462,1,0,False,"def combinations_list(my_list):
+    """"""
+    Finds all possible combinations of the elements of a given list.
+
+    The order of elements within each combination and the order of combinations
+    in the output list are specific to match the provided test cases.
+    New elements are prepended to existing combinations.
+    """"""
+    result = [[]]  # Start with",", ['blue', 'green'], ['blue', 'green', 'orange'], ['blue', 'green', 'red'], ['blue', 'green', 'red', 'orange']]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+463,1,0,False,"def max_subarray_product(nums: list[int]) -> int:
+    if not nums:
+        return 0  # Or raise an error, depending on desired behavior for empty input
+
+    # Initialize max_so_far with the first element
+    # This handles cases with single element arrays or arrays where the max product is a single element","Traceback (most recent call last):
+  File ""C:\Users\Imgigi\AppData\Local\Temp\tmp0h09fx1i.py"", line 8, in <module>
+    assert max_subarray_product([1, -2, -3, 0, 7, -8, -2]) == 112
+           ^^^^^^^^"
+464,1,1,True,"def check_value(dictionary, value):
+    return all(v == value for v in dictionary.values())",
+465,1,1,True,"def drop_empty(input_dict):
+    return {key: value for key, value in input_dict.items() if value is not None}",
+468,1,0,False,"def max_product(nums):
+    """"""
+    Finds the maximum product formed by multiplying numbers of an increasing subsequence of that array.
+
+    Args:
+        nums: A list of integers.
+
+    Returns:
+        The maximum product of an increasing subsequence. Returns 0 if the input list is empty.
+        If all numbers are negative or zero, and no increasing subsequence can","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmpi5c5y71l.py"", line 2
+    """"""
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 14)
+"
+470,1,1,True,"def add_pairwise(numbers_tuple):
+    return tuple(numbers_tuple[i] + numbers_tuple[i+1] for i in range(len(numbers_tuple) - 1))",
+471,1,1,True,"def find_remainder(arr, n):
+    """"""
+    Finds the product of the array elements modulo n.
+
+    Args:
+        arr: A list of integers.
+        n: The modulo integer.
+
+    Returns:
+        The product of all elements in arr, modulo n.
+    """"""
+    product = 1
+    for num in arr:
+        product = (product * num) % n
+    return product",
+472,1,1,True,"def check_Consecutive(lst):
+    if not lst:
+        return False
+
+    # Convert the list to a set to easily check for uniqueness
+    # and to get distinct elements for min/max calculation if needed
+    unique_elements = set(lst)
+
+    # If the number of unique elements is not equal to the total number of elements,
+    # it means there are duplicates, so they cannot be consecutive in a simple sequence.
+    if len(unique_elements) != len(lst):
+        return False
+
+    # Find the minimum and maximu",
+473,1,0,False,"def tuple_intersection(list1, list2):
+    """"""
+    Finds the tuple intersection of elements in the given tuple lists irrespective of their order.
+
+    Args:
+        list1 (list): A list of tuples.
+        list2 (list): A list of tuples.
+
+    Returns:
+        set: A set of tuples representing the intersection. Each tuple","  File ""C:\Users\Imgigi\AppData\Local\Temp\tmp58dqdb0f.py"", line 2
+    """"""
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 14)
+"
+474,1,1,True,"def replace_char(input_string, old_char, new_char):
+    return input_string.replace(old_char, new_char)",
+475,1,1,True,"def sort_counter(input_dict):
+    return sorted(input_dict.items(), key=lambda item: item[1], reverse=True)",
+476,1,1,True,"def big_sum(arr):
+    """"""
+    Finds the sum of the largest and smallest value in a given array.
+
+    Args:
+        arr: A list of numbers.
+
+    Returns:
+        The sum of the largest and smallest values in the array.
+    """"""
+    if not arr:
+        raise ValueError(""Input array cannot be empty."")
+        
+    largest = max(arr)
+    smallest = min(arr)
+    return largest + smallest",
+477,1,1,True,"def is_lower(input_string):
+    return input_string.lower()",
+478,1,1,True,"def remove_lowercase(s):
+    return """".join(char for char in s if not char.islower())",
+479,1,1,True,"def first_Digit(n):
+    while n >= 10:
+        n //= 10
+    return n",
